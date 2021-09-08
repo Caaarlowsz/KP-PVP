@@ -1,0 +1,33 @@
+x1:
+  ability: 1v1
+  cooldown: 20
+  msg:
+    won: '&cVoce venceu a 1v1!'
+    lose: '&cVoce perdeu a 1v1!'
+    invite_cooldown: '&cAguarde para desafiar!'
+    invite_accept: '&cO Jogador $player$ aceitou seu pedido de 1v1!'
+    guest_accept: '&cVoce aceitou o pedido de $player$!'
+    invite: '&cVoce desafiou $player$ para um 1v1!'
+    guest: '&cVoce foi desafiado por $player$ para um 1v1!'
+    disconect: '&cSeu oponente deslogou'
+    no_cmd: '&cVoce nao pode usar comandos na 1V1!'
+  coords:
+    spawn:
+      x: 281.2697667700683
+      y: 193.0
+      z: 1338.8866681924676
+      yaw: -89.082565
+      pitch: 3.900002
+    loc_1:
+      x: 111.5
+      y: 184.0
+      z: 1198.5
+      yaw: 0.4674248
+      pitch: 3.2999816
+    loc_2:
+      x: 111.50074067419519
+      y: 184.0625
+      z: 1244.1317345493871
+      yaw: -179.8326
+      pitch: 1.3499552
+

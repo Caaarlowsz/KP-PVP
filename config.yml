@@ -1,0 +1,434 @@
+Prefix: '&a&lKomboPvP '
+bungeemode: true
+Permission: '&cVoce nao tem permissao.'
+Message:
+  Kit: '&aVoce escolheu o kit &8- &a%kit%!'
+  KitUse: '&cVoce ja escolheu um kit'
+  Clear: '&cVoce voltou ao spawn'
+  KitPvpJoin-Message: '&eYou join in the kitpvp'
+  KitPvpLeave-Message: '&eYou leave the kitpvp'
+  BlockedCMD-OnKitPvP: '&eThis command cannot be perfomed on kitpvp!'
+Discord: '&fhttps://discord.gg/tpJDdmn'
+MotdLine1: '&a&lKOMBOPVP &f[1.8 - 1.16]'
+MotdLine2: '&fVenha conhecer nosso &6&l&nKITPVP'
+JoinItem:
+  Lore: '&7Clique para abrir'
+  JoinSound: 'true'
+SidermanKit:
+  Name: '&aWall Climber &7(Right click)'
+  Lore: '&7(Right click) wall climber'
+AirmanKit:
+  Name: '&aFly &7(Right click)'
+  Lore: '&7(Right click) to fly'
+Title:
+  KitTitle: '&aKit Selecionado'
+  KitSubTitle: '&aKit &8- &a%kit% !'
+  DeathTitle: '&cVoce morreu'
+  DeathSubTitle: '&7Voce esta respawnando'
+  JoinTitle: '&b&lKomboPvP'
+  JoinSubTitle: '&f&lKitPvP'
+  LeaveTitle: '&cYou leave the kitpvp!'
+  LeaveSubTitle: '&cTo join again use: /kitpvp join'
+  1v1Leave: '&aVoce saiu da 1v1'
+RespawnSound: true
+Sound:
+  Kit: ITEM_PICKUP
+  ShopMenu: CHEST_OPEN
+  KitUse: ENDERDRAGON_HIT
+  Soup: EAT
+  Fisherman: ENDERMAN_TELEPORT
+  Spiderman: SLIME_WALK
+  Respawn: LEVEL_UP
+  Join: LEVEL_UP
+  KitMenu: DOOR_CLOSE
+  SpongeUse: ENDERMAN_TELEPORT
+  BowlDrop: ITEM_PICKUP
+  ErrorMessage: ARROW_HIT
+  ItemDespawn: LAVA_POP
+  SucefullMessage: ORB_PICKUP
+  NoPermissionMessage: WITHER_SHOOT
+  SwitcherShoot: ENDERMAN_TELEPORT
+  Timelord: WITHER_SPAWN
+  Stomper: FIREWORK_BLAST
+  NarutoAbility: BLAZE_DEATH
+  CommandsSounds: BURP
+  ShopMenu-Click: LEVEL_UP
+  Streak: LEVEL_UP
+  Airman-Fly: ENDERMAN_SCREAM
+  DoubleJump-Ability: FIREWORK_BLAST2
+  StomperDamage: ANVIL_LAND
+  1v1: CLICK
+  ClickTest: CLICK
+  AnchorHit: ANVIL_BREAK
+  RyuAbility: EXPLODE
+  Respawning: CLICK
+  RespawnSucess: ORB_PICKUP
+EnableSoundsToAllCommands: true
+EnableCommandBlockingInKitPvP: true
+DisableHungerOnKitPvP: true
+DisableDropsOnKitPvP: true
+DisablePickupItemsOnKitPvP: true
+ClearItemsOnGround: true
+ClearInterval: 10
+
+#Change the sponge boost
+#Be careful when changing that number
+#It is the amplifier multiplier of sponge boost
+#too high numbers can throw you to minecraft space! 
+#Play around with that number to see what you want in sponge boost
+SpongeBoostAmplifier: 8
+
+Death:
+  Tell: Voce morreu para %player%! -50 coins.
+Kill:
+  Tell: Voce matou %player%, +100 coins.
+SendIPAddressData: true
+BLOCKED_COMMANDS:
+- /warp
+- /ewarp
+- /tpa
+- /etpa
+- /server
+- /sw
+- /skywars
+- /bw
+- /bedwars
+- /home
+- /ehome
+- /is
+- /island
+- /mines
+status:
+  retaliado1:
+    kills: 2
+    deaths: 0
+  retaliado2:
+    kills: 2
+    deaths: 0
+  umvinagrii:
+    kills: 5
+  jfoxoficial:
+    deaths: 3
+    kills: 1
+  xg4brieux:
+    kills: 99
+    deaths: 19
+  taquicardico:
+    deaths: 16
+    kills: 17
+  proerdebr:
+    deaths: 80
+    kills: 9
+  tigeroverlord:
+    kills: 1
+  adoleta777:
+    deaths: 33
+    kills: 4
+  ceifaxl:
+    kills: 85
+    deaths: 45
+  zvelozsxl:
+    deaths: 90
+    kills: 24
+  ender_plays17:
+    kills: 5
+    deaths: 5
+  flashg1:
+    deaths: 11
+    kills: 1
+  miticowinner007:
+    kills: 29
+    deaths: 17
+  darkninjax_:
+    deaths: 2
+  manofixe:
+    deaths: 16
+    kills: 8
+  blackgg:
+    kills: 6
+    deaths: 3
+  sweake_pvp:
+    kills: 20
+    deaths: 15
+  malinha1901:
+    deaths: 6
+    kills: 20
+  ferreiraapvp:
+    kills: 3
+    deaths: 1
+  goblinek34:
+    deaths: 13
+    kills: 18
+  101__zanahhxit:
+    kills: 17
+    deaths: 11
+  ztrowqyyus:
+    deaths: 11
+    kills: 1
+  feelatan:
+    kills: 2
+  pedrosogaymer:
+    deaths: 3
+    kills: 1
+  italozyn:
+    kills: 4
+    deaths: 7
+  icrazyofc:
+    deaths: 1
+  saintpietro:
+    deaths: 41
+    kills: 14
+  dr_lusk4_:
+    deaths: 25
+    kills: 45
+  amanda112:
+    kills: 76
+    deaths: 13
+  daniel_sts:
+    deaths: 5
+    kills: 2
+  isrguh_:
+    deaths: 8
+    kills: 5
+  worduchessofc:
+    deaths: 11
+  faveladoo:
+    kills: 17
+    deaths: 12
+  reachlablatant:
+    deaths: 15
+    kills: 8
+  131tommy131:
+    kills: 20
+    deaths: 38
+  samuelxitadaso:
+    deaths: 2
+    kills: 2
+  savitar:
+    deaths: 4
+    kills: 27
+  skyzdazz:
+    deaths: 40
+    kills: 78
+  returnz1337:
+    kills: 18
+    deaths: 6
+  reiis:
+    kills: 3
+    deaths: 1
+  ylukinhasz:
+    kills: 1
+  bruninh01007:
+    kills: 16
+    deaths: 30
+  slitinhous:
+    kills: 1
+  paulo_neto:
+    deaths: 6
+    kills: 5
+  ricknzin444:
+    deaths: 18
+    kills: 51
+  vesreed:
+    deaths: 2
+  imgui_:
+    deaths: 9
+    kills: 2
+  enderzin:
+    deaths: 2
+    kills: 1
+  noblese:
+    deaths: 27
+    kills: 12
+  igoorg:
+    kills: 38
+    deaths: 32
+  matheuskafe:
+    kills: 2
+    deaths: 3
+  ggamer141:
+    kills: 5
+    deaths: 2
+  straleey:
+    kills: 1
+    deaths: 3
+  kaiobra289:
+    kills: 1
+    deaths: 1
+  showdoivo:
+    kills: 7
+    deaths: 2
+  unatsudragneel:
+    deaths: 8
+    kills: 6
+  carinha_azul:
+    deaths: 8
+    kills: 10
+  jotape013:
+    deaths: 9
+    kills: 1
+  imreachxll:
+    deaths: 1
+  ningooob:
+    deaths: 2
+  takuto:
+    kills: 1
+    deaths: 6
+  nicemendigo2:
+    kills: 2
+  _dayzin_:
+    deaths: 26
+    kills: 3
+  zenderx5_:
+    deaths: 13
+    kills: 18
+  gamertugayt:
+    kills: 5
+    deaths: 2
+  yotakuh_:
+    deaths: 7
+    kills: 3
+  kingharu1223:
+    deaths: 4
+  konohamaruuu:
+    deaths: 1
+  zlukinhaszgamer_:
+    kills: 3
+    deaths: 3
+  enzovelozs:
+    deaths: 12
+  ytempisbr:
+    kills: 1
+    deaths: 10
+  camdenrewind_:
+    deaths: 9
+    kills: 5
+  babyltz:
+    deaths: 4
+  millekith:
+    deaths: 15
+    kills: 21
+  seth_2:
+    deaths: 10
+    kills: 4
+  gc_umirial:
+    kills: 1
+    deaths: 2
+  blataants:
+    deaths: 6
+    kills: 4
+  krootsz:
+    kills: 2
+    deaths: 2
+  pietro_uzumaki:
+    deaths: 9
+    kills: 1
+  killuagc:
+    kills: 15
+    deaths: 5
+  leumedeu:
+    kills: 3
+    deaths: 1
+  edugamer3621:
+    deaths: 9
+    kills: 2
+  lpgamer765:
+    deaths: 2
+  caiofernando1:
+    kills: 7
+    deaths: 4
+  jumped000:
+    deaths: 2
+  _mgcs_:
+    kills: 3
+    deaths: 1
+  juanzito_:
+    kills: 14
+    deaths: 1
+  alvaronicc:
+    deaths: 5
+    kills: 6
+  mrofunivers:
+    deaths: 3
+    kills: 1
+  fogoqueimado69:
+    kills: 2
+    deaths: 8
+  gabrielsla:
+    deaths: 3
+    kills: 3
+  zliteoffyt:
+    deaths: 1
+  bnake84:
+    deaths: 2
+    kills: 2
+  raulcorno:
+    kills: 2
+    deaths: 2
+  aisly:
+    deaths: 2
+  carecarb:
+    kills: 2
+Spawn:
+  World: kitpvp
+  X: -768.582925817176
+  Y: 136.0
+  Z: 234.57172777508586
+  Pitch: 6.7585483
+  Yaw: 1.1952415
+SpawnD:
+  World: kitpvp
+  X: -768.582925817176
+  Y: 136.0
+  Z: 234.57172777508586
+  Pitch: 6.7585483
+  Yaw: 1.1952415
+FPS:
+  World: kitpvp
+  X: -511.7945373211261
+  Y: 176.0
+  Z: -560.7060751706335
+  Pitch: -0.44998586
+  Yaw: 182.71898
+CHALLENGE:
+  World: kitpvp
+  X: -210.50342885580588
+  Y: 180.0
+  Z: 194.4789980746758
+  Pitch: -2.4000573
+  Yaw: -178.4186
+arena1:
+  x: -753.4950252059407
+  y: 164.0
+  z: 728.2924422191898
+  pitch: 2.2502697
+  yaw: 36.17369
+  world: kitpvp
+arena2:
+  x: -789.9315306496671
+  y: 164.0
+  z: 723.6305453022821
+  pitch: 2.7002668
+  yaw: 7.373642
+  world: kitpvp
+arena3:
+  x: -807.688454585689
+  y: 164.0
+  z: 764.0248202619155
+  pitch: 2.7002676
+  yaw: -76.77632
+  world: kitpvp
+arena4:
+  x: -757.5151708313246
+  y: 164.0
+  z: 798.8838593783998
+  pitch: 2.4002683
+  yaw: 178.37376
+  world: kitpvp
+POT:
+  World: kitpvp
+  X: -450.4860144944244
+  Y: 85.75795556372269
+  Z: 248.50927906601248
+  Pitch: 0.7500277
+  Yaw: 179.56729

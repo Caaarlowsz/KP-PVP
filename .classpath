@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="E:/Minhas coisas/PLS/timelord/plugins/PlaceholderAPI-2.10.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/Minhas coisas/PLS/timelord/paper_1.8.8.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/Minhas coisas/PLS/Servidores Baixados/KOMBOPVP/plugins/NametagEdit.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
