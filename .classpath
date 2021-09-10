@@ -7,7 +7,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/APIs/NametagEdit-4.4.10.jar"/>
-	<classpathentry kind="lib" path="/APIs/PaperSpigot-1.7.10-R0.1-SNAPSHOT-latest.jar"/>
 	<classpathentry kind="lib" path="/APIs/PlaceholderAPI-2.10.9.jar"/>
+	<classpathentry kind="lib" path="/APIs/PaperSpigot-1. 8.8-R0.1-SNAPSHOT-latest.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
