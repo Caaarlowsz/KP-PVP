@@ -7,16 +7,16 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 /*    */ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */
 /*    */ public class CommandsSounds/*    */ implements Listener
 /*    */ {
-	/*    */ private Main main;
+	/*    */ private KPPvP main;
 
 	/*    */
-	/*    */ public CommandsSounds(Main main)
+	/*    */ public CommandsSounds(KPPvP main)
 	/*    */ {
 		/* 19 */ this.main = main;
 		/*    */ }

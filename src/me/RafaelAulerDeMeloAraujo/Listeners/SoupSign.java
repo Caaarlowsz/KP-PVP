@@ -15,16 +15,16 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class SoupSign implements Listener {
 	@EventHandler
 	public void onSignChange(final SignChangeEvent e) {
 		if (e.getLine(0).equalsIgnoreCase("sopa") && e.getPlayer().hasPermission("kitpvp.createsigns")) {
-			e.setLine(0, Main.messages.getString("SoupSignLine1").replace("&", "§"));
-			e.setLine(1, Main.messages.getString("SoupSignLine2").replace("&", "§"));
-			e.setLine(2, Main.messages.getString("SoupSignLine3").replace("&", "§"));
-			e.setLine(3, Main.messages.getString("SoupSignLine4").replace("&", "§"));
+			e.setLine(0, KPPvP.messages.getString("SoupSignLine1").replace("&", "§"));
+			e.setLine(1, KPPvP.messages.getString("SoupSignLine2").replace("&", "§"));
+			e.setLine(2, KPPvP.messages.getString("SoupSignLine3").replace("&", "§"));
+			e.setLine(3, KPPvP.messages.getString("SoupSignLine4").replace("&", "§"));
 		}
 	}
 
@@ -77,10 +77,10 @@ public class SoupSign implements Listener {
 						|| (e.getClickedBlock().getType() == Material.WALL_SIGN))) {
 			final Sign s = (Sign) e.getClickedBlock().getState();
 			final String[] lines = s.getLines();
-			if (lines.length > 0 && lines[0].equals(Main.messages.getString("SoupSignLine1").replace("&", "§"))
-					&& lines.length > 1 && lines[1].equals(Main.messages.getString("SoupSignLine2").replace("&", "§"))
-					&& lines.length > 2 && lines[2].equals(Main.messages.getString("SoupSignLine3").replace("&", "§"))
-					&& lines.length > 3 && lines[3].equals(Main.messages.getString("SoupSignLine4").replace("&", "§"))
+			if (lines.length > 0 && lines[0].equals(KPPvP.messages.getString("SoupSignLine1").replace("&", "§"))
+					&& lines.length > 1 && lines[1].equals(KPPvP.messages.getString("SoupSignLine2").replace("&", "§"))
+					&& lines.length > 2 && lines[2].equals(KPPvP.messages.getString("SoupSignLine3").replace("&", "§"))
+					&& lines.length > 3 && lines[3].equals(KPPvP.messages.getString("SoupSignLine4").replace("&", "§"))
 					&& Join.game.contains(p.getName())) {
 				p.openInventory(inve);
 			}

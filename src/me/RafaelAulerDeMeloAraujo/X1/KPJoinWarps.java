@@ -15,7 +15,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.API;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
 import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class KPJoinWarps implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String CommandLabel, String[] args) {
@@ -33,18 +33,18 @@ public class KPJoinWarps implements CommandExecutor {
 					p.sendMessage("§4Voce ja escolheu um kit!");
 					return true;
 				}
-				if ((Main.plugin.getConfig().getString("FPS.World")) == null) {
+				if ((KPPvP.plugin.getConfig().getString("FPS.World")) == null) {
 					p.sendMessage(API.NomeServer + "§eA Warp FPS nao esta setada!");
 					return true;
 				}
 				p.getInventory().clear();
-				World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("FPS.World"));
-				double x = Main.plugin.getConfig().getDouble("FPS.X");
-				double y = Main.plugin.getConfig().getDouble("FPS.Y");
-				double z = Main.plugin.getConfig().getDouble("FPS.Z");
+				World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("FPS.World"));
+				double x = KPPvP.plugin.getConfig().getDouble("FPS.X");
+				double y = KPPvP.plugin.getConfig().getDouble("FPS.Y");
+				double z = KPPvP.plugin.getConfig().getDouble("FPS.Z");
 				Location lobby = new Location(w, x, y, z);
-				lobby.setPitch((float) Main.plugin.getConfig().getDouble("FPS.Pitch"));
-				lobby.setYaw((float) Main.plugin.getConfig().getDouble("FPS.Yaw"));
+				lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("FPS.Pitch"));
+				lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("FPS.Yaw"));
 				p.getInventory().clear();
 				p.teleport(lobby);
 				p.setExp(0.0F);
@@ -86,18 +86,18 @@ public class KPJoinWarps implements CommandExecutor {
 					p.sendMessage("§4Voce ja escolheu um kit!");
 					return true;
 				}
-				if ((Main.plugin.getConfig().getString("KNOCK.World")) == null) {
+				if ((KPPvP.plugin.getConfig().getString("KNOCK.World")) == null) {
 					p.sendMessage(API.NomeServer + "§eA Warp KNOCK nao esta setada!");
 					return true;
 				}
 				p.getInventory().clear();
-				World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("KNOCK.World"));
-				double x = Main.plugin.getConfig().getDouble("KNOCK.X");
-				double y = Main.plugin.getConfig().getDouble("KNOCK.Y");
-				double z = Main.plugin.getConfig().getDouble("KNOCK.Z");
+				World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("KNOCK.World"));
+				double x = KPPvP.plugin.getConfig().getDouble("KNOCK.X");
+				double y = KPPvP.plugin.getConfig().getDouble("KNOCK.Y");
+				double z = KPPvP.plugin.getConfig().getDouble("KNOCK.Z");
 				Location lobby = new Location(w, x, y, z);
-				lobby.setPitch((float) Main.plugin.getConfig().getDouble("KNOCK.Pitch"));
-				lobby.setYaw((float) Main.plugin.getConfig().getDouble("KNOCK.Yaw"));
+				lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("KNOCK.Pitch"));
+				lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("KNOCK.Yaw"));
 				p.getInventory().clear();
 				p.teleport(lobby);
 				p.setExp(0.0F);
@@ -123,18 +123,18 @@ public class KPJoinWarps implements CommandExecutor {
 					p.sendMessage("§4Voce ja escolheu um kit!");
 					return true;
 				}
-				if ((Main.plugin.getConfig().getString("POT.World")) == null) {
+				if ((KPPvP.plugin.getConfig().getString("POT.World")) == null) {
 					p.sendMessage(API.NomeServer + "§eA Warp POT nao esta setada!");
 					return true;
 				}
 				p.getInventory().clear();
-				World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("POT.World"));
-				double x = Main.plugin.getConfig().getDouble("POT.X");
-				double y = Main.plugin.getConfig().getDouble("POT.Y");
-				double z = Main.plugin.getConfig().getDouble("POT.Z");
+				World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("POT.World"));
+				double x = KPPvP.plugin.getConfig().getDouble("POT.X");
+				double y = KPPvP.plugin.getConfig().getDouble("POT.Y");
+				double z = KPPvP.plugin.getConfig().getDouble("POT.Z");
 				Location lobby = new Location(w, x, y, z);
-				lobby.setPitch((float) Main.plugin.getConfig().getDouble("POT.Pitch"));
-				lobby.setYaw((float) Main.plugin.getConfig().getDouble("POT.Yaw"));
+				lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("POT.Pitch"));
+				lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("POT.Yaw"));
 				p.getInventory().clear();
 				p.teleport(lobby);
 				p.setExp(0.0F);
@@ -176,18 +176,18 @@ public class KPJoinWarps implements CommandExecutor {
 					p.sendMessage("§4Voce ja escolheu um kit!");
 					return true;
 				}
-				if ((Main.plugin.getConfig().getString("CHALLENGE.World")) == null) {
+				if ((KPPvP.plugin.getConfig().getString("CHALLENGE.World")) == null) {
 					p.sendMessage(API.NomeServer + "§eA Warp LavaChallenge nao esta setada!");
 					return true;
 				}
 				p.getInventory().clear();
-				World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("CHALLENGE.World"));
-				double x = Main.plugin.getConfig().getDouble("CHALLENGE.X");
-				double y = Main.plugin.getConfig().getDouble("CHALLENGE.Y");
-				double z = Main.plugin.getConfig().getDouble("CHALLENGE.Z");
+				World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("CHALLENGE.World"));
+				double x = KPPvP.plugin.getConfig().getDouble("CHALLENGE.X");
+				double y = KPPvP.plugin.getConfig().getDouble("CHALLENGE.Y");
+				double z = KPPvP.plugin.getConfig().getDouble("CHALLENGE.Z");
 				Location lobby = new Location(w, x, y, z);
-				lobby.setPitch((float) Main.plugin.getConfig().getDouble("CHALLENGE.Pitch"));
-				lobby.setYaw((float) Main.plugin.getConfig().getDouble("CHALLENGE.Yaw"));
+				lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("CHALLENGE.Pitch"));
+				lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("CHALLENGE.Yaw"));
 				p.getInventory().clear();
 				p.teleport(lobby);
 				p.setExp(0.0F);
@@ -201,7 +201,7 @@ public class KPJoinWarps implements CommandExecutor {
 				ItemMeta sopas = sopa.getItemMeta();
 				sopas.setDisplayName("§eSopa");
 				sopa.setItemMeta(sopas);
-				Main.give(p);
+				KPPvP.give(p);
 				for (int i = 0; i <= 34; i++) {
 					p.getInventory().addItem(new ItemStack[] { sopa });
 				}

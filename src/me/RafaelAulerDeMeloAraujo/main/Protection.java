@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -23,7 +24,7 @@ public class Protection implements Listener {
 			if (Habilidade.getAbility(damaged) == "CHALLENGE") {
 				event.setCancelled(true);
 			}
-			if (Habilidade.getAbility(damaged) == Main.cfg_x1.getString("x1.ability")) {
+			if (Habilidade.getAbility(damaged) == KPPvP.cfg_x1.getString("x1.ability")) {
 				event.setCancelled(true);
 			}
 		}

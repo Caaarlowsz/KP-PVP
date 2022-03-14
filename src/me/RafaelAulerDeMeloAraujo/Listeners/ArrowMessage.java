@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.API;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class ArrowMessage implements Listener {
 
@@ -41,14 +41,14 @@ public class ArrowMessage implements Listener {
 								if (health != 20.0) {
 
 									shooter.sendMessage(API.NomeServer + ""
-											+ Main.messages.getString("ArrowHit-Message")
+											+ KPPvP.messages.getString("ArrowHit-Message")
 													.replace("%player%", damagedPlayer.getName())
 													.replace("%health%", String.valueOf(health)).replace("&", "§"));
 								}
 							}
 						}
 
-								.runTaskLater(Main.instance, 2L);
+								.runTaskLater(KPPvP.instance, 2L);
 
 					}
 				}

@@ -6,15 +6,15 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 /*    */ import org.bukkit.event.player.PlayerPickupItemEvent;
 
 /*    */ import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class NoDrops implements org.bukkit.event.Listener
 /*    */ {
-	/*    */ private Main main;
+	/*    */ private KPPvP main;
 
 	/*    */
-	/*    */ public NoDrops(Main main)
+	/*    */ public NoDrops(KPPvP main)
 	/*    */ {
 		/* 17 */ this.main = main;
 		/*    */ }
@@ -27,11 +27,11 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 	/*    */ public void onPlayerDropItem(PlayerDropItemEvent paramPlayerPickupItemEvent)
 	/*    */ {
 		/* 26 */ if (!Join.game.contains(paramPlayerPickupItemEvent.getPlayer().getName())
-				|| (Main.getInstace().getConfig().getString("DisableDropsOnKitPvP").equalsIgnoreCase("false"))) {
+				|| (KPPvP.getInstace().getConfig().getString("DisableDropsOnKitPvP").equalsIgnoreCase("false"))) {
 			/* 27 */ return;
 			/*    */ }
 		/* 29 */ if (Join.game.contains(paramPlayerPickupItemEvent.getPlayer().getName())
-				&& (Main.getInstace().getConfig().getString("DisableDropsOnKitPvP").equalsIgnoreCase("true")))
+				&& (KPPvP.getInstace().getConfig().getString("DisableDropsOnKitPvP").equalsIgnoreCase("true")))
 		/*    */ {
 			/* 31 */ if (paramPlayerPickupItemEvent.getItemDrop().getItemStack().getType() == Material.BOWL
 					|| paramPlayerPickupItemEvent.getItemDrop().getItemStack().getType() == Material.MUSHROOM_SOUP)
@@ -53,11 +53,11 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 	/*    */ public void onPlayerPickupItem(PlayerPickupItemEvent paramPlayerPickupItemEvent)
 	/*    */ {
 		/* 46 */ if (!Join.game.contains(paramPlayerPickupItemEvent.getPlayer().getName())
-				|| (Main.getInstace().getConfig().getString("DisablePickupItemsOnKitPvP").equalsIgnoreCase("false"))) {
+				|| (KPPvP.getInstace().getConfig().getString("DisablePickupItemsOnKitPvP").equalsIgnoreCase("false"))) {
 			/* 47 */ return;
 			/*    */ }
 		/* 49 */ if (Join.game.contains(paramPlayerPickupItemEvent.getPlayer().getName())
-				&& (Main.getInstace().getConfig().getString("DisablePickupItemsOnKitPvP").equalsIgnoreCase("true")))
+				&& (KPPvP.getInstace().getConfig().getString("DisablePickupItemsOnKitPvP").equalsIgnoreCase("true")))
 		/*    */ {
 			/* 51 */ if ((paramPlayerPickupItemEvent.getItem().getItemStack().getType() == Material.MUSHROOM_SOUP))
 			/*    */ {

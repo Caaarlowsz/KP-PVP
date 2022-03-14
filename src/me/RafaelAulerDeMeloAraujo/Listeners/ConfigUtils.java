@@ -3,39 +3,39 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 
 /*    */
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */
 /*    */ public class ConfigUtils
 /*    */ {
-	/*    */ private Main pl;
+	/*    */ private KPPvP pl;
 
 	/*    */
 	/*    */ public boolean loadConfig()
 	/*    */ {
 		/* 13 */ java.io.File pluginFolder = new java.io.File(
-				"plugins" + System.getProperty("file.separator") + Main.pluginName);
+				"plugins" + System.getProperty("file.separator") + KPPvP.pluginName);
 		/* 14 */ if (!pluginFolder.exists()) {
 			/* 15 */ pluginFolder.mkdir();
 			/*    */ }
 		/* 17 */ java.io.File configFile = new java.io.File("plugins" + System.getProperty("file.separator")
-				+ Main.pluginName + System.getProperty("file.separator") + "config.yml");
+				+ KPPvP.pluginName + System.getProperty("file.separator") + "config.yml");
 		/* 18 */ if (!configFile.exists())
 		/*    */ {
-			/* 20 */ Main.log.info("No config file found! Creating new one...");
+			/* 20 */ KPPvP.log.info("No config file found! Creating new one...");
 			/* 21 */ this.pl.saveDefaultConfig();
 			/*    */ }
 		/*    */ try
 		/*    */ {
-			/* 25 */ Main.log.info("Loading the config file...");
+			/* 25 */ KPPvP.log.info("Loading the config file...");
 			/* 26 */ this.pl.getConfig().load(configFile);
-			/* 27 */ Main.log.info("Config file loaded!");
+			/* 27 */ KPPvP.log.info("Config file loaded!");
 			/* 28 */ return true;
 			/*    */ }
 		/*    */ catch (Exception e)
 		/*    */ {
-			/* 32 */ Main.log
+			/* 32 */ KPPvP.log
 					.info("Could not load config file! You need to regenerate the config! Error: " + e.getMessage());
 			/* 33 */ e.printStackTrace();
 			/*    */ }
@@ -47,7 +47,7 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 		/* 39 */ if (!this.pl.getConfig().contains(key))
 		/*    */ {
 			/* 41 */ this.pl.getLogger().severe("Could not locate '" + key + "' in the config.yml inside of the "
-					+ Main.pluginName + " folder! (Try generating a new one by deleting the current)");
+					+ KPPvP.pluginName + " folder! (Try generating a new one by deleting the current)");
 			/* 42 */ return null;
 			/*    */ }
 		/* 44 */ return this.pl.getConfig().getStringList(key);
@@ -59,7 +59,7 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 		/* 49 */ if (!this.pl.getConfig().contains(key))
 		/*    */ {
 			/* 51 */ this.pl.getLogger().severe("Could not locate " + key + " in the config.yml inside of the "
-					+ Main.pluginName + " folder! (Try generating a new one by deleting the current)");
+					+ KPPvP.pluginName + " folder! (Try generating a new one by deleting the current)");
 			/* 52 */ return "errorCouldNotLocateInConfigYml:" + key;
 			/*    */ }
 		/* 54 */ return this.pl.getConfig().getString(key);
@@ -71,7 +71,7 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 		/* 59 */ if (!this.pl.getConfig().contains(key))
 		/*    */ {
 			/* 61 */ this.pl.getLogger().severe("Could not locate " + key + " in the config.yml inside of the "
-					+ Main.pluginName + " folder! (Try generating a new one by deleting the current)");
+					+ KPPvP.pluginName + " folder! (Try generating a new one by deleting the current)");
 			/* 62 */ return "errorCouldNotLocateInConfigYml:" + key;
 			/*    */ }
 		/* 64 */ return this.pl.getConfig().getString(key).replaceAll("&", "§");

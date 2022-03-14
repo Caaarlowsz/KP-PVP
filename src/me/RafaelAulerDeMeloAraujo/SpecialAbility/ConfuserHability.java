@@ -15,15 +15,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */ public class ConfuserHability implements org.bukkit.command.CommandExecutor, Listener
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public ConfuserHability(Main main)
+	/*    */ public ConfuserHability(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/* 21 */ plugin = main;
@@ -37,7 +37,7 @@ import me.RafaelAulerDeMeloAraujo.main.Main;
 			if (Habilidade.getAbility(p) == "Confuser") {
 				Random rand = new Random();
 				int percent = rand.nextInt(100);
-				if (percent <= Main.kits.getInt("ConfuserChance")) {
+				if (percent <= KPPvP.kits.getInt("ConfuserChance")) {
 					entity.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 300, 0));
 					return;
 				}
@@ -107,7 +107,7 @@ import me.RafaelAulerDeMeloAraujo.main.Main;
 						Integer.valueOf(60), Integer.valueOf(20), this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Confuser"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/*    */

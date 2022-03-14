@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,9 +11,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 public class Head implements CommandExecutor, Listener {
-	Main main;
+	KPPvP main;
 
-	public Head(Main plugin) {
+	public Head(KPPvP plugin) {
 		plugin = this.main;
 	}
 

@@ -2,7 +2,8 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
 /*    */
-/*    */ import org.bukkit.entity.Player;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
+import org.bukkit.entity.Player;
 /*    */ import org.bukkit.event.EventHandler;
 /*    */ import org.bukkit.event.Listener;
 /*    */ import org.bukkit.event.entity.FoodLevelChangeEvent;
@@ -23,7 +24,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
 		}
 		Player p = (Player) e.getEntity();
 		if ((Join.game.contains(p.getName())
-				&& (Main.getInstace().getConfig().getString("DisableHungerOnKitPvP").equalsIgnoreCase("true")))) {
+				&& (KPPvP.getInstace().getConfig().getString("DisableHungerOnKitPvP").equalsIgnoreCase("true")))) {
 			e.setCancelled(true);
 		}
 

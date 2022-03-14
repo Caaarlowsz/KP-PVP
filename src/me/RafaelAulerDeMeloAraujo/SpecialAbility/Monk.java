@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Monk implements Listener {
 	@EventHandler
@@ -31,16 +31,16 @@ public class Monk implements Listener {
 				jogadorClicado.setItemInHand(ItemSelecionado);
 				jogadorClicado.getInventory().setItem(random, ItemMudado);
 				jogadorClicado.sendMessage(
-						String.valueOf(API.NomeServer) + Main.messages.getString("MonkedMessage").replace("&", "§"));
-				p.sendMessage(String.valueOf(API.NomeServer) + Main.messages.getString("MonkUse").replace("&", "§")
+						String.valueOf(API.NomeServer) + KPPvP.messages.getString("MonkedMessage").replace("&", "§"));
+				p.sendMessage(String.valueOf(API.NomeServer) + KPPvP.messages.getString("MonkUse").replace("&", "§")
 						.replace("%player%", jogadorClicado.getName()));
-				Cooldown.add(p, Main.kits.getInt("MonkCooldown"));
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+				Cooldown.add(p, KPPvP.kits.getInt("MonkCooldown"));
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.sendMessage(API.fimcooldown);
 					}
-				}, 20L * Main.kits.getInt("MonkCooldown"));
+				}, 20L * KPPvP.kits.getInt("MonkCooldown"));
 			}
 		}
 	}

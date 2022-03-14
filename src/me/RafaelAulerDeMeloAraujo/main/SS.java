@@ -2,6 +2,7 @@ package me.RafaelAulerDeMeloAraujo.main;
 
 import java.util.ArrayList;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -55,7 +56,7 @@ public class SS implements CommandExecutor, Listener {
 								String.valueOf(API.NomeServer) + "§7Voc\u00ea liberou: §a" + t.getDisplayName());
 					}
 					if (SS.congelado.contains(t)) {
-						Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+						Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 							@Override
 							public void run() {
 								SS.congelado.remove(t);

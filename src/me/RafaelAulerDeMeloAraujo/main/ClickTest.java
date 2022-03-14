@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -25,72 +26,72 @@ public class ClickTest implements Listener {
 	public static void StartClick(Player p) {
 		if (ClickTest.fazendoclicktest.contains(p.getName())) {
 			p.sendMessage(
-					String.valueOf(API.NomeServer) + Main.messages.getString("AlreadyonClickTest").replace("&", "§"));
+					String.valueOf(API.NomeServer) + KPPvP.messages.getString("AlreadyonClickTest").replace("&", "§"));
 			return;
 		}
 		ClickTest.fazendoclicktest.add(p.getName());
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ (Main.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "5"));
-				p.playSound(p.getLocation(), Sound.valueOf(Main.getInstace().getConfig().getString("Sound.ClickTest")),
+						+ (KPPvP.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "5"));
+				p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.ClickTest")),
 						5.0F, 5.0F);
 				p.setLevel(0);
 			}
 		}, 0L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ (Main.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "4"));
-				p.playSound(p.getLocation(), Sound.valueOf(Main.getInstace().getConfig().getString("Sound.ClickTest")),
+						+ (KPPvP.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "4"));
+				p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.ClickTest")),
 						5.0F, 5.0F);
 			}
 		}, 20L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ (Main.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "3"));
-				p.playSound(p.getLocation(), Sound.valueOf(Main.getInstace().getConfig().getString("Sound.ClickTest")),
+						+ (KPPvP.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "3"));
+				p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.ClickTest")),
 						5.0F, 5.0F);
 			}
 		}, 40L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ (Main.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "2"));
-				p.playSound(p.getLocation(), Sound.valueOf(Main.getInstace().getConfig().getString("Sound.ClickTest")),
+						+ (KPPvP.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "2"));
+				p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.ClickTest")),
 						5.0F, 5.0F);
 			}
 		}, 60L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ (Main.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "1"));
-				p.playSound(p.getLocation(), Sound.valueOf(Main.getInstace().getConfig().getString("Sound.ClickTest")),
+						+ (KPPvP.messages.getString("ClickTestStarting").replace("&", "§")).replace("%time%", "1"));
+				p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.ClickTest")),
 						5.0F, 5.0F);
 			}
 		}, 80L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ Main.messages.getString("ClickTestStarted").replace("&", "§"));
-				p.playSound(p.getLocation(), Sound.valueOf(Main.getInstace().getConfig().getString("Sound.ClickTest")),
+						+ KPPvP.messages.getString("ClickTestStarted").replace("&", "§"));
+				p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.ClickTest")),
 						5.0F, 5.0F);
 				ClickTest.emclicktest.add(p.getName());
 			}
 		}, 100L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ Main.messages.getString("ClickTestFinished").replace("&", "§"));
-				p.sendMessage(String.valueOf(API.NomeServer) + (Main.messages.getString("ClickTestResult")
+						+ KPPvP.messages.getString("ClickTestFinished").replace("&", "§"));
+				p.sendMessage(String.valueOf(API.NomeServer) + (KPPvP.messages.getString("ClickTestResult")
 						.replace("&", "§").replace("%clicks%", Integer.toString(p.getLevel()))));
 				ClickTest.emclicktest.remove(p.getName());
 				ClickTest.fazendoclicktest.remove(p.getName());

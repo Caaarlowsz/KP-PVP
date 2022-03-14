@@ -18,18 +18,18 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 /*    */ import me.RafaelAulerDeMeloAraujo.SpecialAbility.API;
 /*    */ import me.RafaelAulerDeMeloAraujo.SpecialAbility.Cooldown;
 /*    */ import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class AirmanFly implements Listener
 /*    */ {
-	/*    */ Main plugin;
+	/*    */ KPPvP plugin;
 	/* 27 */ List<Player> FlyCooldown = new ArrayList<>();
 	/* 28 */ List<Player> TogglePlayersCooldown = new ArrayList<>();
-	/*    */ private Main main;
+	/*    */ private KPPvP main;
 
 	/*    */
-	/* 31 */ public AirmanFly(Main main) {
+	/* 31 */ public AirmanFly(KPPvP main) {
 		this.main = main;
 	}
 
@@ -53,7 +53,7 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 			/* 49 */ p.playSound(p.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.Airman-Fly")),
 					500.0F, 500.0F);
 			/* 51 */ p.setVelocity(v2);
-			/* 52 */ org.bukkit.Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+			/* 52 */ org.bukkit.Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 			/*    */ {
 				/*    */ public void run() {
 					/* 55 */ p.sendMessage(API.fimcooldown);

@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 /*     */ import org.bukkit.inventory.meta.ItemMeta;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
@@ -27,11 +27,11 @@ import java.util.concurrent.TimeUnit;
 /*     */
 /*     */ public class Ninja/*     */ implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Ninja(Main main)
+	/*     */ public Ninja(KPPvP main)
 	/*     */ {
 		/* 38 */ this.main = main;
 		/* 39 */ plugin = main;
@@ -68,9 +68,9 @@ import java.util.concurrent.TimeUnit;
 			/* 64 */ if (p2.isDead()) {
 				/* 65 */ return;
 				/*     */ }
-			if (p2.getLocation().distance(p.getLocation()) > Main.kits.getDouble("NinjaErrorBlockNumber")
+			if (p2.getLocation().distance(p.getLocation()) > KPPvP.kits.getDouble("NinjaErrorBlockNumber")
 					&& p2 != null) {
-				p.sendMessage(API.NomeServer + Main.messages.getString("NinjaError").replace("&", "§"));
+				p.sendMessage(API.NomeServer + KPPvP.messages.getString("NinjaError").replace("&", "§"));
 				return;
 			}
 			/* 52 */ if ((!cooldownbk.containsKey(p.getName()))
@@ -78,9 +78,9 @@ import java.util.concurrent.TimeUnit;
 			/*     */ {
 				/* 71 */ p.teleport(p2.getLocation());
 				p.sendMessage(
-						Main.messages.getString("NinjaTeleport").replace("&", "§").replace("%player%", p2.getName()));
+						KPPvP.messages.getString("NinjaTeleport").replace("&", "§").replace("%player%", p2.getName()));
 				/* 73 */ cooldownbk.put(p.getName(), Long.valueOf(
-						System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(Main.kits.getLong("NinjaCooldown"))));
+						System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(KPPvP.kits.getLong("NinjaCooldown"))));
 				/* 80 */ return;
 				/*     */ }
 		}
@@ -154,7 +154,7 @@ import java.util.concurrent.TimeUnit;
 				this.main.getConfig().getString("Title.KitTitle"),
 				this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Ninja"));
 		/*     */ RTP.TeleportArenaRandom(p);
-		/*     */ Main.give(p);
+		/*     */ KPPvP.give(p);
 		/* 145 */ return false;
 		/*     */ }
 	/*     */ }

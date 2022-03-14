@@ -1,10 +1,12 @@
 
 package me.RafaelAulerDeMeloAraujo.main;
 
-public class Config {
-	private static Main main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
-	public Config(Main main) {
+public class Config {
+	private static KPPvP main;
+
+	public Config(KPPvP main) {
 	}
 
 	public static String tr(String s) {

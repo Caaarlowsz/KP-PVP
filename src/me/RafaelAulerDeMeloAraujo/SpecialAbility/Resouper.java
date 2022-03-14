@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Resouper implements Listener {
 	@EventHandler
@@ -20,7 +20,7 @@ public class Resouper implements Listener {
 					p.updateInventory();
 				}
 				p.sendMessage(String.valueOf(API.NomeServer)
-						+ (Main.messages.getString("ResouperMessage").replace("&", "§")));
+						+ (KPPvP.messages.getString("ResouperMessage").replace("&", "§")));
 			}
 		}
 	}

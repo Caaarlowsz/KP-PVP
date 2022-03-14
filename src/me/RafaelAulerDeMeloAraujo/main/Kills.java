@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -28,9 +29,9 @@ public class Kills implements CommandExecutor {
 			if (args[0].equalsIgnoreCase("give")) {
 
 				try {
-					Main.plugin.getConfig().set("status." + t.getName().toLowerCase() + ".kills",
+					KPPvP.plugin.getConfig().set("status." + t.getName().toLowerCase() + ".kills",
 							Integer.valueOf(tanto + AntiDeathDrop.GetKills(t)));
-					Main.plugin.saveConfig();
+					KPPvP.plugin.saveConfig();
 					sender.sendMessage("§aYou give " + tanto + " Kills to the player " + t.getName());
 					t.sendMessage("§e" + tanto + " §aKills has been added to your account!");
 				} catch (Exception e) {
@@ -43,7 +44,7 @@ public class Kills implements CommandExecutor {
 			if (args[0].equalsIgnoreCase("remove")) {
 
 				try {
-					Main.plugin.getConfig().set("status." + t.getName().toLowerCase() + ".kills",
+					KPPvP.plugin.getConfig().set("status." + t.getName().toLowerCase() + ".kills",
 							Integer.valueOf(AntiDeathDrop.GetKills(t) - tanto));
 					sender.sendMessage("§aYou remove " + tanto + " Kills of the player " + t.getName());
 					t.sendMessage("§e" + tanto + " §aKills has been removed from your account!");

@@ -22,17 +22,17 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */ import org.bukkit.inventory.meta.ItemMeta;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
 /*     */ public class Critical/*     */ implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Critical(Main main)
+	/*     */ public Critical(KPPvP main)
 	/*     */ {
 		/* 33 */ this.main = main;
 		/* 34 */ plugin = main;
@@ -52,13 +52,13 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/*     */
 				/* 46 */ Random r = new Random();
 				/* 47 */ int c = r.nextInt(100);
-				/* 48 */ if (c <= Main.kits.getInt("KitCriticalChance"))
+				/* 48 */ if (c <= KPPvP.kits.getInt("KitCriticalChance"))
 				/*     */ {
-					/* 50 */ e.setDamage(e.getDamage() + Main.kits.getDouble("CriticalExtraDamage"));
+					/* 50 */ e.setDamage(e.getDamage() + KPPvP.kits.getDouble("CriticalExtraDamage"));
 					/* 51 */ p.getWorld().playEffect(p.getLocation(), Effect.STEP_SOUND, Material.REDSTONE_BLOCK, 10);
-					/* 52 */ d.sendMessage(Main.messages.getString("KitCriticalHit").replace("&", "§")
+					/* 52 */ d.sendMessage(KPPvP.messages.getString("KitCriticalHit").replace("&", "§")
 							.replace("%player%", p.getName()));
-					/* 53 */ p.sendMessage(Main.messages.getString("KitCriticalHitted").replace("&", "§")
+					/* 53 */ p.sendMessage(KPPvP.messages.getString("KitCriticalHitted").replace("&", "§")
 							.replace("%player%", d.getName()));
 					/*     */ }
 				/*     */ }
@@ -141,7 +141,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 						this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Critical"));
 				/*     */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*     */ }
 		/*     */
 		/* 124 */ return false;

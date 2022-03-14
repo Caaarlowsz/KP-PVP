@@ -8,7 +8,8 @@ package me.RafaelAulerDeMeloAraujo.main;
 /*     */ import java.util.HashMap;
 /*     */ import java.util.Iterator;
 
-/*     */ import org.bukkit.Bukkit;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
+import org.bukkit.Bukkit;
 /*     */ import org.bukkit.GameMode;
 /*     */
 /*     */ import org.bukkit.Material;
@@ -38,10 +39,10 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Streak;
 /*     */
 /*     */ public class AdminMode/*     */ implements CommandExecutor, Listener
 /*     */ {
-	/*     */ private Main main;
+	/*     */ private KPPvP main;
 
 	/*     */
-	/* 39 */ public AdminMode(Main main) {
+	/* 39 */ public AdminMode(KPPvP main) {
 		this.main = main;
 	}
 
@@ -69,7 +70,7 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Streak;
 		/*     */
 		/* 60 */ if (args.length == 0) {
 			/* 61 */ if (!admin.contains(p.getName())) {
-				/* 62 */ p.sendMessage(Main.messages.getString("AdminModeJoin").replace("&", "§"));
+				/* 62 */ p.sendMessage(KPPvP.messages.getString("AdminModeJoin").replace("&", "§"));
 				/*     */
 				/* 64 */ for (Player s : Bukkit.getOnlinePlayers()) {
 					/* 65 */ if (!s.hasPermission("kitpvp.adminmode")) {
@@ -118,7 +119,7 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Streak;
 				/* 117 */ p.updateInventory();
 				/*     */ }
 			/*     */ else {
-				/* 120 */ p.sendMessage(Main.messages.getString("AdminModeLeave").replace("&", "§"));
+				/* 120 */ p.sendMessage(KPPvP.messages.getString("AdminModeLeave").replace("&", "§"));
 				/* 121 */ p.setHealth(20.0D);
 				/* 122 */ p.getInventory().clear();
 				/* 123 */ admin.remove(p.getName());
@@ -165,7 +166,7 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Streak;
 			/* 158 */ if (p.getItemInHand().getType() == Material.SLIME_BALL)
 			/*     */ {
 				/* 160 */ p.chat("/admin");
-				/* 161 */ Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+				/* 161 */ Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 				/*     */ {
 					/*     */ public void run()
 					/*     */ {
@@ -204,8 +205,8 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Streak;
 			/* 197 */ Player p1 = (Player) e.getRightClicked();
 			/*     */
 			/* 199 */ Damageable hp = p1;
-			/* 200 */ int kills = Main.plugin.getConfig().getInt("status." + p1.getName().toLowerCase() + ".kills");
-			/* 201 */ int deaths = Main.plugin.getConfig().getInt("status." + p1.getName().toLowerCase() + ".deaths");
+			/* 200 */ int kills = KPPvP.plugin.getConfig().getInt("status." + p1.getName().toLowerCase() + ".kills");
+			/* 201 */ int deaths = KPPvP.plugin.getConfig().getInt("status." + p1.getName().toLowerCase() + ".deaths");
 			/* 202 */ p.sendMessage("§eVida: §c§l" + (int) hp.getHealth());
 			/* 204 */ p.sendMessage("§eGamemode: §c§l" + p1.getGameMode());
 			/* 205 */ p.sendMessage("§eKills: §c§l" + kills);
@@ -246,7 +247,7 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Streak;
 				/* 238 */ p1.getLocation().add(0.0D, 10.0D, 0.0D).getBlock().setType(Material.BEDROCK);
 				/* 239 */ p1.teleport(p1.getLocation().add(0.0D, 11.0D, -0.05D));
 				/* 240 */ p.sendMessage(
-						Main.messages.getString("JailedPlayer").replace("%player%", p1.getName()).replace("&", "§"));
+						KPPvP.messages.getString("JailedPlayer").replace("%player%", p1.getName()).replace("&", "§"));
 				/*     */ }
 			/*     */ }
 		/*     */ }

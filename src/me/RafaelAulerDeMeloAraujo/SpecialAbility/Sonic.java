@@ -25,7 +25,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 /*     */ import org.bukkit.inventory.meta.LeatherArmorMeta;
 /*     */ import org.bukkit.util.Vector;
 
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
@@ -51,7 +51,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 	/* 49 */ public static HashMap<String, ItemStack[]> armadura = new HashMap<>();
 	/* 50 */ public static HashMap<String, ItemStack[]> Armadura2 = new HashMap<>();
 	/* 51 */
-	/*     */ public static Main plugin;
+	/*     */ public static KPPvP plugin;
 
 	/*     */
 	/*     */ @EventHandler
@@ -75,7 +75,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 				return;
 			}
 
-			/* 74 */ Cooldown.add(p, Main.kits.getInt("SonicCooldown"));
+			/* 74 */ Cooldown.add(p, KPPvP.kits.getInt("SonicCooldown"));
 			/* 75 */ fall.add(p.getName());
 			/* 76 */ p.setVelocity(p.getEyeLocation().getDirection().multiply(this.boost).add(new Vector(0, 0, 0)));
 			/* 77 */ p.getPlayer().getWorld().playEffect(p.getPlayer().getLocation(), Effect.SMOKE, 10, 0);
@@ -85,10 +85,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 					if (!Habilidade.ContainsAbility((Player) pertos)) {
 						return;
 					}
-					/* 83 */ ((Player) pertos).damage(Main.kits.getDouble("SonicDamage"));
+					/* 83 */ ((Player) pertos).damage(KPPvP.kits.getDouble("SonicDamage"));
 					/* 84 */ pertos.setVelocity(new Vector(0.1D, 0.0D, 0.1D));
-					/* 85 */ Main.darEfeito(((Player) pertos), org.bukkit.potion.PotionEffectType.POISON,
-							Main.kits.getInt("SonicPoisonTime"), Main.kits.getInt("SonicPoisonAmplifier"));
+					/* 85 */ KPPvP.darEfeito(((Player) pertos), org.bukkit.potion.PotionEffectType.POISON,
+							KPPvP.kits.getInt("SonicPoisonTime"), KPPvP.kits.getInt("SonicPoisonAmplifier"));
 					/*     */ }
 				/*     */ }
 			/* 88 */ ItemStack Capacete = new ItemStack(Material.LEATHER_HELMET);
@@ -119,7 +119,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 			/* 113 */ p.getInventory().setBoots(Bota);
 			/* 114 */ p.updateInventory();
 			/*     */
-			/* 116 */ Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+			/* 116 */ Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 			/*     */ {
 				/*     */ public void run()
 				/*     */ {
@@ -139,16 +139,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 					/*     */ }
 				/* 134 */ }, 60L);
 			/*     */
-			/* 136 */ Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+			/* 136 */ Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 			/*     */ {
 				/*     */ public void run()
 				/*     */ {
 					/* 140 */ Cooldown.remove(p);
 					/*     */
-					/* 142 */ p.sendMessage((Main.messages.getString("SonicCooldownEnd").replace("&", "§")));
+					/* 142 */ p.sendMessage((KPPvP.messages.getString("SonicCooldownEnd").replace("&", "§")));
 					/*     */ }
 				/*     */
-				/* 145 */ }, Main.kits.getInt("SonicCooldown") * 20);
+				/* 145 */ }, KPPvP.kits.getInt("SonicCooldown") * 20);
 			/*     */ }
 		/*     */ }
 
@@ -163,16 +163,16 @@ import org.bukkit.inventory.meta.ItemMeta;
 			/*    */
 			/* 34 */ if (Habilidade.ContainsAbility(p)) {
 				/* 35 */ p.sendMessage(
-						String.valueOf(Main.getInstace().getConfig().getString("Prefix").replace("&", "§"))
-								+ Main.getInstace().getConfig().getString("Message.KitUse").replace("&", "§"));
+						String.valueOf(KPPvP.getInstace().getConfig().getString("Prefix").replace("&", "§"))
+								+ KPPvP.getInstace().getConfig().getString("Message.KitUse").replace("&", "§"));
 				/* 36 */ p.playSound(p.getLocation(),
-						org.bukkit.Sound.valueOf(Main.getInstace().getConfig().getString("Sound.KitUse")), 1.0F, 1.0F);
+						org.bukkit.Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.KitUse")), 1.0F, 1.0F);
 				/* 37 */ return true;
 				/*    */ }
 			/* 39 */ if (!Join.game.contains(p.getName()))
 			/*    */ {
 				/* 41 */ p.sendMessage(
-						String.valueOf(Main.getInstace().getConfig().getString("Prefix").replace("&", "§"))
+						String.valueOf(KPPvP.getInstace().getConfig().getString("Prefix").replace("&", "§"))
 								+ " §eYou are not in kitpvp to choose this kit!");
 				/* 42 */ return true;
 				/*    */ }
@@ -204,8 +204,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 			/* 65 */ p.getInventory().setLeggings(calca0);
 			/* 66 */ p.getInventory().setBoots(Bota0);
 			/* 67 */ Habilidade.setAbility(p, "Sonic");
-			/* 68 */ p.sendMessage(String.valueOf(Main.getInstace().getConfig().getString("Prefix").replace("&", "§"))
-					+ Main.getInstace().getConfig().getString("Message.Kit").replaceAll("%kit%", "Sonic").replace("&",
+			/* 68 */ p.sendMessage(String.valueOf(KPPvP.getInstace().getConfig().getString("Prefix").replace("&", "§"))
+					+ KPPvP.getInstace().getConfig().getString("Message.Kit").replaceAll("%kit%", "Sonic").replace("&",
 							"§"));
 			/*    */
 			/* 70 */ p.getInventory().addItem(new ItemStack[] { dima });
@@ -217,10 +217,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 				/* 76 */ p.getInventory().addItem(new ItemStack[] { sopa });
 				/* 77 */ me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI.sendTitle(p, Integer.valueOf(20),
 						Integer.valueOf(60), Integer.valueOf(20),
-						Main.getInstace().getConfig().getString("Title.KitTitle"),
-						Main.getInstace().getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Sonic"));
+						KPPvP.getInstace().getConfig().getString("Title.KitTitle"),
+						KPPvP.getInstace().getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Sonic"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/*    */

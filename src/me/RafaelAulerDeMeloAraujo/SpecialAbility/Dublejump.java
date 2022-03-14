@@ -22,16 +22,16 @@ import org.bukkit.ChatColor;
 /*     */ import org.bukkit.util.Vector;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */ public class Dublejump implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Dublejump(Main main)
+	/*     */ public Dublejump(KPPvP main)
 	/*     */ {
 		/* 38 */ this.main = main;
 		/* 39 */ plugin = main;
@@ -160,7 +160,7 @@ import org.bukkit.ChatColor;
 						1.0F, 1.0F);
 				/* 149 */ return true;
 				/*     */ }
-			if (Main.kits.getBoolean("DoubleJumpDisabled")) {
+			if (KPPvP.kits.getBoolean("DoubleJumpDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The DoubleJump kit is disabled, sorry");
 				return true;
 			}
@@ -202,7 +202,7 @@ import org.bukkit.ChatColor;
 			 */ for (int i = 0; i <= 34; i++) {
 				/* 183 */ p.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*     */ }
 		/*     */
 		/*     */

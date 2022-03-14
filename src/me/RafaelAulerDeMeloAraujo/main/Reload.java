@@ -3,7 +3,8 @@ package me.RafaelAulerDeMeloAraujo.main;
 
 /*    */
 /*    */
-/*    */ import org.bukkit.command.Command;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
+import org.bukkit.command.Command;
 /*    */ import org.bukkit.command.CommandExecutor;
 /*    */ import org.bukkit.command.CommandSender;
 /*    */
@@ -14,11 +15,11 @@ package me.RafaelAulerDeMeloAraujo.main;
 /*    */
 /*    */ public class Reload implements CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public Reload(Main main)
+	/*    */ public Reload(KPPvP main)
 	/*    */ {
 		/* 19 */ this.main = main;
 		/* 20 */ plugin = main;
@@ -47,7 +48,7 @@ package me.RafaelAulerDeMeloAraujo.main;
 			/* 38 */ p.getServer().getPluginManager().disablePlugin(plugin);
 			/* 39 */ p.getServer().getPluginManager().enablePlugin(plugin);
 			/* 40 */ p.sendMessage(String.valueOf(this.main.getConfig().getString("Prefix").replace("&", "§"))
-					+ Main.messages.getString("PluginReloaded").replace("&", "§"));
+					+ KPPvP.messages.getString("PluginReloaded").replace("&", "§"));
 			/* 41 */ return true;
 			/*    */ }
 		/* 43 */ return false;

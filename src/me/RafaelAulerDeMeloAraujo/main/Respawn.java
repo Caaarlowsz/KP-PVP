@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Effect;
@@ -44,7 +45,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	private void respawnPlayer(Player p) {
 
 		Location deathLocation = p.getLocation();
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstance(), () -> p.spigot().respawn(), 1);
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.getInstance(), () -> p.spigot().respawn(), 1);
 
 		p.setGameMode(GameMode.SPECTATOR);
 		p.teleport(deathLocation);
@@ -59,10 +60,10 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 				if (time != 0) {
 
 					TitleAPI.sendTitle(p, Integer.valueOf(20), Integer.valueOf(40), Integer.valueOf(20),
-							Main.getInstace().getConfig().getString("Title.DeathTitle"),
-							Main.getInstace().getConfig().getString("Title.DeathSubTitle"));
+							KPPvP.getInstace().getConfig().getString("Title.DeathTitle"),
+							KPPvP.getInstace().getConfig().getString("Title.DeathSubTitle"));
 					p.playSound(p.getLocation(),
-							org.bukkit.Sound.valueOf(Main.getInstance().getConfig().getString("Sound.Respawning")),
+							org.bukkit.Sound.valueOf(KPPvP.getInstance().getConfig().getString("Sound.Respawning")),
 							3.0F, 3.0F);
 					time--;
 
@@ -82,13 +83,13 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 					/* 80 */ Gladiator.lutando.remove(p.getName());
 					/* 81 */ Gladiator.gladgladiator.remove(p.getName());
 					/* 82 */ org.bukkit.World w = org.bukkit.Bukkit.getServer()
-							.getWorld(Main.plugin.getConfig().getString("Spawn.World"));
-					/* 83 */ double x = Main.plugin.getConfig().getDouble("Spawn.X");
-					/* 84 */ double y = Main.plugin.getConfig().getDouble("Spawn.Y");
-					/* 85 */ double z = Main.plugin.getConfig().getDouble("Spawn.Z");
+							.getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
+					/* 83 */ double x = KPPvP.plugin.getConfig().getDouble("Spawn.X");
+					/* 84 */ double y = KPPvP.plugin.getConfig().getDouble("Spawn.Y");
+					/* 85 */ double z = KPPvP.plugin.getConfig().getDouble("Spawn.Z");
 					/* 86 */ Location lobby = new Location(w, x, y, z);
-					/* 87 */ lobby.setPitch((float) Main.plugin.getConfig().getDouble("Spawn.Pitch"));
-					/* 88 */ lobby.setYaw((float) Main.plugin.getConfig().getDouble("Spawn.Yaw"));
+					/* 87 */ lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("Spawn.Pitch"));
+					/* 88 */ lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("Spawn.Yaw"));
 					/* 89 */ p.getInventory().clear();
 					/* 90 */ p.teleport(lobby);
 					/*     */
@@ -96,24 +97,24 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 					p.getInventory().setBoots(new ItemStack(Material.AIR));
 					ItemStack kits1 = new ItemStack(Material.CHEST);
 					/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-					/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+					/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 					/* 98 */ kits1.setItemMeta(kits12);
 					/* 95 */ ItemStack kits = new ItemStack(Material.DIAMOND);
 					/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-					/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+					/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 					/* 98 */ kits.setItemMeta(kits2);
 					/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 					/* 100 */ ItemMeta st2 = st.getItemMeta();
-					/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+					/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 					/* 102 */ st.setItemMeta(st2);
 					ItemStack stats = new ItemStack(Material.NAME_TAG);
 					/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-					/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+					/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 					/* 229 */ stats.setItemMeta(stats2);
 
 					ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 					/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-					/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+					/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 					/* 229 */ stats1.setItemMeta(stats12);
 
 					/* 103 */
@@ -127,7 +128,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 					p.sendMessage(ChatColor.YELLOW + "Voce respawnou");
 					p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 30, 0));
 					p.playSound(p.getLocation(),
-							org.bukkit.Sound.valueOf(Main.getInstance().getConfig().getString("Sound.RespawnSucess")),
+							org.bukkit.Sound.valueOf(KPPvP.getInstance().getConfig().getString("Sound.RespawnSucess")),
 							3.0F, 3.0F);
 					p.setGameMode(GameMode.SURVIVAL);
 
@@ -137,7 +138,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 
 			}
 
-		}.runTaskTimer(Main.getInstance(), 0L, 20L);
+		}.runTaskTimer(KPPvP.getInstance(), 0L, 20L);
 
 	}
 

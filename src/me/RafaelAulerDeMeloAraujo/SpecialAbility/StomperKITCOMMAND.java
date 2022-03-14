@@ -12,16 +12,16 @@ import org.bukkit.ChatColor;
 /*    */ import org.bukkit.inventory.meta.ItemMeta;
 
 /*    */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class StomperKITCOMMAND/*    */ implements CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public StomperKITCOMMAND(Main main)
+	/*    */ public StomperKITCOMMAND(KPPvP main)
 	/*    */ {
 		/* 25 */ this.main = main;
 		/* 26 */ plugin = main;
@@ -56,7 +56,7 @@ import org.bukkit.ChatColor;
 						1.0F, 1.0F);
 				/* 50 */ return true;
 				/*    */ }
-			if (Main.kits.getBoolean("StomperDisabled")) {
+			if (KPPvP.kits.getBoolean("StomperDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Stomper kit is disabled, sorry");
 				return true;
 			}
@@ -103,7 +103,7 @@ import org.bukkit.ChatColor;
 						this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Stomper"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/*    */

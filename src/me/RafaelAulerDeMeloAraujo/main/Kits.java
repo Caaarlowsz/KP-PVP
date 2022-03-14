@@ -7,6 +7,7 @@ package me.RafaelAulerDeMeloAraujo.main;
 /*     */ import java.util.Iterator;
 /*     */ import java.util.List;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.ChatColor;
 /*     */ import org.bukkit.Color;
 /*     */ import org.bukkit.Location;
@@ -39,11 +40,11 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 /*     */ public class Kits implements org.bukkit.command.CommandExecutor
 /*     */ {
 	/* 35 */ List<Enchantment[]> enchantsList = new ArrayList<>();
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Kits(Main main) {
+	/*     */ public Kits(KPPvP main) {
 		/* 40 */ this.main = main;
 		/* 41 */ plugin = main;
 		/*     */ }
@@ -97,13 +98,13 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 80 */ Gladiator.lutando.remove(p.getName());
 			/* 81 */ Gladiator.gladgladiator.remove(p.getName());
 			/* 82 */ org.bukkit.World w = org.bukkit.Bukkit.getServer()
-					.getWorld(Main.plugin.getConfig().getString("Spawn.World"));
-			/* 83 */ x = Main.plugin.getConfig().getDouble("Spawn.X");
-			/* 84 */ double y = Main.plugin.getConfig().getDouble("Spawn.Y");
-			/* 85 */ double z = Main.plugin.getConfig().getDouble("Spawn.Z");
+					.getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
+			/* 83 */ x = KPPvP.plugin.getConfig().getDouble("Spawn.X");
+			/* 84 */ double y = KPPvP.plugin.getConfig().getDouble("Spawn.Y");
+			/* 85 */ double z = KPPvP.plugin.getConfig().getDouble("Spawn.Z");
 			/* 86 */ Location lobby = new Location(w, x, y, z);
-			/* 87 */ lobby.setPitch((float) Main.plugin.getConfig().getDouble("Spawn.Pitch"));
-			/* 88 */ lobby.setYaw((float) Main.plugin.getConfig().getDouble("Spawn.Yaw"));
+			/* 87 */ lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("Spawn.Pitch"));
+			/* 88 */ lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("Spawn.Yaw"));
 			/* 89 */ p.getInventory().clear();
 			/* 90 */ p.teleport(lobby);
 			/*     */
@@ -111,24 +112,24 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 93 */ s.getInventory().setBoots(new ItemStack(Material.AIR));
 			ItemStack kits1 = new ItemStack(Material.CHEST);
 			/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-			/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+			/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 			/* 98 */ kits1.setItemMeta(kits12);
 			/* 95 */ ItemStack kits = new ItemStack(Material.EMERALD);
 			/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-			/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+			/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 			/* 98 */ kits.setItemMeta(kits2);
 			/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 			/* 100 */ ItemMeta st2 = st.getItemMeta();
-			/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+			/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 			/* 102 */ st.setItemMeta(st2);
 			ItemStack stats = new ItemStack(Material.NAME_TAG);
 			/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-			/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+			/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 			/* 229 */ stats.setItemMeta(stats2);
 
 			ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 			/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-			/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+			/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 			/* 229 */ stats1.setItemMeta(stats12);
 
 			/* 103 */
@@ -200,7 +201,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 						this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "PvP"));
 				/*     */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*     */ RTP.TeleportArenaRandom(p);
 			/* 157 */ s.getInventory().setHelmet(new ItemStack(colete1));
 			/* 158 */ s.getInventory().setChestplate(new ItemStack(colete));
@@ -271,7 +272,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 159 */ s.getInventory().setLeggings(new ItemStack(calcinhasuja));
 			/* 160 */ s.getInventory().setBoots(new ItemStack(bota));
 			/*     */ RTP.TeleportArenaRandom(p);
-			Main.give(p);
+			KPPvP.give(p);
 			/* 162 */ s.playSound(s.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.Kit")), 1.0F,
 					1.0F);
 			/*     */
@@ -300,7 +301,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 						+ " §eYou are not in kitpvp to do choose this kit!");
 				/* 180 */ return true;
 				/*     */ }
-			if (Main.kits.getBoolean("WarperDisabled")) {
+			if (KPPvP.kits.getBoolean("WarperDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Warper kit is disabled, sorry");
 				return true;
 			}
@@ -334,7 +335,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 206 */ s.playSound(s.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.Kit")), 1.0F,
 					1.0F);
 			/*     */ RTP.TeleportArenaRandom(p);
-			Main.give(p);
+			KPPvP.give(p);
 			/* 208 */ return true;
 			/*     */ }
 		/* 210 */ if (cmd.getName().equalsIgnoreCase("Switcher")) {
@@ -381,7 +382,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 237 */ for (int i = 0; i <= 34; i++) {
 				/* 238 */ s.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
-			/*     */ Main.give(p);
+			/*     */ KPPvP.give(p);
 			/* 241 */ ItemStack tunic = new ItemStack(Material.LEATHER_HELMET);
 			/* 242 */ tunic.addUnsafeEnchantment(Enchantment.DURABILITY, 150);
 			/* 243 */ LeatherArmorMeta meta1 = (LeatherArmorMeta) tunic.getItemMeta();
@@ -448,7 +449,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 290 */ for (int i = 0; i <= 33; i++) {
 				/* 291 */ s.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
-			/*     */ Main.give(p);
+			/*     */ KPPvP.give(p);
 			/*     */
 			/* 295 */ s.getInventory().addItem(new ItemStack[] { new ItemStack(Material.ARROW, 64) });
 			/* 296 */ s.getInventory().setHelmet(new ItemStack(Material.IRON_HELMET));
@@ -513,7 +514,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 343 */ for (int i = 0; i <= 33; i++) {
 				/* 344 */ s.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
-			/*     */ Main.give(p);
+			/*     */ KPPvP.give(p);
 			/* 347 */ s.getInventory().addItem(new ItemStack[] { new ItemStack(Material.ARROW, 64) });
 			/* 348 */ ItemStack tunic = new ItemStack(Material.LEATHER_HELMET);
 			/* 349 */ tunic.addUnsafeEnchantment(Enchantment.DURABILITY, 150);
@@ -578,7 +579,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 394 */ for (int i = 0; i <= 34; i++) {
 				/* 395 */ s.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
-			/*     */ Main.give(p);
+			/*     */ KPPvP.give(p);
 			/* 398 */ s.getInventory().setHelmet(new ItemStack(Material.DIAMOND_HELMET));
 			/* 399 */ s.getInventory().setChestplate(new ItemStack(Material.DIAMOND_CHESTPLATE));
 			/* 400 */ s.getInventory().setLeggings(new ItemStack(Material.DIAMOND_LEGGINGS));
@@ -632,7 +633,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 435 */ for (int i = 0; i <= 34; i++) {
 				/* 436 */ s.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
-			/*     */ Main.give(p);
+			/*     */ KPPvP.give(p);
 			/* 439 */ Object helmet = new ItemStack(Material.IRON_HELMET);
 			/* 440 */ ((ItemStack) helmet).addUnsafeEnchantment(Enchantment.DURABILITY, 150);
 			/* 441 */ ((ItemStack) helmet).addEnchantment(Enchantment.PROTECTION_PROJECTILE, 2);
@@ -708,7 +709,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 						this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Cactus"));
 				/*     */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/* 501 */ ItemStack helmet1 = new ItemStack(Material.IRON_HELMET);
 			/* 502 */ ((ItemStack) helmet1).addUnsafeEnchantment(Enchantment.DURABILITY, 150);
 			/* 503 */ ((ItemStack) helmet1).addEnchantment(Enchantment.THORNS, 3);
@@ -754,7 +755,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 						1.0F, 1.0F);
 				/* 536 */ return true;
 				/*     */ }
-			if (Main.kits.getBoolean("BomberDisabled")) {
+			if (KPPvP.kits.getBoolean("BomberDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Bomber kit is disabled, sorry");
 				return true;
 			}
@@ -810,7 +811,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			/* 581 */ s.playSound(s.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.Kit")), 1.0F,
 					1.0F);
 			/*     */ RTP.TeleportArenaRandom(p);
-			Main.give(p);
+			KPPvP.give(p);
 			/* 583 */ return true;
 			/*     */ }
 		/* 585 */ if (cmd.getName().equalsIgnoreCase("wasp")) {
@@ -852,7 +853,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 				/* 612 */ s.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
 			/*     */ RTP.TeleportArenaRandom(p);
-			Main.give(p);
+			KPPvP.give(p);
 			/* 615 */ Object helmet11 = new ItemStack(Material.LEATHER_HELMET);
 			/* 616 */ ((ItemStack) helmet11).addUnsafeEnchantment(Enchantment.DURABILITY, 150);
 			/* 617 */ ((ItemStack) helmet11).addEnchantment(Enchantment.PROTECTION_PROJECTILE, 3);
@@ -914,7 +915,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 						1.0F, 1.0F);
 				/* 662 */ return true;
 				/*     */ }
-			if (Main.kits.getBoolean("SpidermanDisabled")) {
+			if (KPPvP.kits.getBoolean("SpidermanDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Spiderman kit is disabled, sorry");
 				return true;
 			}
@@ -935,7 +936,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 				/* 673 */ s.getInventory().addItem(new ItemStack[] { sopa });
 				/*     */ }
 			/*     */ RTP.TeleportArenaRandom(p);
-			Main.give(p);
+			KPPvP.give(p);
 			/* 676 */ ItemStack helmet111 = new ItemStack(Material.LEATHER_HELMET);
 			/* 677 */ helmet111.addUnsafeEnchantment(Enchantment.DURABILITY, 150);
 			/* 678 */ helmet111.addEnchantment(Enchantment.PROTECTION_PROJECTILE, 2);
@@ -1000,7 +1001,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 						1.0F, 1.0F);
 				/* 727 */ return true;
 				/*     */ }
-			if (Main.kits.getBoolean("AirmanDisabled")) {
+			if (KPPvP.kits.getBoolean("AirmanDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Airman kit is disabled, sorry");
 				return true;
 			}
@@ -1018,7 +1019,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 			sword8.addUnsafeEnchantment(Enchantment.DURABILITY, 3);
 			/* 738 */ Habilidade.setAbility(s, "Airman");
 			/*     */ RTP.TeleportArenaRandom(p);
-			Main.give(p);
+			KPPvP.give(p);
 			/* 740 */ s.getInventory().addItem(new ItemStack[] { sword8 });
 			/* 741 */ s.getInventory().addItem(new ItemStack[] { new ItemStack(make(Material.FEATHER, 1, 0,
 					this.main.getConfig().getString("AirmanKit.Name").replace("&", "§"), Arrays.asList(
@@ -1113,7 +1114,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.RTP;
 						this.main.getConfig().getString("Title.KitTitle"), this.main.getConfig()
 								.getString("Title.KitSubTitle").replace(Habilidade.getAbility(p), "%kit%"));
 				/*     */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/* 811 */ ItemStack capacete0 = new ItemStack(Material.IRON_HELMET);
 			/*    */
 			/* 57 */ ItemStack peitoral0 = new ItemStack(Material.IRON_CHESTPLATE);

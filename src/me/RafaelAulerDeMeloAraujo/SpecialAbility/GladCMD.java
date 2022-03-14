@@ -11,16 +11,16 @@ import org.bukkit.ChatColor;
 /*    */ import org.bukkit.inventory.meta.ItemMeta;
 
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class GladCMD implements org.bukkit.command.CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public GladCMD(Main main)
+	/*    */ public GladCMD(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/* 21 */ plugin = main;
@@ -65,7 +65,7 @@ import org.bukkit.ChatColor;
 						+ " §eYou are not in kitpvp to do choose this kit!");
 				/* 52 */ return true;
 				/*    */ }
-			if (Main.kits.getBoolean("GladiatorDisabled")) {
+			if (KPPvP.kits.getBoolean("GladiatorDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Gladiator kit is disabled, sorry");
 				return true;
 			}
@@ -115,7 +115,7 @@ import org.bukkit.ChatColor;
 				/* 92 */ p.playSound(p.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.KitUse")),
 						1.0F, 1.0F);
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/* 96 */ return false;

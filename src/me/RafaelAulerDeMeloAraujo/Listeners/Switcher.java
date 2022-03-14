@@ -11,7 +11,7 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 /*    */ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class Switcher implements org.bukkit.event.Listener
@@ -28,9 +28,9 @@ import me.RafaelAulerDeMeloAraujo.main.Main;
 			/* 19 */ Player p2 = (Player) e.getEntity();
 
 			/* 20 */ p2.playSound(p2.getLocation(),
-					Sound.valueOf(Main.getInstace().getConfig().getString("Sound.Fisherman")), 1.0F, 1.0F);
+					Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.Fisherman")), 1.0F, 1.0F);
 			/* 21 */ p.playSound(p.getLocation(),
-					Sound.valueOf(Main.getInstace().getConfig().getString("Sound.Fisherman")), 1.0F, 1.0F);
+					Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.Fisherman")), 1.0F, 1.0F);
 			/* 22 */ p.getWorld().playEffect(p.getLocation().add(0.0D, 1.5D, 0.0D), Effect.ENDER_SIGNAL, 1);
 			/* 23 */ p2.getWorld().playEffect(p2.getLocation().add(0.0D, 1.5D, 0.0D), Effect.ENDER_SIGNAL, 1);
 

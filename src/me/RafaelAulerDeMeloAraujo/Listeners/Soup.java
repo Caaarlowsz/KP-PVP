@@ -12,19 +12,19 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */
 /*    */ public class Soup implements Listener
 /*    */ {
-	/*    */ private Main main;
+	/*    */ private KPPvP main;
 	/* 18 */ public int vida = 7;
 	public int vida1 = 8;
 	/* 19 */ public int fome = 7;
 
 	/*    */
-	/*    */ public Soup(Main main) {
+	/*    */ public Soup(KPPvP main) {
 		/* 22 */ this.main = main;
 		/*    */ }
 

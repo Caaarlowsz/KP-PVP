@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class API {
 
@@ -41,15 +41,15 @@ public class API {
 
 	public static void MensagemCooldown(final Player p) {
 
-		p.sendMessage(String.valueOf(API.NomeServer) + (Main.messages.getString("KitCooldown").replace("&", "§"))
+		p.sendMessage(String.valueOf(API.NomeServer) + (KPPvP.messages.getString("KitCooldown").replace("&", "§"))
 				.replace("%time%", String.valueOf(Cooldown.cooldown(p))));
 	}
 
 	static {
 
-		API.NomeServer = Main.getInstance().getConfig().getString("Prefix").replace("&", "§");
-		API.fimcooldown = Main.getInstance().getConfig().getString("Prefix").replace("&", "§")
-				+ (Main.messages.getString("KitCooldownEnd").replace("&", "§"));
+		API.NomeServer = KPPvP.getInstance().getConfig().getString("Prefix").replace("&", "§");
+		API.fimcooldown = KPPvP.getInstance().getConfig().getString("Prefix").replace("&", "§")
+				+ (KPPvP.messages.getString("KitCooldownEnd").replace("&", "§"));
 
 	}
 
@@ -118,13 +118,13 @@ public class API {
 		/* 80 */ Gladiator.lutando.remove(p.getName());
 		/* 81 */ Gladiator.gladgladiator.remove(p.getName());
 		/* 82 */ org.bukkit.World w = org.bukkit.Bukkit.getServer()
-				.getWorld(Main.plugin.getConfig().getString("Spawn.World"));
-		/* 83 */ double x = Main.plugin.getConfig().getDouble("Spawn.X");
-		/* 84 */ double y = Main.plugin.getConfig().getDouble("Spawn.Y");
-		/* 85 */ double z = Main.plugin.getConfig().getDouble("Spawn.Z");
+				.getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
+		/* 83 */ double x = KPPvP.plugin.getConfig().getDouble("Spawn.X");
+		/* 84 */ double y = KPPvP.plugin.getConfig().getDouble("Spawn.Y");
+		/* 85 */ double z = KPPvP.plugin.getConfig().getDouble("Spawn.Z");
 		/* 86 */ Location lobby = new Location(w, x, y, z);
-		/* 87 */ lobby.setPitch((float) Main.plugin.getConfig().getDouble("Spawn.Pitch"));
-		/* 88 */ lobby.setYaw((float) Main.plugin.getConfig().getDouble("Spawn.Yaw"));
+		/* 87 */ lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("Spawn.Pitch"));
+		/* 88 */ lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("Spawn.Yaw"));
 		/* 89 */ p.getInventory().clear();
 		/* 90 */ p.teleport(lobby);
 		/*     */ Habilidade.setAbility(p, "None");
@@ -132,24 +132,24 @@ public class API {
 		p.getInventory().setBoots(new ItemStack(Material.AIR));
 		ItemStack kits1 = new ItemStack(Material.CHEST);
 		/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-		/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+		/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 		/* 98 */ kits1.setItemMeta(kits12);
 		/* 95 */ ItemStack kits = new ItemStack(Material.DIAMOND);
 		/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-		/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+		/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 		/* 98 */ kits.setItemMeta(kits2);
 		/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 		/* 100 */ ItemMeta st2 = st.getItemMeta();
-		/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+		/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 		/* 102 */ st.setItemMeta(st2);
 		ItemStack stats = new ItemStack(Material.NAME_TAG);
 		/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-		/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+		/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 		/* 229 */ stats.setItemMeta(stats2);
 
 		ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 		/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-		/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+		/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 		/* 229 */ stats1.setItemMeta(stats12);
 
 		/* 103 */

@@ -17,16 +17,16 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class Camel implements org.bukkit.command.CommandExecutor, Listener
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public Camel(Main main)
+	/*    */ public Camel(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/* 21 */ plugin = main;
@@ -38,10 +38,10 @@ import org.bukkit.potion.PotionEffectType;
 		if (((e.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.SAND)
 				|| (e.getTo().getBlock().getRelative(BlockFace.DOWN).getType() == Material.SANDSTONE))
 				&& (Habilidade.getAbility(p) == "Camel")) {
-			p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, Main.kits.getInt("CamelRegenTime") * 20,
-					Main.kits.getInt("CamelRegenAmplifier")));
-			p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Main.kits.getInt("CamelSpeedTime") * 20,
-					Main.kits.getInt("CamelSpeedAmplifier")));
+			p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, KPPvP.kits.getInt("CamelRegenTime") * 20,
+					KPPvP.kits.getInt("CamelRegenAmplifier")));
+			p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, KPPvP.kits.getInt("CamelSpeedTime") * 20,
+					KPPvP.kits.getInt("CamelSpeedAmplifier")));
 		}
 	}
 
@@ -105,7 +105,7 @@ import org.bukkit.potion.PotionEffectType;
 			/*    */
 			/* 70 */ p.getInventory().addItem(new ItemStack[] { dima });
 			/*    */ RTP.TeleportArenaRandom(p);
-			/*    */ Main.give(p);
+			/*    */ KPPvP.give(p);
 			/*    */
 			/*    */
 			/* 75 */ for (int i = 0; i <= 34; i++) {

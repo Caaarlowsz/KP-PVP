@@ -11,16 +11,16 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*    */ import org.bukkit.inventory.meta.ItemMeta;
 
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class FiremanCMD implements org.bukkit.command.CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public FiremanCMD(Main main)
+	/*    */ public FiremanCMD(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/* 21 */ plugin = main;
@@ -88,7 +88,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 						Integer.valueOf(60), Integer.valueOf(20), this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Fireman"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/*    */

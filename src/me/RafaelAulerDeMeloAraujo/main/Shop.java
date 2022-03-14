@@ -2,6 +2,7 @@ package me.RafaelAulerDeMeloAraujo.main;
 
 import java.util.Arrays;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -23,97 +24,97 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.API;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
 
 public class Shop implements Listener, CommandExecutor {
-	private Main main;
+	private KPPvP main;
 	public static Inventory shop = Bukkit.getServer().createInventory(null, 54,
-			Main.messages.getString("ShopInventoryName").replace("&", "§"));
+			KPPvP.messages.getString("ShopInventoryName").replace("&", "§"));
 
 	static {
 		createButton(Material.DIAMOND_SWORD, shop, 0, "§6-> §cPvP",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 4500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 4500");
 		createButton(Material.BOW, shop, 1, "§6-> §cArcher",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 3000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 3000");
 		createButton(Material.FLINT_AND_STEEL, shop, 2, "§6-> §cPyro",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
 		createButton(Material.DIAMOND_CHESTPLATE, shop, 3, "§6-> §cTank",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
 		createButton(Material.SNOW_BALL, shop, 4, "§6-> §cSwitcher",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6500");
 		createButton(Material.MAGMA_CREAM, shop, 5, "§6-> §cJumper",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 8000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 8000");
 		createButton(Material.CACTUS, shop, 6, "§6-> §cCactus",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 4000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 4000");
 		createButton(Material.TNT, shop, 7, "§6-> §cBomber",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 9000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 9000");
 		createButton(Material.ENDER_PEARL, shop, 8, "§6-> §cWarper",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 4000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 4000");
 
 		createButton(Material.FISHING_ROD, shop, 9, "§6-> §cFisherman",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
 
 		createButton(Material.IRON_BOOTS, shop, 10, "§6-> §cStomper",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 17500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 17500");
 		createButton(Material.REDSTONE_BLOCK, shop, 11, "§6-> §cDeshfire",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 8500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 8500");
 		createButton(Material.SPIDER_EYE, shop, 12, "§6-> §cViper",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
 		createButton(Material.STRING, shop, 13, "§6-> §cSpiderman",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
 		createButton(Material.IRON_FENCE, shop, 14, "§6-> §cGladiator",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 16000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 16000");
 		createButton(Material.FIREWORK, shop, 15, "§6-> §cKangaroo",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
 		createButton(Material.COAL, shop, 16, "§6-> §cNinja",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6500");
 		createButton(Material.WATCH, shop, 17, "§6-> §cTimelord",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
 		createButton(Material.GOLDEN_APPLE, shop, 18, "§6-> §cCritical",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 8000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 8000");
 		createButton(Material.CHAINMAIL_BOOTS, shop, 19, "§6-> §cDoubleJump",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 9500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 9500");
 		createButton(Material.GOLD_AXE, shop, 20, "§6-> §cThor",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 7000");
 		createButton(Material.FERMENTED_SPIDER_EYE, shop, 21, "§6-> §cSnail",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
 		createButton(Material.BLAZE_ROD, shop, 22, "§6-> §cWasp",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
 		createButton(Material.NETHER_STAR, shop, 23, "§6-> §cNaruto",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 12500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 12500");
 		createButton(Material.FEATHER, shop, 24, "§6-> §cAirman",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 9000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 9000");
 		createButton(Material.GOLD_NUGGET, shop, 25, "§6-> §cVampire",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 10000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 10000");
 		createButton(Material.LAPIS_BLOCK, shop, 26, "§6-> §cSonic",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 11000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 11000");
 		createButton(Material.BOOK, shop, 27, "§6-> §cPhantom",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 10000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 10000");
 		createButton(Material.SAND, shop, 28, "§6-> §cCamel",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
 		createButton(Material.POTION, shop, 29, "§6-> §cConfuser",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 5500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 5500");
 		createButton(Material.IRON_AXE, shop, 30, "§6-> §cViking",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 5500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 5500");
 		createButton(Material.WATER_BUCKET, shop, 31, "§6-> §cPoseidon",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
 		createButton(Material.MUSHROOM_SOUP, shop, 32, "§6-> §cResouper",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 3000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 3000");
 		createButton(Material.ANVIL, shop, 33, "§6-> §cAnchor",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 8000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 8000");
 		createButton(Material.BEACON, shop, 34, "§6-> §cRyu",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 5000");
 		createButton(Material.BLAZE_ROD, shop, 35, "§6-> §cMonk",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
 		createButton(Material.LAVA_BUCKET, shop, 36, "§6-> §cFireman",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 6000");
 		createButton(Material.SLIME_BALL, shop, 37, "§6-> §cAjnin",
-				Main.messages.getString("ShopPriceLore").replace("&", "§") + " 8500");
+				KPPvP.messages.getString("ShopPriceLore").replace("&", "§") + " 8500");
 		createButton(Material.BARRIER, shop, 53, "§4§l-> §cClose",
-				Main.messages.getString("CloseShopLore").replace("&", "§"));
+				KPPvP.messages.getString("CloseShopLore").replace("&", "§"));
 	}
 
-	public Shop(Main main) {
+	public Shop(KPPvP main) {
 		ItemStack vidro = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 5);
 		ItemMeta vidro2 = vidro.getItemMeta();
-		vidro2.setDisplayName(Main.messages.getString("ShopItemContents").replace("&", "§"));
+		vidro2.setDisplayName(KPPvP.messages.getString("ShopItemContents").replace("&", "§"));
 		vidro.setItemMeta(vidro2);
 		ItemStack[] arrayOfItemStack;
 		int descpyro1 = (arrayOfItemStack = shop.getContents()).length;
@@ -212,7 +213,7 @@ public class Shop implements Listener, CommandExecutor {
 	public void warps(InventoryClickEvent e) {
 		Inventory inv = e.getInventory();
 		Player p = (Player) e.getWhoClicked();
-		if (inv.getTitle().equals(Main.messages.getString("ShopInventoryName").replace("&", "§"))) {
+		if (inv.getTitle().equals(KPPvP.messages.getString("ShopInventoryName").replace("&", "§"))) {
 			p.playSound(p.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.ShopMenu-Click")), 1.0F,
 					1.0F);
 			e.setCancelled(true);
@@ -250,7 +251,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 9000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -262,7 +263,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("AirmanDisabled")) {
+				if (KPPvP.kits.getBoolean("AirmanDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Airman kit is disabled, sorry");
 					return;
 				}
@@ -279,7 +280,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 9000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -304,7 +305,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 8500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -316,7 +317,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("PhantomDisabled")) {
+				if (KPPvP.kits.getBoolean("PhantomDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Phantom kit is disabled, sorry");
 					return;
 				}
@@ -334,7 +335,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 10000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 				return;
@@ -360,7 +361,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 5000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 				return;
@@ -386,7 +387,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 12500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 				return;
@@ -413,7 +414,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 3000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 				return;
@@ -439,7 +440,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 4500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -465,7 +466,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 10000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -491,7 +492,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -517,7 +518,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 5000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -543,7 +544,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -569,7 +570,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -581,7 +582,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("GladiatorDisabled")) {
+				if (KPPvP.kits.getBoolean("GladiatorDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Gladiator kit is disabled, sorry");
 					return;
 				}
@@ -599,7 +600,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 16000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -624,7 +625,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 11000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -636,7 +637,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("KangarooDisabled")) {
+				if (KPPvP.kits.getBoolean("KangarooDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Kangaroo kit is disabled, sorry");
 					return;
 				}
@@ -654,7 +655,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 5000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -666,7 +667,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("SpidermanDisabled")) {
+				if (KPPvP.kits.getBoolean("SpidermanDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Spiderman kit is disabled, sorry");
 					return;
 				}
@@ -684,7 +685,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -709,7 +710,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 7000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -734,14 +735,14 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 7000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
 		}
 		if ((inv.getName().equals(shop.getName())) && (clicked.getType() == Material.BARRIER)) {
 			p.closeInventory();
-			p.sendMessage(Main.messages.getString("ShopMenuClosed").replace("&", "§"));
+			p.sendMessage(KPPvP.messages.getString("ShopMenuClosed").replace("&", "§"));
 		}
 		if ((inv.getName().equals(shop.getName())) && (clicked.getType() == Material.REDSTONE_BLOCK)) {
 			if (Coins.getCoins(p.getName()).doubleValue() >= 8500.0D) {
@@ -765,7 +766,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 8500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -796,7 +797,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -821,7 +822,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -847,7 +848,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -872,7 +873,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 5500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -898,7 +899,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 5500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -923,7 +924,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 7000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -949,7 +950,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 7000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -961,7 +962,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("AnchorDisabled")) {
+				if (KPPvP.kits.getBoolean("AnchorDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Anchor kit is disabled, sorry");
 					return;
 				}
@@ -979,7 +980,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 8000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1005,7 +1006,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1031,7 +1032,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1056,7 +1057,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 8000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1081,7 +1082,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 4000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1093,7 +1094,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("BomberDisabled")) {
+				if (KPPvP.kits.getBoolean("BomberDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Bomber kit is disabled, sorry");
 					return;
 				}
@@ -1110,7 +1111,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 9000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1121,7 +1122,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.sendMessage("§e[KitPvP] §cYou already have the Kit Warper!");
 					p.closeInventory();
 				}
-				if (Main.kits.getBoolean("WarperDisabled")) {
+				if (KPPvP.kits.getBoolean("WarperDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Warper kit is disabled, sorry");
 					return;
 				}
@@ -1138,7 +1139,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 4000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1164,7 +1165,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 8000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1190,7 +1191,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 5000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1215,7 +1216,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 5000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1241,7 +1242,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 6000.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1253,7 +1254,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("DoubleJumpDisabled")) {
+				if (KPPvP.kits.getBoolean("DoubleJumpDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The DoubleJump kit is disabled, sorry");
 					return;
 				}
@@ -1271,7 +1272,7 @@ public class Shop implements Listener, CommandExecutor {
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 9500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}
@@ -1283,7 +1284,7 @@ public class Shop implements Listener, CommandExecutor {
 					p.closeInventory();
 					return;
 				}
-				if (Main.kits.getBoolean("StomperDisabled")) {
+				if (KPPvP.kits.getBoolean("StomperDisabled")) {
 					p.sendMessage(API.NomeServer + ChatColor.RED + "The Stomper kit is disabled, sorry");
 					return;
 				}
@@ -1296,12 +1297,12 @@ public class Shop implements Listener, CommandExecutor {
 				Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
 						"lp user " + p.getName() + " permission set kitpvp.kit.stomper true");
 				Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "manuaddp " + p.getName() + " kitpvp.kit.stomper");
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				Coins.removeCoins(p.getName(), 17500.0D);
 				e.setCancelled(true);
 				p.closeInventory();
 			} else if (Coins.getCoins(p.getName()).doubleValue() < 17500.0D) {
-				p.sendMessage(Main.messages.getString("NoFundsShop").replace("&", "§"));
+				p.sendMessage(KPPvP.messages.getString("NoFundsShop").replace("&", "§"));
 				e.setCancelled(true);
 				p.closeInventory();
 			}

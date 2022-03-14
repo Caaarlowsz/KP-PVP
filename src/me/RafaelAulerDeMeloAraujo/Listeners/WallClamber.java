@@ -19,18 +19,18 @@ import org.bukkit.potion.PotionEffectType;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.API;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class WallClamber implements org.bukkit.event.Listener
 /*    */ {
-	/*    */ private Main main;
-	/*    */ Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ KPPvP plugin;
 	/* 23 */ List<Player> FlyCooldown = new ArrayList<>();
 	/* 24 */ List<Player> TogglePlayersCooldown = new ArrayList<>();
 
 	/*    */
-	/*    */ public WallClamber(Main main) {
+	/*    */ public WallClamber(KPPvP main) {
 		/* 27 */ this.main = main;
 		/*    */ }
 

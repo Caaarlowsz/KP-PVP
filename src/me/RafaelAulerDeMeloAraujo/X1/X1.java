@@ -27,14 +27,14 @@ import org.bukkit.Sound;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
 import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*    */ public class X1/*    */ implements Listener
 /*    */ {
 
 	/*    */
-	/*    */ public X1(Main main)
+	/*    */ public X1(KPPvP main)
 	/*    */ {
 		/*    */ }
 
@@ -51,37 +51,37 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/* 53 */ p.getInventory().clear();
 		/* 54 */ inx1.remove(p);
 		/* 55 */
-		/* 56 */ org.bukkit.World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("Spawn.World"));
-		/* 57 */ double x = Main.plugin.getConfig().getDouble("Spawn.X");
-		/* 58 */ double y = Main.plugin.getConfig().getDouble("Spawn.Y");
-		/* 59 */ double z = Main.plugin.getConfig().getDouble("Spawn.Z");
+		/* 56 */ org.bukkit.World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
+		/* 57 */ double x = KPPvP.plugin.getConfig().getDouble("Spawn.X");
+		/* 58 */ double y = KPPvP.plugin.getConfig().getDouble("Spawn.Y");
+		/* 59 */ double z = KPPvP.plugin.getConfig().getDouble("Spawn.Z");
 		/* 60 */ Location lobby = new Location(w, x, y, z);
-		/* 61 */ lobby.setPitch((float) Main.plugin.getConfig().getDouble("Spawn.Pitch"));
-		/* 62 */ lobby.setYaw((float) Main.plugin.getConfig().getDouble("Spawn.Yaw"));
+		/* 61 */ lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("Spawn.Pitch"));
+		/* 62 */ lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("Spawn.Yaw"));
 		/* 63 */ p.getInventory().clear();
 		/* 64 */ p.teleport(lobby);
 		/* 65 */ p.getInventory().setLeggings(new ItemStack(Material.AIR));
 		/* 66 */ p.getInventory().setBoots(new ItemStack(Material.AIR));
 		/* 67 */ ItemStack kits1 = new ItemStack(Material.CHEST);
 		/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-		/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+		/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 		/* 98 */ kits1.setItemMeta(kits12);
 		/* 95 */ ItemStack kits = new ItemStack(Material.DIAMOND);
 		/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-		/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+		/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 		/* 98 */ kits.setItemMeta(kits2);
 		/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 		/* 100 */ ItemMeta st2 = st.getItemMeta();
-		/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+		/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 		/* 102 */ st.setItemMeta(st2);
 		ItemStack stats = new ItemStack(Material.NAME_TAG);
 		/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-		/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+		/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 		/* 229 */ stats.setItemMeta(stats2);
 
 		ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 		/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-		/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+		/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 		/* 229 */ stats1.setItemMeta(stats12);
 
 		/* 103 */
@@ -98,10 +98,10 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/*     */
 		/*     */
 		/* 87 */ p.updateInventory();
-		/* 88 */ p.sendMessage(Main.messages.getString("1v1Leave").replace("&", "§"));
-		p.playSound(p.getLocation(), Sound.valueOf(Main.getInstance().getConfig().getString("Sound.1v1")), 5.0F, 5.0F);
+		/* 88 */ p.sendMessage(KPPvP.messages.getString("1v1Leave").replace("&", "§"));
+		p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstance().getConfig().getString("Sound.1v1")), 5.0F, 5.0F);
 		TitleAPI.sendTitle(p, Integer.valueOf(20), Integer.valueOf(60), Integer.valueOf(20),
-				Main.getInstance().getConfig().getString("Title.1v1Leave").replace("&", "§"), "");
+				KPPvP.getInstance().getConfig().getString("Title.1v1Leave").replace("&", "§"), "");
 		/*     */ }
 
 	/*     */
@@ -111,18 +111,18 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	/*     */ {
 
 		/* 97 */ inx1.add(p);
-		/* 98 */ p.teleport(new Location(p.getWorld(), Main.cfg_x1.getDouble("x1.coords.spawn.x"),
-				/* 99 */ Main.cfg_x1.getDouble("x1.coords.spawn.y"), Main.cfg_x1.getDouble("x1.coords.spawn.z")));
+		/* 98 */ p.teleport(new Location(p.getWorld(), KPPvP.cfg_x1.getDouble("x1.coords.spawn.x"),
+				/* 99 */ KPPvP.cfg_x1.getDouble("x1.coords.spawn.y"), KPPvP.cfg_x1.getDouble("x1.coords.spawn.z")));
 		/* 100 */ p.getInventory().clear();
 		/* 101 */ p.getInventory().setArmorContents(null);
 		/*     */
 		/* 103 */ ItemStack v1 = new ItemStack(Material.BLAZE_ROD);
 		/* 104 */ ItemMeta v12 = v1.getItemMeta();
-		/* 105 */ v12.setDisplayName(Main.messages.getString("1v1InviteItemName").replace("&", "§"));
+		/* 105 */ v12.setDisplayName(KPPvP.messages.getString("1v1InviteItemName").replace("&", "§"));
 		/* 106 */ v1.setItemMeta(v12);
 		/* 107 */ ItemStack rd1 = new ItemStack(Material.REDSTONE);
 		/* 108 */ ItemMeta rd12 = rd1.getItemMeta();
-		/* 109 */ rd12.setDisplayName(Main.messages.getString("1v1LeaveItemName").replace("&", "§"));
+		/* 109 */ rd12.setDisplayName(KPPvP.messages.getString("1v1LeaveItemName").replace("&", "§"));
 		/* 110 */ rd1.setItemMeta(rd12);
 		/*     */
 		/* 112 */ p.getInventory().setItem(0, v1);
@@ -132,8 +132,8 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/* 116 */ p.setHealth(20.0D);
 		/* 117 */ p.setExp(0.0F);
 		/* 118 */ p.setLevel(0);
-		/* 119 */ Habilidade.setAbility(p, Main.cfg_x1.getString("x1.ability"));
-		p.playSound(p.getLocation(), Sound.valueOf(Main.getInstance().getConfig().getString("Sound.1v1")), 5.0F, 5.0F);
+		/* 119 */ Habilidade.setAbility(p, KPPvP.cfg_x1.getString("x1.ability"));
+		p.playSound(p.getLocation(), Sound.valueOf(KPPvP.getInstance().getConfig().getString("Sound.1v1")), 5.0F, 5.0F);
 		/*     */ }
 
 	/*     */
@@ -169,14 +169,14 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	/*     */ public static void aceitar(Player p1, Player p2)
 	/*     */ {
 
-		/* 152 */ p1.teleport(new Location(p1.getWorld(), Main.cfg_x1.getDouble("x1.coords.loc_1.x"),
-				/* 153 */ Main.cfg_x1.getDouble("x1.coords.loc_1.y"), Main.cfg_x1.getDouble("x1.coords.loc_1.z"),
-				/* 154 */ Float.valueOf((float) Main.cfg_x1.getDouble("x1.coords.loc_1.yaw")).floatValue(),
-				Float.valueOf((float) Main.cfg_x1.getDouble("x1.coords.loc_1.pitch")).floatValue()));
-		/* 155 */ p2.teleport(new Location(p2.getWorld(), Main.cfg_x1.getDouble("x1.coords.loc_2.x"),
-				/* 156 */ Main.cfg_x1.getDouble("x1.coords.loc_2.y"), Main.cfg_x1.getDouble("x1.coords.loc_2.z"),
-				/* 157 */ Float.valueOf((float) Main.cfg_x1.getDouble("x1.coords.loc_2.yaw")).floatValue(),
-				Float.valueOf((float) Main.cfg_x1.getDouble("x1.coords.loc_2.pitch")).floatValue()));
+		/* 152 */ p1.teleport(new Location(p1.getWorld(), KPPvP.cfg_x1.getDouble("x1.coords.loc_1.x"),
+				/* 153 */ KPPvP.cfg_x1.getDouble("x1.coords.loc_1.y"), KPPvP.cfg_x1.getDouble("x1.coords.loc_1.z"),
+				/* 154 */ Float.valueOf((float) KPPvP.cfg_x1.getDouble("x1.coords.loc_1.yaw")).floatValue(),
+				Float.valueOf((float) KPPvP.cfg_x1.getDouble("x1.coords.loc_1.pitch")).floatValue()));
+		/* 155 */ p2.teleport(new Location(p2.getWorld(), KPPvP.cfg_x1.getDouble("x1.coords.loc_2.x"),
+				/* 156 */ KPPvP.cfg_x1.getDouble("x1.coords.loc_2.y"), KPPvP.cfg_x1.getDouble("x1.coords.loc_2.z"),
+				/* 157 */ Float.valueOf((float) KPPvP.cfg_x1.getDouble("x1.coords.loc_2.yaw")).floatValue(),
+				Float.valueOf((float) KPPvP.cfg_x1.getDouble("x1.coords.loc_2.pitch")).floatValue()));
 		/*     */
 		/* 159 */ set1v1(p1);
 		/* 160 */ set1v1(p2);
@@ -198,19 +198,19 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/* 174 */ p1.updateInventory();
 		/* 175 */ p2.updateInventory();
 		/* 176 */ p1.sendMessage(
-				Main.cfg_x1.getString("x1.msg.invite_accept").replace("$player$", p2.getName()).replace("&", "§"));
+				KPPvP.cfg_x1.getString("x1.msg.invite_accept").replace("$player$", p2.getName()).replace("&", "§"));
 		/* 177 */ p2.sendMessage(
-				Main.cfg_x1.getString("x1.msg.guest_accept").replace("$player$", p1.getName()).replace("&", "§"));
-		p1.playSound(p1.getLocation(), Sound.valueOf(Main.getInstance().getConfig().getString("Sound.1v1")), 5.0F,
+				KPPvP.cfg_x1.getString("x1.msg.guest_accept").replace("$player$", p1.getName()).replace("&", "§"));
+		p1.playSound(p1.getLocation(), Sound.valueOf(KPPvP.getInstance().getConfig().getString("Sound.1v1")), 5.0F,
 				5.0F);
-		p2.playSound(p2.getLocation(), Sound.valueOf(Main.getInstance().getConfig().getString("Sound.1v1")), 5.0F,
+		p2.playSound(p2.getLocation(), Sound.valueOf(KPPvP.getInstance().getConfig().getString("Sound.1v1")), 5.0F,
 				5.0F);
 		/*     */ }
 
 	/*     */
 	/*     */ @EventHandler
 	/*     */ public void interact(PlayerInteractEvent e) {
-		/* 182 */ if ((Habilidade.getAbility(e.getPlayer()).equalsIgnoreCase(Main.cfg_x1.getString("x1.ability"))) &&
+		/* 182 */ if ((Habilidade.getAbility(e.getPlayer()).equalsIgnoreCase(KPPvP.cfg_x1.getString("x1.ability"))) &&
 		/* 183 */ (e.getAction().name().contains("RIGHT_CLICK")) &&
 		/* 184 */ (e.getPlayer().getItemInHand().getType().equals(Material.REDSTONE))) {
 			/* 185 */ sair1v1(e.getPlayer());
@@ -230,8 +230,8 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	/*     */
 	/*     */ @EventHandler
 	/*     */ public void cmd(PlayerCommandPreprocessEvent e) {
-		/* 200 */ if (Habilidade.getAbility(e.getPlayer()).equalsIgnoreCase(Main.cfg_x1.getString("x1.ability"))) {
-			/* 201 */ e.getPlayer().sendMessage(Main.cfg_x1.getString("x1.msg.no_cmd").replace("&", "§"));
+		/* 200 */ if (Habilidade.getAbility(e.getPlayer()).equalsIgnoreCase(KPPvP.cfg_x1.getString("x1.ability"))) {
+			/* 201 */ e.getPlayer().sendMessage(KPPvP.cfg_x1.getString("x1.msg.no_cmd").replace("&", "§"));
 			/* 202 */ e.setCancelled(true);
 			/* 203 */ return;
 			/*     */ }
@@ -243,7 +243,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/* 209 */ if (lutadores.containsKey(e.getPlayer().getName())) {
 			/* 210 */ Player matou = Bukkit.getServer().getPlayerExact((String) lutadores.get(e.getPlayer().getName()));
 			/* 211 */ Player perdedor = e.getPlayer();
-			/* 212 */ matou.sendMessage(Main.cfg_x1.getString("x1.msg.disconect").replace("&", "§"));
+			/* 212 */ matou.sendMessage(KPPvP.cfg_x1.getString("x1.msg.disconect").replace("&", "§"));
 			/* 213 */ hide.remove(perdedor);
 			/* 214 */ hide.remove(matou);
 			/* 215 */ for (Player pp : Bukkit.getOnlinePlayers()) {
@@ -260,7 +260,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/* 225 */ if (lutadores.containsKey(e.getPlayer().getName())) {
 			/* 226 */ Player matou = Bukkit.getServer().getPlayerExact((String) lutadores.get(e.getPlayer().getName()));
 			/* 227 */ Player perdedor = e.getPlayer();
-			/* 228 */ matou.sendMessage(Main.cfg_x1.getString("x1.msg.disconect").replace("&", "§"));
+			/* 228 */ matou.sendMessage(KPPvP.cfg_x1.getString("x1.msg.disconect").replace("&", "§"));
 			/* 229 */ hide.remove(perdedor);
 			/* 230 */ hide.remove(matou);
 			/* 231 */ for (Player pp : Bukkit.getOnlinePlayers()) {
@@ -337,7 +337,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 						/*     */ }
 					/*     */
 					/*     */ }
-				/* 280 */ }.runTaskLater(Main.plugin, 5L);
+				/* 280 */ }.runTaskLater(KPPvP.plugin, 5L);
 			/*     */ }
 		/*     */ }
 
@@ -345,7 +345,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	/*     */ @EventHandler
 	/*     */ public void InteractItem(PlayerInteractEntityEvent e)
 	/*     */ {
-		/* 287 */ if ((Habilidade.getAbility(e.getPlayer()).equalsIgnoreCase(Main.cfg_x1.getString("x1.ability"))) &&
+		/* 287 */ if ((Habilidade.getAbility(e.getPlayer()).equalsIgnoreCase(KPPvP.cfg_x1.getString("x1.ability"))) &&
 		/* 288 */ ((e.getRightClicked() instanceof Player)) &&
 		/* 289 */ (e.getPlayer().getItemInHand().getType() == Material.BLAZE_ROD)) {
 			/* 290 */ final Player p = e.getPlayer();
@@ -354,12 +354,12 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 				/* 293 */ if (((String) convites.get(target.getName())).equalsIgnoreCase(p.getName())) {
 					/* 294 */ aceitar(target, p);
 					/* 295 */ } else if (!convites.containsKey(p.getName())) {
-					/* 296 */ p.sendMessage(Main.cfg_x1.getString("x1.msg.invite").replace("$player$", target.getName())
+					/* 296 */ p.sendMessage(KPPvP.cfg_x1.getString("x1.msg.invite").replace("$player$", target.getName())
 							.replace("&", "§"));
-					/* 297 */ target.sendMessage(/* 298 */ Main.cfg_x1.getString("x1.msg.guest")
+					/* 297 */ target.sendMessage(/* 298 */ KPPvP.cfg_x1.getString("x1.msg.guest")
 							.replace("$player$", p.getName()).replace("&", "§"));
 					/* 299 */ convites.put(p.getName(), target.getName());
-					/* 300 */ Bukkit.getServer().getScheduler().runTaskLater(Main.plugin, new BukkitRunnable()
+					/* 300 */ Bukkit.getServer().getScheduler().runTaskLater(KPPvP.plugin, new BukkitRunnable()
 					/*     */ {
 						/*     */ public void run()
 						/*     */ {
@@ -369,15 +369,15 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 							/*     */ }
 						/* 308 */ }, 200L);
 					/*     */ } else {
-					/* 310 */ p.sendMessage(Main.cfg_x1.getString("x1.msg.invite_cooldown").replace("&", "§"));
+					/* 310 */ p.sendMessage(KPPvP.cfg_x1.getString("x1.msg.invite_cooldown").replace("&", "§"));
 					/*     */ }
 				/* 312 */ } else if (!convites.containsKey(p.getName())) {
-				/* 313 */ p.sendMessage(Main.cfg_x1.getString("x1.msg.invite").replace("$player$", target.getName())
+				/* 313 */ p.sendMessage(KPPvP.cfg_x1.getString("x1.msg.invite").replace("$player$", target.getName())
 						.replace("&", "§"));
 				/* 314 */ target.sendMessage(
-						Main.cfg_x1.getString("x1.msg.guest").replace("$player$", p.getName()).replace("&", "§"));
+						KPPvP.cfg_x1.getString("x1.msg.guest").replace("$player$", p.getName()).replace("&", "§"));
 				/* 316 */ convites.put(p.getName(), target.getName());
-				Bukkit.getServer().getScheduler().runTaskLater(Main.plugin,
+				Bukkit.getServer().getScheduler().runTaskLater(KPPvP.plugin,
 						new BukkitRunnable()
 						/*     */ {
 							/*     */ public void run()
@@ -388,7 +388,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 								/*     */ }
 							/* 325 */ }, 200L);
 				/*     */ } else {
-				/* 327 */ p.sendMessage(Main.cfg_x1.getString("x1.msg.invite_cooldown").replace("&", "§"));
+				/* 327 */ p.sendMessage(KPPvP.cfg_x1.getString("x1.msg.invite_cooldown").replace("&", "§"));
 				/*     */ }
 			/*     */ }
 		/*     */ }

@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
@@ -7,7 +8,7 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.API;
 
 public class Mensagens implements Listener {
 	public static void start() {
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable() {
 			String[] msg = {
 
 					"§fAchou um §4§LCHEATER? §fReporte ele utilizando o comando /report",

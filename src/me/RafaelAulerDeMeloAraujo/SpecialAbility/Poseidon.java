@@ -8,7 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffectType;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Poseidon implements Listener {
 	@EventHandler
@@ -17,12 +17,12 @@ public class Poseidon implements Listener {
 		Block b = p.getLocation().getBlock();
 		if ((Habilidade.getAbility(p).equalsIgnoreCase("Poseidon"))
 				&& ((b.getType() == Material.WATER) || (b.getType() == Material.STATIONARY_WATER))) {
-			API.darEfeito(p, PotionEffectType.INCREASE_DAMAGE, Main.kits.getInt("PoseidonStrenghtTime"),
-					Main.kits.getInt("PoseidonStrenghtAmplifier"));
-			API.darEfeito(p, PotionEffectType.DAMAGE_RESISTANCE, Main.kits.getInt("PoseidonDamageResistanceTime"),
-					Main.kits.getInt("PoseidonDamageResistanceAmplifier"));
-			API.darEfeito(p, PotionEffectType.SPEED, Main.kits.getInt("PoseidonSpeedTime"),
-					Main.kits.getInt("PoseidonSpeedAmplifier"));
+			API.darEfeito(p, PotionEffectType.INCREASE_DAMAGE, KPPvP.kits.getInt("PoseidonStrenghtTime"),
+					KPPvP.kits.getInt("PoseidonStrenghtAmplifier"));
+			API.darEfeito(p, PotionEffectType.DAMAGE_RESISTANCE, KPPvP.kits.getInt("PoseidonDamageResistanceTime"),
+					KPPvP.kits.getInt("PoseidonDamageResistanceAmplifier"));
+			API.darEfeito(p, PotionEffectType.SPEED, KPPvP.kits.getInt("PoseidonSpeedTime"),
+					KPPvP.kits.getInt("PoseidonSpeedAmplifier"));
 		}
 	}
 }

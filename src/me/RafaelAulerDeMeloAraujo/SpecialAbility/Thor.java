@@ -17,7 +17,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */ import org.bukkit.event.entity.EntityDamageEvent;
 /*     */ import org.bukkit.event.player.PlayerInteractEvent;
 
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
@@ -41,10 +41,10 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */
 /*     */ public class Thor/*     */ implements Listener
 /*     */ {
-	/*     */ public Main plugin;
+	/*     */ public KPPvP plugin;
 
 	/*     */
-	/*     */ public Thor(Main main)
+	/*     */ public Thor(KPPvP main)
 	/*     */ {
 		/* 49 */ this.plugin = main;
 		/*     */ }
@@ -81,7 +81,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 			p.getWorld().strikeLightning(loc);
 			p.getWorld().strikeLightning(loc);
 			p.getWorld().strikeLightning(loc);
-			/* 80 */ Cooldown.add(p, Main.kits.getInt("ThorCooldown"));
+			/* 80 */ Cooldown.add(p, KPPvP.kits.getInt("ThorCooldown"));
 			/* 81 */ Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this.plugin, new Runnable()
 			/*     */ {
 				/*     */ public void run()
@@ -89,7 +89,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 					/* 85 */ Cooldown.remove(p);
 					/* 86 */ p.sendMessage(API.fimcooldown);
 					/*     */ }
-				/* 88 */ }, Main.kits.getInt("ThorCooldown") * 20);
+				/* 88 */ }, KPPvP.kits.getInt("ThorCooldown") * 20);
 			/*     */ }
 		/*     */ }
 

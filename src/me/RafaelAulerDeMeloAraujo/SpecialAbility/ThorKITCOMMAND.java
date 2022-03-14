@@ -10,16 +10,16 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*    */ import org.bukkit.inventory.ItemStack;
 /*    */ import org.bukkit.inventory.meta.ItemMeta;
 
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class ThorKITCOMMAND implements CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public ThorKITCOMMAND(Main main)
+	/*    */ public ThorKITCOMMAND(KPPvP main)
 	/*    */ {
 		/* 23 */ this.main = main;
 		/* 24 */ plugin = main;
@@ -99,7 +99,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 						Integer.valueOf(60), Integer.valueOf(20), this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Thor"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/* 92 */ return false;

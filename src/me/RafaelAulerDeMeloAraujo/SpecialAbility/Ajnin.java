@@ -12,7 +12,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Ajnin implements Listener {
 	public HashMap<Player, Player> ajinhash;
@@ -30,7 +30,7 @@ public class Ajnin implements Listener {
 			Player t = (Player) e.getEntity();
 			if (Habilidade.getAbility(p).equalsIgnoreCase("Ajnin")) {
 				this.ajinhash.put(p, t);
-				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(KPPvP.getInstace(), new Runnable() {
 					public void run() {
 					}
 				}, 200L);
@@ -57,7 +57,7 @@ public class Ajnin implements Listener {
 					p.sendMessage("§4§lAJNIN: §fVoce puxou " + t.getName() + " §faté você!");
 					t.sendMessage("§4§lAJNIN: §f" + p.getName() + " puxou você com o kit AJNIN!");
 					Cooldown.add(p, 25);
-					Bukkit.getScheduler().scheduleSyncDelayedTask(Main.getInstace(), new Runnable() {
+					Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.getInstace(), new Runnable() {
 						public void run() {
 							p.sendMessage("§2§lCOOLDOWN §aO seu Cooldown acabou");
 						}

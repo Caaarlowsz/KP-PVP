@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
 import me.RafaelAulerDeMeloAraujo.Coins.Coins;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class CombatLog implements Listener {
 	public static HashMap<Player, Player> emcombate;
@@ -47,7 +47,7 @@ public class CombatLog implements Listener {
 				CombatLog.emcombate.put(hitter, p);
 				hitter.sendMessage("§7Voc\u00ea est\u00e1 em combate com §c" + p.getDisplayName());
 				p.sendMessage("§7Voc\u00ea est\u00e1 em combate com §c" + hitter.getDisplayName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.instance, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						CombatLog.emcombate.remove(p);

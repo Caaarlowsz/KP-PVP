@@ -9,7 +9,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffectType;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Fireman implements Listener {
 	@EventHandler
@@ -22,8 +22,8 @@ public class Fireman implements Listener {
 				|| e.getCause() == EntityDamageEvent.DamageCause.FIRE
 				|| e.getCause() == EntityDamageEvent.DamageCause.FIRE_TICK)) {
 			e.setCancelled(true);
-			API.darEfeito(p, PotionEffectType.REGENERATION, Main.kits.getInt("FiremanRegenonLavaTime"),
-					Main.kits.getInt("FiremanRegenonLavaAmplifier"));
+			API.darEfeito(p, PotionEffectType.REGENERATION, KPPvP.kits.getInt("FiremanRegenonLavaTime"),
+					KPPvP.kits.getInt("FiremanRegenonLavaAmplifier"));
 		}
 	}
 
@@ -33,8 +33,8 @@ public class Fireman implements Listener {
 		Block b = p.getLocation().getBlock();
 		if ((Habilidade.getAbility(p).equalsIgnoreCase("Fireman"))
 				&& ((b.getType() == Material.WATER) || (b.getType() == Material.STATIONARY_WATER))) {
-			API.darEfeito(p, PotionEffectType.WEAKNESS, Main.kits.getInt("FiremanWeaknessonWaterTime"),
-					Main.kits.getInt("FiremanWeaknessonWaterAmplifier"));
+			API.darEfeito(p, PotionEffectType.WEAKNESS, KPPvP.kits.getInt("FiremanWeaknessonWaterTime"),
+					KPPvP.kits.getInt("FiremanWeaknessonWaterAmplifier"));
 		}
 	}
 }

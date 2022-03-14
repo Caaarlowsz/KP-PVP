@@ -24,7 +24,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Gladiator implements Listener {
 	public static ArrayList<String> gladgladiator;
@@ -62,7 +62,7 @@ public class Gladiator implements Listener {
 		if (Gladiator.lutando.containsKey(p.getName()) && e.getMessage().startsWith("/")) {
 			e.setCancelled(true);
 			p.sendMessage(
-					String.valueOf(API.NomeServer) + (Main.messages.getString("NoCommandsInGlad").replace("&", "§")));
+					String.valueOf(API.NomeServer) + (KPPvP.messages.getString("NoCommandsInGlad").replace("&", "§")));
 		}
 	}
 
@@ -85,11 +85,11 @@ public class Gladiator implements Listener {
 				if (Gladiator.lutando.containsKey(p.getName()) || Gladiator.lutando.containsKey(r.getName())) {
 					event.setCancelled(true);
 					p.sendMessage(String.valueOf(API.NomeServer)
-							+ (Main.messages.getString("AlreadyInGlad").replace("&", "§")));
+							+ (KPPvP.messages.getString("AlreadyInGlad").replace("&", "§")));
 					return;
 				}
 				if (!Habilidade.ContainsAbility(r) && Join.game.contains(r.getName())) {
-					p.sendMessage(String.valueOf(API.NomeServer) + (Main.messages
+					p.sendMessage(String.valueOf(API.NomeServer) + (KPPvP.messages
 							.getString("Only-Use-Glad-On-Players-That-Have-Choosed-A-Kit").replace("&", "§")));
 					event.setCancelled(true);
 					return;
@@ -112,7 +112,7 @@ public class Gladiator implements Listener {
 								if (!b.isEmpty()) {
 									event.setCancelled(true);
 									p.sendMessage(String.valueOf(API.NomeServer)
-											+ (Main.messages.getString("NoGladCreateArena").replace("&", "§")));
+											+ (KPPvP.messages.getString("NoGladCreateArena").replace("&", "§")));
 									return;
 								}
 								if (bY == 4) {
@@ -145,7 +145,7 @@ public class Gladiator implements Listener {
 					Gladiator.lutando.put(r.getName(), p.getName());
 					Gladiator.gladgladiator.add(p.getName());
 					Gladiator.gladgladiator.add(r.getName());
-					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -158,7 +158,7 @@ public class Gladiator implements Listener {
 									}
 								}
 							}, 2400L);
-					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -175,9 +175,9 @@ public class Gladiator implements Listener {
 										Gladiator.this.oldl.remove(p.getName());
 										Gladiator.this.oldl.remove(r.getName());
 										p.sendMessage(String.valueOf(API.NomeServer)
-												+ (Main.messages.getString("GladNoWinner").replace("&", "§")));
+												+ (KPPvP.messages.getString("GladNoWinner").replace("&", "§")));
 										r.sendMessage(String.valueOf(API.NomeServer)
-												+ (Main.messages.getString("GladNoWinner").replace("&", "§")));
+												+ (KPPvP.messages.getString("GladNoWinner").replace("&", "§")));
 										final Location loc = Gladiator.this.localizacao.get(p);
 										final List<Location> cuboid = new ArrayList<Location>();
 										for (int bX = -8; bX <= 8; ++bX) {
@@ -225,7 +225,7 @@ public class Gladiator implements Listener {
 				&& Gladiator.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getClickedBlock().setType(Material.BEDROCK);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -243,7 +243,7 @@ public class Gladiator implements Listener {
 				&& Gladiator.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getBlock().setType(Material.BEDROCK);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (e.getPlayer().getGameMode() != GameMode.CREATIVE

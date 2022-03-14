@@ -22,7 +22,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */ import org.bukkit.inventory.meta.LeatherArmorMeta;
 /*     */ import org.bukkit.util.Vector;
 
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
@@ -48,7 +48,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 	/* 49 */ public static HashMap<String, ItemStack[]> armadura = new HashMap<>();
 	/* 50 */ public static HashMap<String, ItemStack[]> Armadura2 = new HashMap<>();
 	/* 51 */ public static List<Player> cooldownm = new ArrayList<>();
-	/*     */ public static Main plugin;
+	/*     */ public static KPPvP plugin;
 
 	/*     */
 	/*     */ @EventHandler
@@ -72,7 +72,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				return;
 			}
 
-			/* 74 */ Cooldown.add(p, Main.kits.getInt("DeshfireCooldown"));
+			/* 74 */ Cooldown.add(p, KPPvP.kits.getInt("DeshfireCooldown"));
 			/* 75 */ fall.add(p.getName());
 			/* 76 */ p.setVelocity(p.getEyeLocation().getDirection().multiply(this.boost).add(new Vector(0, 0, 0)));
 			/* 77 */ p.getPlayer().getWorld().playEffect(p.getPlayer().getLocation(), Effect.SMOKE, 10, 0);
@@ -82,7 +82,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 					if (!Habilidade.ContainsAbility((Player) pertos)) {
 						return;
 					}
-					/* 83 */ ((Player) pertos).damage(Main.kits.getDouble("DeshfireDamage"));
+					/* 83 */ ((Player) pertos).damage(KPPvP.kits.getDouble("DeshfireDamage"));
 					/* 84 */ pertos.setVelocity(new Vector(0.1D, 0.0D, 0.1D));
 					/* 85 */ ((Player) pertos).setFireTicks(fire * 20);
 					/*     */ }
@@ -115,7 +115,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 			/* 113 */ p.getInventory().setBoots(Bota);
 			/* 114 */ p.updateInventory();
 			/*     */
-			/* 116 */ Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+			/* 116 */ Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 			/*     */ {
 				/*     */ public void run()
 				/*     */ {
@@ -135,16 +135,16 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 					/*     */ }
 				/* 134 */ }, 60L);
 			/*     */
-			/* 136 */ Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+			/* 136 */ Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 			/*     */ {
 				/*     */ public void run()
 				/*     */ {
 					/* 140 */ Cooldown.remove(p);
 					/*     */
-					/* 142 */ p.sendMessage((Main.messages.getString("DeshFireCooldownEnd").replace("&", "§")));
+					/* 142 */ p.sendMessage((KPPvP.messages.getString("DeshFireCooldownEnd").replace("&", "§")));
 					/*     */ }
 				/*     */
-				/* 145 */ }, Main.kits.getInt("DeshfireCooldown") * 20);
+				/* 145 */ }, KPPvP.kits.getInt("DeshfireCooldown") * 20);
 			/*     */ }
 		/*     */ }
 

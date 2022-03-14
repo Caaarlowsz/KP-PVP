@@ -15,16 +15,16 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*    */ import org.bukkit.event.player.PlayerMoveEvent;
 /*    */ import org.bukkit.util.Vector;
 
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class Sponge/*    */ implements Listener
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public Sponge(Main main)
+	/*    */ public Sponge(KPPvP main)
 	/*    */ {
 		/* 31 */ this.main = main;
 		/* 32 */ plugin = main;
@@ -37,7 +37,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 
 	/*    */
 	public void Atirar(Player p) {
-		int y = Main.getInstance().getConfig().getInt("SpongeBoostAmplifier");
+		int y = KPPvP.getInstance().getConfig().getInt("SpongeBoostAmplifier");
 		Block block = p.getLocation().getBlock().getRelative(0, -1, 0);
 		if (block.getType() == Material.ENDER_PORTAL_FRAME && Join.game.contains(p.getName())) {
 			Vector vector = new Vector(0, y, 0);

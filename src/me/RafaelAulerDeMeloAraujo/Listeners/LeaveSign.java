@@ -9,13 +9,13 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 @SuppressWarnings("unused")
 public class LeaveSign implements Listener {
-	private Main plugin;
+	private KPPvP plugin;
 
-	public LeaveSign(Main main) {
+	public LeaveSign(KPPvP main) {
 		this.plugin = main;
 	}
 
@@ -26,10 +26,10 @@ public class LeaveSign implements Listener {
 	public void onSignChange(SignChangeEvent e) {
 		if (e.getLine(0).equalsIgnoreCase("[kp]") && (e.getLine(1).equalsIgnoreCase("leave"))
 				&& e.getPlayer().hasPermission("kitpvp.createsigns")) {
-			e.setLine(0, Main.messages.getString("LeaveSignLine1").replace("&", "§"));
-			e.setLine(1, Main.messages.getString("LeaveSignLine2").replace("&", "§"));
-			e.setLine(2, Main.messages.getString("LeaveSignLine3").replace("&", "§"));
-			e.setLine(3, Main.messages.getString("LeaveSignLine4").replace("&", "§"));
+			e.setLine(0, KPPvP.messages.getString("LeaveSignLine1").replace("&", "§"));
+			e.setLine(1, KPPvP.messages.getString("LeaveSignLine2").replace("&", "§"));
+			e.setLine(2, KPPvP.messages.getString("LeaveSignLine3").replace("&", "§"));
+			e.setLine(3, KPPvP.messages.getString("LeaveSignLine4").replace("&", "§"));
 		}
 	}
 
@@ -41,13 +41,13 @@ public class LeaveSign implements Listener {
 						|| (e.getClickedBlock().getType() == Material.SIGN_POST))) {
 			Sign s = (Sign) e.getClickedBlock().getState();
 			String[] lines = s.getLines();
-			if ((lines.length > 0) && (lines[0].equals(Main.messages.getString("LeaveSignLine1").replace("&", "§"))
+			if ((lines.length > 0) && (lines[0].equals(KPPvP.messages.getString("LeaveSignLine1").replace("&", "§"))
 					&& (lines.length > 1)
-					&& (lines[1].equals(Main.messages.getString("LeaveSignLine2").replace("&", "§"))
+					&& (lines[1].equals(KPPvP.messages.getString("LeaveSignLine2").replace("&", "§"))
 							&& (lines.length > 2)
-							&& (lines[2].equals(Main.messages.getString("LeaveSignLine3").replace("&", "§"))
+							&& (lines[2].equals(KPPvP.messages.getString("LeaveSignLine3").replace("&", "§"))
 									&& (lines.length > 3) && (lines[3]
-											.equals(Main.messages.getString("LeaveSignLine4").replace("&", "§"))))))) {
+											.equals(KPPvP.messages.getString("LeaveSignLine4").replace("&", "§"))))))) {
 				p.chat("/kitpvp leave");
 			}
 		}

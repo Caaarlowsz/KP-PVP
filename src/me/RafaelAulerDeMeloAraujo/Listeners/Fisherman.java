@@ -12,16 +12,16 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 /*    */
 /*    */ import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */
 /*    */ public class Fisherman implements Listener
 /*    */ {
-	/*    */ private Main main;
+	/*    */ private KPPvP main;
 
 	/*    */
-	/*    */ public Fisherman(Main main)
+	/*    */ public Fisherman(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/*    */ }

@@ -27,15 +27,15 @@ import org.bukkit.ChatColor;
 /*     */ import org.bukkit.util.Vector;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */ public class Kangaroo implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Kangaroo(Main main)
+	/*     */ public Kangaroo(KPPvP main)
 	/*     */ {
 		/* 41 */ this.main = main;
 		/* 42 */ plugin = main;
@@ -64,7 +64,7 @@ import org.bukkit.ChatColor;
 			/* 61 */ if (Gladiator.lutando.containsKey(p.getName())) {
 				/* 62 */ p.sendMessage(String.valueOf("§cYou enter in a gladiator arena! You win a Speed Effect"));
 				/*     */
-				/* 64 */ Main.darEfeito(p, org.bukkit.potion.PotionEffectType.SPEED, 10, 2);
+				/* 64 */ KPPvP.darEfeito(p, org.bukkit.potion.PotionEffectType.SPEED, 10, 2);
 				/*     */ }
 			/*     */ else
 			/*     */ {
@@ -101,7 +101,7 @@ import org.bukkit.ChatColor;
 					/*     */ }
 				/*     */
 				/* 100 */ if (this.naofugir.contains(p.getName())) {
-					/* 101 */ p.sendMessage(Main.messages.getString("KangarooCooldown").replace("&", "§"));
+					/* 101 */ p.sendMessage(KPPvP.messages.getString("KangarooCooldown").replace("&", "§"));
 					/*     */ }
 				/*     */ }
 			/*     */ }
@@ -153,7 +153,7 @@ import org.bukkit.ChatColor;
 			/* 147 */ (kangaroo.getInventory().contains(Material.FIREWORK)))
 			/*     */ {
 				/* 149 */ this.naofugir.add(kangaroo.getName());
-				/* 150 */ org.bukkit.Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.getInstance(),
+				/* 150 */ org.bukkit.Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(KPPvP.getInstance(),
 						new Runnable()
 						/*     */ {
 							/*     */ public void run()
@@ -232,7 +232,7 @@ import org.bukkit.ChatColor;
 						Sound.valueOf(this.main.getConfig().getString("Sound.NoPermissionMessage")), 1.0F, 1.0F);
 				/* 216 */ return true;
 				/*     */ }
-			if (Main.kits.getBoolean("KangarooDisabled")) {
+			if (KPPvP.kits.getBoolean("KangarooDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Kangaroo kit is disabled, sorry");
 				return true;
 			}
@@ -263,7 +263,7 @@ import org.bukkit.ChatColor;
 				/*     */ }
 			/*     */ }
 		/*     */ RTP.TeleportArenaRandom(p);
-		Main.give(p);
+		KPPvP.give(p);
 		/* 243 */ TitleAPI.sendTitle(p, Integer.valueOf(20), Integer.valueOf(60), Integer.valueOf(20),
 				this.main.getConfig().getString("Title.KitTitle"),
 				this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Kangaroo"));

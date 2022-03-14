@@ -1,17 +1,18 @@
 /*    */
 package me.RafaelAulerDeMeloAraujo.main;
 
-/*    */ import org.bukkit.command.Command;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
+import org.bukkit.command.Command;
 /*    */ import org.bukkit.command.CommandExecutor;
 /*    */ import org.bukkit.command.CommandSender;
 
 /*    */
 /*    */ public class KitCredits implements CommandExecutor
 /*    */ {
-	/*    */ static Main plugin;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public KitCredits(Main main)
+	/*    */ public KitCredits(KPPvP main)
 	/*    */ {
 		/* 18 */ plugin = main;
 		/*    */ }
@@ -26,7 +27,7 @@ package me.RafaelAulerDeMeloAraujo.main;
 			/* 27 */ sender.sendMessage("§4§l\u274C §2§lCREDITS §f§lAND §e§lINFORMATION §4§l \u274C");
 			/* 28 */ sender.sendMessage("§6\u279C §cPlugin Name: §eKP-PVP");
 			/* 29 */ sender.sendMessage(
-					"§6\u279C §cPlugin Version: §e " + Main.getInstance().getDescription().getVersion());
+					"§6\u279C §cPlugin Version: §e " + KPPvP.getInstance().getDescription().getVersion());
 			/* 30 */ sender.sendMessage("§6\u279C §cAuthor: §ezEnderX5_ , Rafael Auler");
 			/* 31 */ sender.sendMessage("§6\u279C §cAuthor Channel: http://bit.ly/2kC345B");
 			/* 32 */ sender.sendMessage("§6\u279C §cSpigot Profile: http://bit.ly/2j5qvnM");

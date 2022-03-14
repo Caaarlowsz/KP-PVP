@@ -11,16 +11,16 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*    */ import org.bukkit.inventory.meta.ItemMeta;
 
 /*    */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class TimelordCMD implements CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public TimelordCMD(Main main)
+	/*    */ public TimelordCMD(KPPvP main)
 	/*    */ {
 		/* 24 */ this.main = main;
 		/* 25 */ plugin = main;
@@ -101,7 +101,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 						this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Timelord"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/* 93 */ return false;

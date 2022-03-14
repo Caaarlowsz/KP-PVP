@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Sound;
@@ -17,9 +18,9 @@ import me.RafaelAulerDeMeloAraujo.SpecialAbility.API;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
 
 public class AntiDeathDrop implements Listener {
-	private Main main;
+	private KPPvP main;
 
-	public AntiDeathDrop(Main main) {
+	public AntiDeathDrop(KPPvP main) {
 		this.main = main;
 	}
 
@@ -53,45 +54,45 @@ public class AntiDeathDrop implements Listener {
 				e.getDrops().clear();
 				e.setDeathMessage("");
 				p.sendMessage(String.valueOf(API.NomeServer
-						+ Main.getInstace().getConfig().getString("Death.Tell").replaceAll("%player%", k.getName())));
+						+ KPPvP.getInstace().getConfig().getString("Death.Tell").replaceAll("%player%", k.getName())));
 				k.sendMessage(String.valueOf(API.NomeServer
-						+ Main.getInstace().getConfig().getString("Kill.Tell").replaceAll("%player%", p.getName())));
+						+ KPPvP.getInstace().getConfig().getString("Kill.Tell").replaceAll("%player%", p.getName())));
 				p.sendMessage(
-						String.valueOf(API.NomeServer + "§a-" + Main.customization.getInt("XPLost-OnDeath") + "XP"));
+						String.valueOf(API.NomeServer + "§a-" + KPPvP.customization.getInt("XPLost-OnDeath") + "XP"));
 				if (k.hasPermission("kitpvp.doublexp")) {
-					XP.addXP(k.getName(), Main.customization.getDouble("XPEarned-OnKill") * 2);
+					XP.addXP(k.getName(), KPPvP.customization.getDouble("XPEarned-OnKill") * 2);
 					k.sendMessage(String.valueOf(
-							API.NomeServer + "§a+" + Main.customization.getInt("XPEarned-OnKill") * 2 + "XP (2X)"));
+							API.NomeServer + "§a+" + KPPvP.customization.getInt("XPEarned-OnKill") * 2 + "XP (2X)"));
 				} else {
-					XP.addXP(k.getName(), Main.customization.getDouble("XPEarned-OnKill"));
+					XP.addXP(k.getName(), KPPvP.customization.getDouble("XPEarned-OnKill"));
 					k.sendMessage(String
-							.valueOf(API.NomeServer + "§a+" + Main.customization.getInt("XPEarned-OnKill") + "XP"));
+							.valueOf(API.NomeServer + "§a+" + KPPvP.customization.getInt("XPEarned-OnKill") + "XP"));
 				}
-				XP.removeXP(p.getName(), Main.customization.getDouble("XPLost-OnDeath"));
+				XP.removeXP(p.getName(), KPPvP.customization.getDouble("XPLost-OnDeath"));
 				k.playSound(k.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.Respawn")), 6.0F,
 						1.0F);
 				XP.saveXP();
 				XP.loadXP();
 				if (k.hasPermission("kitpvp.doublecoins")) {
-					Coins.addCoins(k.getName(), Main.customization.getDouble("Earned-Coins-Per-Kill") * 2);
+					Coins.addCoins(k.getName(), KPPvP.customization.getDouble("Earned-Coins-Per-Kill") * 2);
 					k.sendMessage(String
-							.valueOf(API.NomeServer + Main.messages.getString("CoinsDoubled").replace("%coins%",
-									String.valueOf(Main.customization.getDouble("Earned-Coins-Per-Kill") * 2)))
+							.valueOf(API.NomeServer + KPPvP.messages.getString("CoinsDoubled").replace("%coins%",
+									String.valueOf(KPPvP.customization.getDouble("Earned-Coins-Per-Kill") * 2)))
 							.replace("&", "§"));
 				} else {
-					Coins.addCoins(k.getName(), Main.customization.getDouble("Earned-Coins-Per-Kill"));
+					Coins.addCoins(k.getName(), KPPvP.customization.getDouble("Earned-Coins-Per-Kill"));
 				}
-				Coins.removeCoins(p.getName(), Main.customization.getDouble("Lost-Coins-Per-Death"));
+				Coins.removeCoins(p.getName(), KPPvP.customization.getDouble("Lost-Coins-Per-Death"));
 				Coins.saveCoins();
 				Coins.loadCoins();
 				API.tirarEfeitos(p);
-				int mortes = Main.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
-				Main.plugin.getConfig().set("status." + p.getName().toLowerCase() + ".deaths",
+				int mortes = KPPvP.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
+				KPPvP.plugin.getConfig().set("status." + p.getName().toLowerCase() + ".deaths",
 						Integer.valueOf(mortes + 1));
-				int kills = Main.plugin.getConfig().getInt("status." + k.getName().toLowerCase() + ".kills");
-				Main.plugin.getConfig().set("status." + k.getName().toLowerCase() + ".kills",
+				int kills = KPPvP.plugin.getConfig().getInt("status." + k.getName().toLowerCase() + ".kills");
+				KPPvP.plugin.getConfig().set("status." + k.getName().toLowerCase() + ".kills",
 						Integer.valueOf(kills + 1));
-				Main.plugin.saveConfig();
+				KPPvP.plugin.saveConfig();
 				Bukkit.getConsoleSender()
 						.sendMessage("§e" + p.getName() + " has been killed by " + k.getName() + " on kitpvp");
 			}
@@ -101,31 +102,31 @@ public class AntiDeathDrop implements Listener {
 	@EventHandler
 	public void Drop(ItemDespawnEvent e) {
 
-		Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+		Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 		/*     */ {
 			public void run()
 
 			/*     */ {
-				World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("Spawn.World"));
+				World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
 				if (e.getEntity().getWorld().getName().equals(w.getName())
-						&& (Main.getInstace().getConfig().getString("ClearItemsOnGround").equalsIgnoreCase("true"))) {
+						&& (KPPvP.getInstace().getConfig().getString("ClearItemsOnGround").equalsIgnoreCase("true"))) {
 					e.getEntity().remove();
 					e.getEntity().getWorld().playEffect(e.getEntity().getLocation(), Effect.SMOKE, 2);
 					e.getEntity().getWorld().playSound(e.getEntity().getLocation(),
-							Sound.valueOf(Main.getInstace().getConfig().getString("Sound.ItemDespawn")), 2.0F, 2.0F);
+							Sound.valueOf(KPPvP.getInstace().getConfig().getString("Sound.ItemDespawn")), 2.0F, 2.0F);
 					/*     */ }
 				/* 167 */ }
 		}, 20 * this.main.getConfig().getInt(("ClearInterval")));
 		/*     */ }
 
 	public static int GetKills(Player p) {
-		int kills = Main.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".kills");
+		int kills = KPPvP.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".kills");
 
 		return kills;
 	}
 
 	public static int GetDeaths(Player p) {
-		int deaths = Main.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
+		int deaths = KPPvP.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
 		return deaths;
 	}
 }

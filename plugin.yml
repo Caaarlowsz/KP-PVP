@@ -1,5 +1,5 @@
 name: KP-PVP
-main: me.RafaelAulerDeMeloAraujo.main.Main
+main: com.github.caaarlowsz.kpmc.kitpvp.Main
 version: BR
 author: zEnderX5_ , Rafael Auler
 softdepend: [PlaceholderAPI , MVdWPlaceholderAPI]

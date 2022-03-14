@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 import org.bukkit.configuration.file.YamlConfiguration;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class XP {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -17,13 +17,13 @@ public class XP {
 	}
 
 	public static Double getXP(String player) {
-		File playersfile = new File(Main.plugin.getDataFolder() + File.separator, "user-data.yml");
+		File playersfile = new File(KPPvP.plugin.getDataFolder() + File.separator, "user-data.yml");
 		YamlConfiguration players = YamlConfiguration.loadConfiguration(playersfile);
 		return Double.valueOf(players.getDouble("XP." + player));
 	}
 
 	public static boolean hasAccount(String player) {
-		File playersfile = new File(Main.plugin.getDataFolder() + File.separator, "user-data.yml");
+		File playersfile = new File(KPPvP.plugin.getDataFolder() + File.separator, "user-data.yml");
 		YamlConfiguration players = YamlConfiguration.loadConfiguration(playersfile);
 		return players.contains(player);
 	}
@@ -44,7 +44,7 @@ public class XP {
 	}
 
 	public static void saveXP() {
-		File playersfile = new File(Main.plugin.getDataFolder() + File.separator, "user-data.yml");
+		File playersfile = new File(KPPvP.plugin.getDataFolder() + File.separator, "user-data.yml");
 		YamlConfiguration players = YamlConfiguration.loadConfiguration(playersfile);
 		for (String p : getCoinsMap().keySet()) {
 			players.set("XP." + p, getCoinsMap().get(p));
@@ -57,7 +57,7 @@ public class XP {
 	}
 
 	public static void loadXP() {
-		File playersfile = new File(Main.plugin.getDataFolder() + File.separator, "user-data.yml");
+		File playersfile = new File(KPPvP.plugin.getDataFolder() + File.separator, "user-data.yml");
 		YamlConfiguration.loadConfiguration(playersfile);
 	}
 }

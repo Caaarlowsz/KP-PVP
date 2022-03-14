@@ -28,7 +28,7 @@ import org.bukkit.potion.PotionEffect;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 /*     */ import me.RafaelAulerDeMeloAraujo.X1.X1;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
@@ -49,17 +49,17 @@ import org.bukkit.potion.PotionEffect;
 
 	/*     */
 	/*     */
-	/*     */ private Main main;
+	/*     */ private KPPvP main;
 	/*     */
 	/*     */
 	/*     */
-	/*     */ static Main plugin;
+	/*     */ static KPPvP plugin;
 
 	/*     */
 	/*     */
 	/*     */
 	/*     */
-	/*     */ public Join(Main main)
+	/*     */ public Join(KPPvP main)
 	/*     */ {
 		/* 61 */ this.main = main;
 		/* 62 */ plugin = main;
@@ -137,7 +137,7 @@ import org.bukkit.potion.PotionEffect;
 				/* 27 */ sender.sendMessage("§4§l\u274C §2§lCREDITS §f§lAND §e§lINFORMATION §4§l \u274C");
 				/* 28 */ sender.sendMessage("§6\u279C §cPlugin Name: §eKP-PVP");
 				/* 29 */ sender.sendMessage(
-						"§6\u279C §cPlugin Version: §e " + Main.getInstance().getDescription().getVersion());
+						"§6\u279C §cPlugin Version: §e " + KPPvP.getInstance().getDescription().getVersion());
 				/* 30 */ sender.sendMessage("§6\u279C §cAuthor: §ezEnderX5_ , Rafael Auler");
 				/* 31 */ sender.sendMessage("§6\u279C §cAuthor Channel: http://bit.ly/2kC345B");
 				/* 32 */ sender.sendMessage("§6\u279C §cSpigot Profile: http://bit.ly/2j5qvnM");
@@ -185,7 +185,7 @@ import org.bukkit.potion.PotionEffect;
 				/* 149 */ sender.sendMessage("§c[KitPvP] §eThe plugin may has a update.");
 				/* 150 */ sender.sendMessage("§c[KitPvP] §eVerify it here.");
 				/* 151 */ sender.sendMessage(
-						"§c[KitPvP] §eYour version: " + Main.getInstance().getDescription().getVersion());
+						"§c[KitPvP] §eYour version: " + KPPvP.getInstance().getDescription().getVersion());
 				/* 152 */ sender.sendMessage("§c[KitPvP] §eIf your version is lower than the last update");
 				/* 153 */ sender.sendMessage("§c[KitPvP] §eYou should update your plugin");
 				/* 154 */ sender.sendMessage("§c[KitPvP] §eLink: http://bit.ly/2tIEzvJ");
@@ -228,13 +228,13 @@ import org.bukkit.potion.PotionEffect;
 				/* 80 */ Gladiator.lutando.remove(p.getName());
 				/* 81 */ Gladiator.gladgladiator.remove(p.getName());
 				/* 82 */ org.bukkit.World w = org.bukkit.Bukkit.getServer()
-						.getWorld(Main.plugin.getConfig().getString("Spawn.World"));
-				/* 83 */ double x = Main.plugin.getConfig().getDouble("Spawn.X");
-				/* 84 */ double y = Main.plugin.getConfig().getDouble("Spawn.Y");
-				/* 85 */ double z = Main.plugin.getConfig().getDouble("Spawn.Z");
+						.getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
+				/* 83 */ double x = KPPvP.plugin.getConfig().getDouble("Spawn.X");
+				/* 84 */ double y = KPPvP.plugin.getConfig().getDouble("Spawn.Y");
+				/* 85 */ double z = KPPvP.plugin.getConfig().getDouble("Spawn.Z");
 				/* 86 */ Location lobby = new Location(w, x, y, z);
-				/* 87 */ lobby.setPitch((float) Main.plugin.getConfig().getDouble("Spawn.Pitch"));
-				/* 88 */ lobby.setYaw((float) Main.plugin.getConfig().getDouble("Spawn.Yaw"));
+				/* 87 */ lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("Spawn.Pitch"));
+				/* 88 */ lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("Spawn.Yaw"));
 				/* 89 */ p.getInventory().clear();
 				/* 90 */ p.teleport(lobby);
 				/*     */
@@ -242,24 +242,24 @@ import org.bukkit.potion.PotionEffect;
 				/* 93 */ p.getInventory().setBoots(new ItemStack(Material.AIR));
 				ItemStack kits1 = new ItemStack(Material.CHEST);
 				/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-				/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+				/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 				/* 98 */ kits1.setItemMeta(kits12);
 				/* 95 */ ItemStack kits = new ItemStack(Material.DIAMOND);
 				/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-				/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+				/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 				/* 98 */ kits.setItemMeta(kits2);
 				/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 				/* 100 */ ItemMeta st2 = st.getItemMeta();
-				/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+				/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 				/* 102 */ st.setItemMeta(st2);
 				ItemStack stats = new ItemStack(Material.NAME_TAG);
 				/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-				/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+				/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 				/* 229 */ stats.setItemMeta(stats2);
 
 				ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 				/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-				/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+				/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 				/* 229 */ stats1.setItemMeta(stats12);
 
 				/* 103 */
@@ -332,10 +332,10 @@ import org.bukkit.potion.PotionEffect;
 				/*     */
 				/*     */
 				/*     */
-				/* 200 */ World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("Spawn.World"));
-				/* 201 */ double x = Main.plugin.getConfig().getDouble("Spawn.X");
-				/* 202 */ double y = Main.plugin.getConfig().getDouble("Spawn.Y");
-				/* 203 */ double z = Main.plugin.getConfig().getDouble("Spawn.Z");
+				/* 200 */ World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
+				/* 201 */ double x = KPPvP.plugin.getConfig().getDouble("Spawn.X");
+				/* 202 */ double y = KPPvP.plugin.getConfig().getDouble("Spawn.Y");
+				/* 203 */ double z = KPPvP.plugin.getConfig().getDouble("Spawn.Z");
 				/* 204 */ Location lobby = new Location(w, x, y, z);
 				/* 205 */ saveworld.put(p.getName(), p.getLocation());
 
@@ -345,8 +345,8 @@ import org.bukkit.potion.PotionEffect;
 				/*     */ savelevel.put(p.getName(), p.getLevel());
 
 				/*     */
-				/* 211 */ lobby.setPitch((float) Main.plugin.getConfig().getDouble("Spawn.Pitch"));
-				/* 212 */ lobby.setYaw((float) Main.plugin.getConfig().getDouble("Spawn.Yaw"));
+				/* 211 */ lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("Spawn.Pitch"));
+				/* 212 */ lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("Spawn.Yaw"));
 				/* 213 */ p.getInventory().clear();
 				/*     */
 				/*     */
@@ -357,24 +357,24 @@ import org.bukkit.potion.PotionEffect;
 				/* 220 */ p.getInventory().setArmorContents(null);
 				ItemStack kits1 = new ItemStack(Material.CHEST);
 				/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-				/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+				/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 				/* 98 */ kits1.setItemMeta(kits12);
 				/* 95 */ ItemStack kits = new ItemStack(Material.DIAMOND);
 				/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-				/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+				/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 				/* 98 */ kits.setItemMeta(kits2);
 				/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 				/* 100 */ ItemMeta st2 = st.getItemMeta();
-				/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+				/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 				/* 102 */ st.setItemMeta(st2);
 				ItemStack stats = new ItemStack(Material.NAME_TAG);
 				/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-				/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+				/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 				/* 229 */ stats.setItemMeta(stats2);
 
 				ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 				/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-				/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+				/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 				/* 229 */ stats1.setItemMeta(stats12);
 
 				/* 103 */
@@ -441,14 +441,14 @@ import org.bukkit.potion.PotionEffect;
 				|| (e.getMessage().equalsIgnoreCase("/kp leave"))) {
 			/* 272 */ e.setCancelled(true);
 			if ((!game.contains(e.getPlayer().getName()))) {
-				p.sendMessage(API.NomeServer + Main.messages.getString("MustBeInGame").replace("&", "§"));
+				p.sendMessage(API.NomeServer + KPPvP.messages.getString("MustBeInGame").replace("&", "§"));
 				return true;
 			}
 			if (p.getGameMode().equals(GameMode.SPECTATOR)) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "You need to respawn first to after leave the kitpvp!");
 				return true;
 			}
-			if (Main.plugin.getConfig().getBoolean("bungeemode")) {
+			if (KPPvP.plugin.getConfig().getBoolean("bungeemode")) {
 				p.sendMessage(
 						API.NomeServer + ChatColor.RED + "You cant leave the kitpvp because bungee mode is enabled");
 				return true;

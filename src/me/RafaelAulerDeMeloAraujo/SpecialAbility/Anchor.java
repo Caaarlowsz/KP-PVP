@@ -18,16 +18,16 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.util.Vector;
 
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class Anchor implements org.bukkit.command.CommandExecutor, Listener
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public Anchor(Main main)
+	/*    */ public Anchor(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/* 21 */ plugin = main;
@@ -47,7 +47,7 @@ import org.bukkit.util.Vector;
 			p.setVelocity(new Vector());
 			a.playSound(a.getLocation(), org.bukkit.Sound.valueOf(this.main.getConfig().getString("Sound.AnchorHit")),
 					4.0F, 4.0F);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(KPPvP.instance, new Runnable() {
 				public void run() {
 					p.setVelocity(new Vector());
 				}
@@ -57,7 +57,7 @@ import org.bukkit.util.Vector;
 			a.playSound(a.getLocation(), org.bukkit.Sound.valueOf(this.main.getConfig().getString("Sound.AnchorHit")),
 					4.0F, 4.0F);
 			p.setVelocity(new Vector());
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() {
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(KPPvP.instance, new Runnable() {
 				public void run() {
 					p.setVelocity(new Vector());
 				}
@@ -96,7 +96,7 @@ import org.bukkit.util.Vector;
 						+ " §eYou are not in kitpvp to choose this kit!");
 				/* 42 */ return true;
 				/*    */ }
-			if (Main.kits.getBoolean("AnchorDisabled")) {
+			if (KPPvP.kits.getBoolean("AnchorDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Anchor kit is disabled, sorry");
 				return true;
 			}
@@ -138,7 +138,7 @@ import org.bukkit.util.Vector;
 						Integer.valueOf(60), Integer.valueOf(20), this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Anchor"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/*    */

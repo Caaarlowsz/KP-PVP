@@ -20,16 +20,16 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */ import org.bukkit.potion.PotionEffectType;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */ public class Viper/*     */ implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Viper(Main main)
+	/*     */ public Viper(KPPvP main)
 	/*     */ {
 		/* 33 */ this.main = main;
 		/* 34 */ plugin = main;
@@ -53,9 +53,9 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				}
 				/* 46 */ Random rand = new Random();
 				/* 47 */ int percent = rand.nextInt(100);
-				/* 48 */ if (percent <= Main.kits.getInt("ViperChance")) {
+				/* 48 */ if (percent <= KPPvP.kits.getInt("ViperChance")) {
 					/* 49 */ entity.addPotionEffect(
-							new PotionEffect(PotionEffectType.POISON, Main.kits.getInt("ViperPoisonTime") * 20, 1));
+							new PotionEffect(PotionEffectType.POISON, KPPvP.kits.getInt("ViperPoisonTime") * 20, 1));
 					/* 50 */ return;
 					/*     */ }
 				/* 52 */ return;
@@ -129,7 +129,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 						this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Viper"));
 				/*     */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*     */ }
 		/* 113 */ return false;
 		/*     */ }

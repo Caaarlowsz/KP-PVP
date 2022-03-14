@@ -20,7 +20,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */ import org.bukkit.potion.PotionEffectType;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
@@ -29,11 +29,11 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */
 /*     */ public class Naruto/*     */ implements CommandExecutor, Listener
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Naruto(Main main)
+	/*     */ public Naruto(KPPvP main)
 	/*     */ {
 		/* 38 */ this.main = main;
 		/* 39 */ plugin = main;
@@ -60,15 +60,15 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 55 */ p.updateInventory();
 				/*     */
 				/* 57 */ p.sendMessage(String.valueOf(this.main.getConfig().getString("Prefix").replace("&", "§")
-						+ ChatColor.RED + Main.messages.getString("NarutoUse").replace("&", "§")));
-				API.darEfeito(p, PotionEffectType.REGENERATION, Main.kits.getInt("NarutoRegenTime"),
-						Main.kits.getInt("NarutoRegenAmplifier"));
-				API.darEfeito(p, PotionEffectType.SPEED, Main.kits.getInt("NarutoSpeedTime"),
-						Main.kits.getInt("NarutoSpeedAmplifier"));
+						+ ChatColor.RED + KPPvP.messages.getString("NarutoUse").replace("&", "§")));
+				API.darEfeito(p, PotionEffectType.REGENERATION, KPPvP.kits.getInt("NarutoRegenTime"),
+						KPPvP.kits.getInt("NarutoRegenAmplifier"));
+				API.darEfeito(p, PotionEffectType.SPEED, KPPvP.kits.getInt("NarutoSpeedTime"),
+						KPPvP.kits.getInt("NarutoSpeedAmplifier"));
 				/* 61 */ p.playSound(p.getLocation(),
 						Sound.valueOf(this.main.getConfig().getString("Sound.NarutoAbility")), 1.0F, 1.0F);
 				/* 62 */ cooldown.put(p.getName(), Long.valueOf(
-						System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(Main.kits.getLong("NarutoCooldown"))));
+						System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(KPPvP.kits.getLong("NarutoCooldown"))));
 				/* 63 */ return;
 				/*     */ }
 			/* 65 */ p.sendMessage(String.valueOf(
@@ -158,7 +158,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				this.main.getConfig().getString("Title.KitTitle"),
 				this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Naruto"));
 		/*     */ RTP.TeleportArenaRandom(p);
-		Main.give(p);
+		KPPvP.give(p);
 		/* 137 */ return false;
 		/*     */ }
 	/*     */ }

@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,13 +18,13 @@ public class setpotpvp implements CommandExecutor {
 			if (!p.hasPermission("kitpvp.setspawn")) {
 				return true;
 			}
-			Main.plugin.getConfig().set("POT.World", p.getLocation().getWorld().getName());
-			Main.plugin.getConfig().set("POT.X", Double.valueOf(p.getLocation().getX()));
-			Main.plugin.getConfig().set("POT.Y", Double.valueOf(p.getLocation().getY()));
-			Main.plugin.getConfig().set("POT.Z", Double.valueOf(p.getLocation().getZ()));
-			Main.plugin.getConfig().set("POT.Pitch", Float.valueOf(p.getLocation().getPitch()));
-			Main.plugin.getConfig().set("POT.Yaw", Float.valueOf(p.getLocation().getYaw()));
-			Main.plugin.saveConfig();
+			KPPvP.plugin.getConfig().set("POT.World", p.getLocation().getWorld().getName());
+			KPPvP.plugin.getConfig().set("POT.X", Double.valueOf(p.getLocation().getX()));
+			KPPvP.plugin.getConfig().set("POT.Y", Double.valueOf(p.getLocation().getY()));
+			KPPvP.plugin.getConfig().set("POT.Z", Double.valueOf(p.getLocation().getZ()));
+			KPPvP.plugin.getConfig().set("POT.Pitch", Float.valueOf(p.getLocation().getPitch()));
+			KPPvP.plugin.getConfig().set("POT.Yaw", Float.valueOf(p.getLocation().getYaw()));
+			KPPvP.plugin.saveConfig();
 
 			p.sendMessage(API.NomeServer + "POT SETADA COM SUCESSO!");
 			return true;

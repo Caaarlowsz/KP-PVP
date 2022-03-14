@@ -11,15 +11,15 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*    */ import org.bukkit.event.player.PlayerInteractEvent;
 /*    */ import org.bukkit.event.player.PlayerMoveEvent;
 
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class TimeLord implements org.bukkit.event.Listener
 /*    */ {
-	/*    */ static Main plugin;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public TimeLord(Main main)
+	/*    */ public TimeLord(KPPvP main)
 	/*    */ {
 		/* 23 */ plugin = main;
 		/*    */ }
@@ -42,33 +42,33 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 37 */ return;
 				/*    */ }
 
-			/* 39 */ Cooldown.add(p, Main.kits.getInt("TimelordCooldown"));
+			/* 39 */ Cooldown.add(p, KPPvP.kits.getInt("TimelordCooldown"));
 			/* 40 */ p.sendMessage(
-					String.valueOf(API.NomeServer) + Main.messages.getString("TimelordUse").replace("&", "§"));
-			/* 41 */ for (final Entity pertos : p.getNearbyEntities(Main.kits.getDouble("TimelordRadius"),
-					Main.kits.getDouble("TimelordRadius"), Main.kits.getDouble("TimelordRadius"))) {
+					String.valueOf(API.NomeServer) + KPPvP.messages.getString("TimelordUse").replace("&", "§"));
+			/* 41 */ for (final Entity pertos : p.getNearbyEntities(KPPvP.kits.getDouble("TimelordRadius"),
+					KPPvP.kits.getDouble("TimelordRadius"), KPPvP.kits.getDouble("TimelordRadius"))) {
 				if (pertos instanceof Player) {
 					if (!Habilidade.ContainsAbility((Player) pertos)) {
 						return;
 					}
 					/* 42 */ playercongelados.add(((Player) pertos).getName());
 					/* 43 */ ((Player) pertos).sendMessage(String.valueOf(API.NomeServer)
-							+ Main.messages.getString("Timelordfrozen").replace("&", "§"));
-					/* 45 */ org.bukkit.Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+							+ KPPvP.messages.getString("Timelordfrozen").replace("&", "§"));
+					/* 45 */ org.bukkit.Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 					/*    */ {
 						/*    */ public void run() {
 							/* 48 */ TimeLord.playercongelados.remove(((Player) pertos).getName());
 							/* 49 */ ((Player) pertos).sendMessage(String.valueOf(API.NomeServer)
-									+ Main.messages.getString("TimelordUnfrozen").replace("&", "§"));
+									+ KPPvP.messages.getString("TimelordUnfrozen").replace("&", "§"));
 							/*    */ }
 						/* 51 */ }, 160L);
 					/*    */ {
-						/* 53 */ org.bukkit.Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+						/* 53 */ org.bukkit.Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 						/*    */ {
 							/*    */ public void run() {
 								/* 56 */ p.sendMessage(API.fimcooldown);
 								/*    */ }
-							/* 58 */ }, Main.kits.getInt("TimelordCooldown") * 20);
+							/* 58 */ }, KPPvP.kits.getInt("TimelordCooldown") * 20);
 						/*    */ }
 				}
 			}

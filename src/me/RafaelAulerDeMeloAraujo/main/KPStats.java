@@ -2,7 +2,8 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
 /*    */
-/*    */ import org.bukkit.command.Command;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
+import org.bukkit.command.Command;
 /*    */ import org.bukkit.command.CommandExecutor;
 /*    */ import org.bukkit.command.CommandSender;
 /*    */
@@ -26,8 +27,8 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Level;
 		/*    */ {
 			/*    */
 			/* 22 */ if (args.length == 0) {
-				/* 23 */ int kills = Main.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".kills");
-				/* 24 */ int deaths = Main.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
+				/* 23 */ int kills = KPPvP.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".kills");
+				/* 24 */ int deaths = KPPvP.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
 				/*    */ p.sendMessage("§eYour Stats");
 				/* 26 */ p.sendMessage("§b");
 				/* 28 */ p.sendMessage("§bKills §8\u279C§e " + kills);
@@ -43,9 +44,9 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Level;
 			/* 37 */ if ((args.length > 0) && (args.length < 2) && (p.hasPermission("kitpvp.stats.see.other"))) {
 				/* 38 */ Player t = org.bukkit.Bukkit.getServer().getPlayer(args[0]);
 				/* 39 */ if (t != null) {
-					/* 40 */ int kills = Main.plugin.getConfig()
+					/* 40 */ int kills = KPPvP.plugin.getConfig()
 							.getInt("status." + t.getName().toLowerCase() + ".kills");
-					/* 41 */ int deaths = Main.plugin.getConfig()
+					/* 41 */ int deaths = KPPvP.plugin.getConfig()
 							.getInt("status." + t.getName().toLowerCase() + ".deaths");
 					/* 42 */ p.sendMessage("§b");
 					/* 43 */ p.sendMessage("§bPlayer §8\u279C§e " + t.getName());

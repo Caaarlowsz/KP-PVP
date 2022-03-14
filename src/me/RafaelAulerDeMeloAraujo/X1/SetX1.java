@@ -12,7 +12,7 @@ package me.RafaelAulerDeMeloAraujo.X1;
 /*    */
 /*    */ import org.bukkit.entity.Player;
 
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */
@@ -42,14 +42,14 @@ package me.RafaelAulerDeMeloAraujo.X1;
 			/*    */ }
 		/* 39 */ if (args[0].equalsIgnoreCase("spawn")) {
 
-			/* 40 */ Main.cfg_x1.set("x1.coords.spawn.x", x);
-			/* 41 */ Main.cfg_x1.set("x1.coords.spawn.y", y);
-			/* 42 */ Main.cfg_x1.set("x1.coords.spawn.z", z);
-			/* 43 */ Main.cfg_x1.set("x1.coords.spawn.yaw", yaw);
-			/* 44 */ Main.cfg_x1.set("x1.coords.spawn.pitch", pitch);
+			/* 40 */ KPPvP.cfg_x1.set("x1.coords.spawn.x", x);
+			/* 41 */ KPPvP.cfg_x1.set("x1.coords.spawn.y", y);
+			/* 42 */ KPPvP.cfg_x1.set("x1.coords.spawn.z", z);
+			/* 43 */ KPPvP.cfg_x1.set("x1.coords.spawn.yaw", yaw);
+			/* 44 */ KPPvP.cfg_x1.set("x1.coords.spawn.pitch", pitch);
 			/*    */ try {
-				/* 46 */ Main.cfg_x1.save(Main.file_x1);
-				/* 47 */ Main.cfg_x1.load(Main.file_x1);
+				/* 46 */ KPPvP.cfg_x1.save(KPPvP.file_x1);
+				/* 47 */ KPPvP.cfg_x1.load(KPPvP.file_x1);
 				/*    */ } catch (IOException | InvalidConfigurationException e) {
 				/* 49 */ e.printStackTrace();
 				/*    */ }
@@ -58,14 +58,14 @@ package me.RafaelAulerDeMeloAraujo.X1;
 		}
 		/* 53 */ if (args[0].equalsIgnoreCase("loc1")) {
 
-			/* 54 */ Main.cfg_x1.set("x1.coords.loc_1.x", x);
-			/* 55 */ Main.cfg_x1.set("x1.coords.loc_1.y", y);
-			/* 56 */ Main.cfg_x1.set("x1.coords.loc_1.z", z);
-			/* 57 */ Main.cfg_x1.set("x1.coords.loc_1.yaw", yaw);
-			/* 58 */ Main.cfg_x1.set("x1.coords.loc_1.pitch", pitch);
+			/* 54 */ KPPvP.cfg_x1.set("x1.coords.loc_1.x", x);
+			/* 55 */ KPPvP.cfg_x1.set("x1.coords.loc_1.y", y);
+			/* 56 */ KPPvP.cfg_x1.set("x1.coords.loc_1.z", z);
+			/* 57 */ KPPvP.cfg_x1.set("x1.coords.loc_1.yaw", yaw);
+			/* 58 */ KPPvP.cfg_x1.set("x1.coords.loc_1.pitch", pitch);
 			/*    */ try {
-				/* 60 */ Main.cfg_x1.save(Main.file_x1);
-				/* 61 */ Main.cfg_x1.load(Main.file_x1);
+				/* 60 */ KPPvP.cfg_x1.save(KPPvP.file_x1);
+				/* 61 */ KPPvP.cfg_x1.load(KPPvP.file_x1);
 				/*    */ } catch (IOException | InvalidConfigurationException e) {
 				/* 63 */ e.printStackTrace();
 				/*    */ }
@@ -74,14 +74,14 @@ package me.RafaelAulerDeMeloAraujo.X1;
 		}
 		/* 67 */ if (args[0].equalsIgnoreCase("loc2")) {
 
-			/* 68 */ Main.cfg_x1.set("x1.coords.loc_2.x", x);
-			/* 69 */ Main.cfg_x1.set("x1.coords.loc_2.y", y);
-			/* 70 */ Main.cfg_x1.set("x1.coords.loc_2.z", z);
-			/* 71 */ Main.cfg_x1.set("x1.coords.loc_2.yaw", yaw);
-			/* 72 */ Main.cfg_x1.set("x1.coords.loc_2.pitch", pitch);
+			/* 68 */ KPPvP.cfg_x1.set("x1.coords.loc_2.x", x);
+			/* 69 */ KPPvP.cfg_x1.set("x1.coords.loc_2.y", y);
+			/* 70 */ KPPvP.cfg_x1.set("x1.coords.loc_2.z", z);
+			/* 71 */ KPPvP.cfg_x1.set("x1.coords.loc_2.yaw", yaw);
+			/* 72 */ KPPvP.cfg_x1.set("x1.coords.loc_2.pitch", pitch);
 			/*    */ try {
-				/* 74 */ Main.cfg_x1.save(Main.file_x1);
-				/* 75 */ Main.cfg_x1.load(Main.file_x1);
+				/* 74 */ KPPvP.cfg_x1.save(KPPvP.file_x1);
+				/* 75 */ KPPvP.cfg_x1.load(KPPvP.file_x1);
 				/*    */ } catch (IOException | InvalidConfigurationException e) {
 				/* 77 */ e.printStackTrace();
 				/*    */ }

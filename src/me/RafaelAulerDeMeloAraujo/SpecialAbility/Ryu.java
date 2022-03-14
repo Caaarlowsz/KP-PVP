@@ -20,15 +20,15 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.BlockIterator;
 import org.bukkit.util.Vector;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Ryu implements Listener, CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public Ryu(Main main)
+	/*    */ public Ryu(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/* 21 */ plugin = main;
@@ -61,7 +61,7 @@ public class Ryu implements Listener, CommandExecutor
 			Vector velo1 = p.getLocation().getDirection().normalize().multiply(10);
 			h.setVelocity(velo1);
 			h.setMetadata("hadouken", new FixedMetadataValue(plugin, Boolean.valueOf(true)));
-			Cooldown.add(p, Main.kits.getInt("RyuCooldown"));
+			Cooldown.add(p, KPPvP.kits.getInt("RyuCooldown"));
 			return;
 		}
 	}
@@ -71,7 +71,7 @@ public class Ryu implements Listener, CommandExecutor
 		if (((e.getEntity() instanceof Player)) && ((e.getDamager() instanceof Snowball))) {
 			Snowball s = (Snowball) e.getDamager();
 			if (s.hasMetadata("hadouken")) {
-				e.setDamage(e.getDamage() + Main.kits.getDouble("RyuDamage"));
+				e.setDamage(e.getDamage() + KPPvP.kits.getDouble("RyuDamage"));
 			}
 		}
 	}
@@ -151,7 +151,7 @@ public class Ryu implements Listener, CommandExecutor
 						Integer.valueOf(60), Integer.valueOf(20), this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Ryu"));
 				/*    */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*    */ }
 		/*    */
 		/*    */

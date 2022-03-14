@@ -18,17 +18,17 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 import org.bukkit.potion.PotionEffectType;
 
 /*     */ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
 /*     */ public class Vampire/*     */ implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Vampire(Main main)
+	/*     */ public Vampire(KPPvP main)
 	/*     */ {
 		/* 33 */ this.main = main;
 		/* 34 */ plugin = main;
@@ -47,7 +47,7 @@ import org.bukkit.potion.PotionEffectType;
 			/*     */ {
 				/* 46 */ Random r = new Random();
 				/* 47 */ int c = r.nextInt(100);
-				/* 48 */ if (c <= Main.kits.getInt("VampireChance"))
+				/* 48 */ if (c <= KPPvP.kits.getInt("VampireChance"))
 				/*     */ {
 					/* 50 */
 					API.darEfeito(d, PotionEffectType.REGENERATION, 4, 2);
@@ -132,7 +132,7 @@ import org.bukkit.potion.PotionEffectType;
 						this.main.getConfig().getString("Title.KitTitle"),
 						this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Vampire"));
 				/*     */ }
-			Main.give(p);
+			KPPvP.give(p);
 			/*     */ }
 		/*     */
 		/* 124 */ return false;

@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -26,7 +27,7 @@ public class KPKICK implements CommandExecutor {
 			sender.sendMessage("§cYou forced " + Join.game.size() + " players to leave the kitpvp");
 			all.chat("/kitpvp leave");
 
-			all.sendMessage(API.NomeServer + Main.messages.getString("ForcedToLeave").replace("&", "§"));
+			all.sendMessage(API.NomeServer + KPPvP.messages.getString("ForcedToLeave").replace("&", "§"));
 		}
 		return true;
 	}

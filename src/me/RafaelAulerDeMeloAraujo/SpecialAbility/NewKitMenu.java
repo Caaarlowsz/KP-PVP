@@ -18,7 +18,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */ import org.bukkit.inventory.ItemStack;
 /*     */ import org.bukkit.inventory.meta.ItemMeta;
 
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
@@ -26,11 +26,11 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */
 /*     */ public class NewKitMenu/*     */ implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public NewKitMenu(Main main)
+	/*     */ public NewKitMenu(KPPvP main)
 	/*     */ {
 		/* 31 */ this.main = main;
 		/* 32 */ plugin = main;
@@ -54,7 +54,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 		/*     */ {
 			/* 50 */ Inventory inv = e.getInventory();
 			/* 51 */ Player p = (Player) e.getWhoClicked();
-			/* 52 */ if (inv.getTitle().equals(Main.messages.getString("KitsInventoryName").replace("&", "§")))
+			/* 52 */ if (inv.getTitle().equals(KPPvP.messages.getString("KitsInventoryName").replace("&", "§")))
 			/*     */ {
 				/* 54 */ p.playSound(p.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.KitMenu")),
 						1.0F, 1.0F);
@@ -174,10 +174,10 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 					/* 148 */ Bukkit.dispatchCommand(p, "naruto");
 					/* 149 */ p.closeInventory();
 					/*     */ }
-				/* 151 */ if ((inv.getName().equals(Main.messages.getString("KitsInventoryName").replace("&", "§")))
+				/* 151 */ if ((inv.getName().equals(KPPvP.messages.getString("KitsInventoryName").replace("&", "§")))
 						&& (e.getCurrentItem().getType() == Material.BARRIER)) {
 					/* 152 */ p.closeInventory();
-					/* 153 */ p.sendMessage(Main.messages.getString("KitMenuClosed").replace("&", "§"));
+					/* 153 */ p.sendMessage(KPPvP.messages.getString("KitMenuClosed").replace("&", "§"));
 					/*     */ }
 				/*     */
 				/* 156 */ if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§7Kit §e§lBomber"))
@@ -286,11 +286,11 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 		/* 213 */ if (cmd.getName().equalsIgnoreCase("kpkitmenu"))
 		/*     */ {
 			/* 215 */ Inventory kits = Bukkit.createInventory(p, 54,
-					Main.messages.getString("KitsInventoryName").replace("&", "§"));
+					KPPvP.messages.getString("KitsInventoryName").replace("&", "§"));
 			/*     */
 			/* 217 */ ItemStack vidro = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
 			/* 218 */ ItemMeta vidro2 = vidro.getItemMeta();
-			/* 219 */ vidro2.setDisplayName((Main.messages.getString("KitSlotBlocked").replace("&", "§")));
+			/* 219 */ vidro2.setDisplayName((KPPvP.messages.getString("KitSlotBlocked").replace("&", "§")));
 			/* 220 */ vidro.setItemMeta(vidro2);
 			/*     */
 			/* 222 */ ItemStack vidro1 = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7);
@@ -300,7 +300,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 			/*     */
 			/* 227 */ ItemStack barrier = new ItemStack(Material.BARRIER);
 			/* 228 */ ItemMeta barrier2 = barrier.getItemMeta();
-			/* 229 */ barrier2.setDisplayName((Main.messages.getString("CloseKitMenuBottom").replace("&", "§")));
+			/* 229 */ barrier2.setDisplayName((KPPvP.messages.getString("CloseKitMenuBottom").replace("&", "§")));
 			/* 230 */ barrier.setItemMeta(barrier2);
 			/*     */
 			/*     */
@@ -333,7 +333,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 274 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 275 */ metapyro.setDisplayName("§7Kit §e§lBasic");
 				/* 276 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 277 */ indiob.add(Main.kits.getString("BasicLore").replace("&", "§"));
+				/* 277 */ indiob.add(KPPvP.kits.getString("BasicLore").replace("&", "§"));
 				/* 278 */ metapyro.setLore(indiob);
 				/* 279 */ pyro.setItemMeta(metapyro);
 				/* 280 */ kits.addItem(new ItemStack[] { pyro });
@@ -343,7 +343,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 274 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 275 */ metapyro.setDisplayName("§7Kit §e§lPvP");
 				/* 276 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 277 */ indiob.add(Main.kits.getString("PvPLore").replace("&", "§"));
+				/* 277 */ indiob.add(KPPvP.kits.getString("PvPLore").replace("&", "§"));
 				/* 278 */ metapyro.setLore(indiob);
 				/* 279 */ pyro.setItemMeta(metapyro);
 				/* 280 */ kits.addItem(new ItemStack[] { pyro });
@@ -353,7 +353,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 284 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 285 */ metapyro.setDisplayName("§7Kit §e§lKangaroo");
 				/* 286 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 287 */ indiob.add(API.cor(Main.kits.getString("KangarooLore")));
+				/* 287 */ indiob.add(API.cor(KPPvP.kits.getString("KangarooLore")));
 				/* 289 */ metapyro.setLore(indiob);
 				/* 290 */ pyro.setItemMeta(metapyro);
 				/* 291 */ kits.addItem(new ItemStack[] { pyro });
@@ -363,7 +363,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 295 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 296 */ metapyro.setDisplayName("§7Kit §e§lArcher");
 				/* 297 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 298 */ indiob.add(Main.kits.getString("ArcherLore").replace("&", "§"));
+				/* 298 */ indiob.add(KPPvP.kits.getString("ArcherLore").replace("&", "§"));
 				/* 299 */ metapyro.setLore(indiob);
 				/* 300 */ pyro.setItemMeta(metapyro);
 				/* 301 */ kits.addItem(new ItemStack[] { pyro });
@@ -374,7 +374,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 306 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 307 */ metapyro.setDisplayName("§7Kit §e§lTank");
 				/* 308 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 309 */ indiob.add(Main.kits.getString("TankLore").replace("&", "§"));
+				/* 309 */ indiob.add(KPPvP.kits.getString("TankLore").replace("&", "§"));
 				/* 310 */
 				/* 311 */ metapyro.setLore(indiob);
 				/* 312 */ pyro.setItemMeta(metapyro);
@@ -385,7 +385,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 317 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 318 */ metapyro.setDisplayName("§7Kit §e§lSnail");
 				/* 319 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 320 */ indiob.add((Main.kits.getString("SnailLore").replace("&", "§")));
+				/* 320 */ indiob.add((KPPvP.kits.getString("SnailLore").replace("&", "§")));
 				/* 321 */ metapyro.setLore(indiob);
 				/* 322 */ pyro.setItemMeta(metapyro);
 				/* 323 */ kits.addItem(new ItemStack[] { pyro });
@@ -395,7 +395,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 327 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 328 */ metapyro.setDisplayName("§7Kit §e§lViper");
 				/* 329 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 330 */ indiob.add((Main.kits.getString("ViperLore").replace("&", "§")));
+				/* 330 */ indiob.add((KPPvP.kits.getString("ViperLore").replace("&", "§")));
 				/* 331 */ metapyro.setLore(indiob);
 				/* 332 */ pyro.setItemMeta(metapyro);
 				/* 333 */ kits.addItem(new ItemStack[] { pyro });
@@ -405,7 +405,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 337 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 338 */ metapyro.setDisplayName("§7Kit §e§lStomper");
 				/* 339 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 341 */ indiob.add((Main.kits.getString("StomperLore").replace("&", "§")));
+				/* 341 */ indiob.add((KPPvP.kits.getString("StomperLore").replace("&", "§")));
 				/* 342 */ metapyro.setLore(indiob);
 				/* 343 */ pyro.setItemMeta(metapyro);
 				/* 344 */ kits.addItem(new ItemStack[] { pyro });
@@ -415,7 +415,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 348 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 349 */ metapyro.setDisplayName("§7Kit §e§lDeshfire");
 				/* 350 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 351 */ indiob.add((Main.kits.getString("DeshfireLore").replace("&", "§")));
+				/* 351 */ indiob.add((KPPvP.kits.getString("DeshfireLore").replace("&", "§")));
 				/* 352 */
 				/* 353 */ metapyro.setLore(indiob);
 				/* 354 */ pyro.setItemMeta(metapyro);
@@ -426,7 +426,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 370 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 371 */ metapyro.setDisplayName("§7Kit §e§lCritical");
 				/* 372 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 373 */ indiob.add((Main.kits.getString("CriticalLore").replace("&", "§")));
+				/* 373 */ indiob.add((KPPvP.kits.getString("CriticalLore").replace("&", "§")));
 				/* 374 */ metapyro.setLore(indiob);
 				/* 375 */ pyro.setItemMeta(metapyro);
 				/* 376 */ kits.addItem(new ItemStack[] { pyro });
@@ -436,7 +436,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 380 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 381 */ metapyro.setDisplayName("§7Kit §e§lGladiator");
 				/* 382 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 383 */ indiob.add((Main.kits.getString("GladiatorLore").replace("&", "§")));
+				/* 383 */ indiob.add((KPPvP.kits.getString("GladiatorLore").replace("&", "§")));
 				/* 384 */ metapyro.setLore(indiob);
 				/* 385 */ pyro.setItemMeta(metapyro);
 				/* 386 */ kits.addItem(new ItemStack[] { pyro });
@@ -446,7 +446,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 390 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 391 */ metapyro.setDisplayName("§7Kit §e§lThor");
 				/* 392 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 393 */ indiob.add(Main.kits.getString("ThorLore").replace("&", "§"));
+				/* 393 */ indiob.add(KPPvP.kits.getString("ThorLore").replace("&", "§"));
 				/* 395 */ metapyro.setLore(indiob);
 				/* 396 */ pyro.setItemMeta(metapyro);
 				/* 397 */ kits.addItem(new ItemStack[] { pyro });
@@ -456,7 +456,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 401 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 402 */ metapyro.setDisplayName("§7Kit §e§lDoubleJump");
 				/* 403 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 404 */ indiob.add(Main.kits.getString("DoubleJumpLore").replace("&", "§"));
+				/* 404 */ indiob.add(KPPvP.kits.getString("DoubleJumpLore").replace("&", "§"));
 				/* 406 */ metapyro.setLore(indiob);
 				/* 407 */ pyro.setItemMeta(metapyro);
 				/* 408 */ kits.addItem(new ItemStack[] { pyro });
@@ -466,7 +466,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 412 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 413 */ metapyro.setDisplayName("§7Kit §e§lBomber");
 				/* 414 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 415 */ indiob.add(Main.kits.getString("BomberLore").replace("&", "§"));
+				/* 415 */ indiob.add(KPPvP.kits.getString("BomberLore").replace("&", "§"));
 				/* 417 */ metapyro.setLore(indiob);
 				/* 418 */ pyro.setItemMeta(metapyro);
 				/* 419 */ kits.addItem(new ItemStack[] { pyro });
@@ -476,7 +476,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 423 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 424 */ metapyro.setDisplayName("§7Kit §e§lWasp");
 				/* 425 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 426 */ indiob.add(Main.kits.getString("WaspLore").replace("&", "§"));
+				/* 426 */ indiob.add(KPPvP.kits.getString("WaspLore").replace("&", "§"));
 				/* 428 */ metapyro.setLore(indiob);
 				/* 429 */ pyro.setItemMeta(metapyro);
 				/* 430 */ kits.addItem(new ItemStack[] { pyro });
@@ -487,7 +487,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 423 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 424 */ metapyro.setDisplayName("§7Kit §e§lConfuser");
 				/* 425 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 426 */ indiob.add(Main.kits.getString("ConfuserLore").replace("&", "§"));
+				/* 426 */ indiob.add(KPPvP.kits.getString("ConfuserLore").replace("&", "§"));
 				/* 428 */ metapyro.setLore(indiob);
 				/* 429 */ pyro.setItemMeta(metapyro);
 				/* 430 */ kits.addItem(new ItemStack[] { pyro });
@@ -497,7 +497,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 434 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 435 */ metapyro.setDisplayName("§7Kit §e§lAirman");
 				/* 436 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 437 */ indiob.add(Main.kits.getString("AirmanLore").replace("&", "§"));
+				/* 437 */ indiob.add(KPPvP.kits.getString("AirmanLore").replace("&", "§"));
 				/* 439 */ metapyro.setLore(indiob);
 				/* 440 */ pyro.setItemMeta(metapyro);
 				/* 441 */ kits.addItem(new ItemStack[] { pyro });
@@ -508,7 +508,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 446 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 447 */ metapyro.setDisplayName("§7Kit §e§lSwitcher");
 				/* 448 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 449 */ indiob.add(Main.kits.getString("SwitcherLore").replace("&", "§"));
+				/* 449 */ indiob.add(KPPvP.kits.getString("SwitcherLore").replace("&", "§"));
 				/* 451 */ metapyro.setLore(indiob);
 				/* 452 */ pyro.setItemMeta(metapyro);
 				/* 453 */ kits.addItem(new ItemStack[] { pyro });
@@ -519,7 +519,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 458 */ metapyro.setDisplayName("§7Kit §e§lNinja");
 				/* 459 */ ArrayList<String> indiob = new ArrayList<String>();
 				/* 460 */ metapyro.setLore(indiob);
-				/* 461 */ indiob.add(Main.kits.getString("NinjaLore").replace("&", "§"));
+				/* 461 */ indiob.add(KPPvP.kits.getString("NinjaLore").replace("&", "§"));
 				/* 464 */ metapyro.setLore(indiob);
 				/* 465 */ pyro.setItemMeta(metapyro);
 				/* 466 */ kits.addItem(new ItemStack[] { pyro });
@@ -529,7 +529,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 470 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 471 */ metapyro.setDisplayName("§7Kit §e§lCactus");
 				/* 472 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 473 */ indiob.add(Main.kits.getString("CactusLore").replace("&", "§"));
+				/* 473 */ indiob.add(KPPvP.kits.getString("CactusLore").replace("&", "§"));
 				/*     */
 				/* 475 */ metapyro.setLore(indiob);
 				/* 476 */ pyro.setItemMeta(metapyro);
@@ -540,7 +540,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 481 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 482 */ metapyro.setDisplayName("§7Kit §e§lPyro");
 				/* 483 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 484 */ indiob.add(Main.kits.getString("PyroLore").replace("&", "§"));
+				/* 484 */ indiob.add(KPPvP.kits.getString("PyroLore").replace("&", "§"));
 				/*     */
 				/* 486 */ metapyro.setLore(indiob);
 				/* 487 */ pyro.setItemMeta(metapyro);
@@ -551,7 +551,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 492 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 493 */ metapyro.setDisplayName("§7Kit §e§lJumper");
 				/* 494 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 495 */ indiob.add(Main.kits.getString("JumperLore").replace("&", "§"));
+				/* 495 */ indiob.add(KPPvP.kits.getString("JumperLore").replace("&", "§"));
 				/*     */
 				/* 497 */ metapyro.setLore(indiob);
 				/* 498 */ pyro.setItemMeta(metapyro);
@@ -564,7 +564,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 505 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 506 */ metapyro.setDisplayName("§7Kit §e§lTimeLord");
 				/* 507 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 508 */ indiob.add(Main.kits.getString("TimelordLore").replace("&", "§"));
+				/* 508 */ indiob.add(KPPvP.kits.getString("TimelordLore").replace("&", "§"));
 				/* 511 */ metapyro.setLore(indiob);
 				/* 512 */ pyro.setItemMeta(metapyro);
 				/* 513 */ kits.addItem(new ItemStack[] { pyro });
@@ -575,7 +575,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 518 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 519 */ metapyro.setDisplayName("§7Kit §e§lFisherman");
 				/* 520 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 521 */ indiob.add(Main.kits.getString("FishermanLore").replace("&", "§"));
+				/* 521 */ indiob.add(KPPvP.kits.getString("FishermanLore").replace("&", "§"));
 				/* 523 */ metapyro.setLore(indiob);
 				/* 524 */ pyro.setItemMeta(metapyro);
 				/* 525 */ kits.addItem(new ItemStack[] { pyro });
@@ -586,7 +586,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 530 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 531 */ metapyro.setDisplayName("§7Kit §e§lSpiderman");
 				/* 532 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 533 */ indiob.add(Main.kits.getString("SpidermanLore").replace("&", "§"));
+				/* 533 */ indiob.add(KPPvP.kits.getString("SpidermanLore").replace("&", "§"));
 				/* 536 */ metapyro.setLore(indiob);
 				/* 537 */ pyro.setItemMeta(metapyro);
 				/* 538 */ kits.addItem(new ItemStack[] { pyro });
@@ -597,7 +597,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 543 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 544 */ metapyro.setDisplayName("§7Kit §e§lWarper");
 				/* 545 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 546 */ indiob.add(Main.kits.getString("WarperLore").replace("&", "§"));
+				/* 546 */ indiob.add(KPPvP.kits.getString("WarperLore").replace("&", "§"));
 				/*     */
 				/* 549 */ metapyro.setLore(indiob);
 				/* 550 */ pyro.setItemMeta(metapyro);
@@ -609,7 +609,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 543 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 544 */ metapyro.setDisplayName("§7Kit §e§lVampire");
 				/* 545 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 546 */ indiob.add(Main.kits.getString("VampireLore").replace("&", "§"));
+				/* 546 */ indiob.add(KPPvP.kits.getString("VampireLore").replace("&", "§"));
 				/*     */
 				/* 549 */ metapyro.setLore(indiob);
 				/* 550 */ pyro.setItemMeta(metapyro);
@@ -621,7 +621,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lNaruto");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add(Main.kits.getString("NarutoLore").replace("&", "§"));
+				/* 559 */ indiob.add(KPPvP.kits.getString("NarutoLore").replace("&", "§"));
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
 				/* 563 */ kits.addItem(new ItemStack[] { pyro });
@@ -632,7 +632,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lSonic");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("SonicLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("SonicLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -644,7 +644,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lPhantom");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("PhantomLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("PhantomLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -656,7 +656,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lViking");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("VikingLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("VikingLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -668,7 +668,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lPoseidon");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("PoseidonLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("PoseidonLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -680,7 +680,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lCamel");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("CamelLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("CamelLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -692,7 +692,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lAnchor");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("AnchorLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("AnchorLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -704,7 +704,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lResouper");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("ResouperLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("ResouperLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -716,7 +716,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lMonk");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("MonkLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("MonkLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -728,7 +728,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lFireman");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("FiremanLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("FiremanLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -740,7 +740,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lAjnin");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("AjninLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("AjninLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);
@@ -752,7 +752,7 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 				/* 556 */ ItemMeta metapyro = pyro.getItemMeta();
 				/* 557 */ metapyro.setDisplayName("§7Kit §e§lRyu");
 				/* 558 */ ArrayList<String> indiob = new ArrayList<String>();
-				/* 559 */ indiob.add((Main.kits.getString("RyuLore")).replace("&", "§"));
+				/* 559 */ indiob.add((KPPvP.kits.getString("RyuLore")).replace("&", "§"));
 				/* 560 */
 				/* 561 */ metapyro.setLore(indiob);
 				/* 562 */ pyro.setItemMeta(metapyro);

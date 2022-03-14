@@ -1,5 +1,6 @@
 package me.RafaelAulerDeMeloAraujo.main;
 
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -25,43 +26,43 @@ public class SetArena implements CommandExecutor {
 			}
 			if (args[0].equalsIgnoreCase("1")) {
 				p.sendMessage(String.valueOf(API.NomeServer) + "§aVoc\u00ea setou a ARENA 1");
-				Main.plugin.getConfig().set("arena1.x", (Object) p.getLocation().getX());
-				Main.plugin.getConfig().set("arena1.y", (Object) p.getLocation().getY());
-				Main.plugin.getConfig().set("arena1.z", (Object) p.getLocation().getZ());
-				Main.plugin.getConfig().set("arena1.pitch", (Object) p.getLocation().getPitch());
-				Main.plugin.getConfig().set("arena1.yaw", (Object) p.getLocation().getYaw());
-				Main.plugin.getConfig().set("arena1.world", (Object) p.getLocation().getWorld().getName());
-				Main.plugin.saveConfig();
+				KPPvP.plugin.getConfig().set("arena1.x", (Object) p.getLocation().getX());
+				KPPvP.plugin.getConfig().set("arena1.y", (Object) p.getLocation().getY());
+				KPPvP.plugin.getConfig().set("arena1.z", (Object) p.getLocation().getZ());
+				KPPvP.plugin.getConfig().set("arena1.pitch", (Object) p.getLocation().getPitch());
+				KPPvP.plugin.getConfig().set("arena1.yaw", (Object) p.getLocation().getYaw());
+				KPPvP.plugin.getConfig().set("arena1.world", (Object) p.getLocation().getWorld().getName());
+				KPPvP.plugin.saveConfig();
 			}
 			if (args[0].equalsIgnoreCase("2")) {
 				p.sendMessage(String.valueOf(API.NomeServer) + "§aVoc\u00ea setou a ARENA 2");
-				Main.plugin.getConfig().set("arena2.x", (Object) p.getLocation().getX());
-				Main.plugin.getConfig().set("arena2.y", (Object) p.getLocation().getY());
-				Main.plugin.getConfig().set("arena2.z", (Object) p.getLocation().getZ());
-				Main.plugin.getConfig().set("arena2.pitch", (Object) p.getLocation().getPitch());
-				Main.plugin.getConfig().set("arena2.yaw", (Object) p.getLocation().getYaw());
-				Main.plugin.getConfig().set("arena2.world", (Object) p.getLocation().getWorld().getName());
-				Main.plugin.saveConfig();
+				KPPvP.plugin.getConfig().set("arena2.x", (Object) p.getLocation().getX());
+				KPPvP.plugin.getConfig().set("arena2.y", (Object) p.getLocation().getY());
+				KPPvP.plugin.getConfig().set("arena2.z", (Object) p.getLocation().getZ());
+				KPPvP.plugin.getConfig().set("arena2.pitch", (Object) p.getLocation().getPitch());
+				KPPvP.plugin.getConfig().set("arena2.yaw", (Object) p.getLocation().getYaw());
+				KPPvP.plugin.getConfig().set("arena2.world", (Object) p.getLocation().getWorld().getName());
+				KPPvP.plugin.saveConfig();
 			}
 			if (args[0].equalsIgnoreCase("3")) {
 				p.sendMessage(String.valueOf(API.NomeServer) + "§aVoc\u00ea setou a ARENA 3");
-				Main.plugin.getConfig().set("arena3.x", (Object) p.getLocation().getX());
-				Main.plugin.getConfig().set("arena3.y", (Object) p.getLocation().getY());
-				Main.plugin.getConfig().set("arena3.z", (Object) p.getLocation().getZ());
-				Main.plugin.getConfig().set("arena3.pitch", (Object) p.getLocation().getPitch());
-				Main.plugin.getConfig().set("arena3.yaw", (Object) p.getLocation().getYaw());
-				Main.plugin.getConfig().set("arena3.world", (Object) p.getLocation().getWorld().getName());
-				Main.plugin.saveConfig();
+				KPPvP.plugin.getConfig().set("arena3.x", (Object) p.getLocation().getX());
+				KPPvP.plugin.getConfig().set("arena3.y", (Object) p.getLocation().getY());
+				KPPvP.plugin.getConfig().set("arena3.z", (Object) p.getLocation().getZ());
+				KPPvP.plugin.getConfig().set("arena3.pitch", (Object) p.getLocation().getPitch());
+				KPPvP.plugin.getConfig().set("arena3.yaw", (Object) p.getLocation().getYaw());
+				KPPvP.plugin.getConfig().set("arena3.world", (Object) p.getLocation().getWorld().getName());
+				KPPvP.plugin.saveConfig();
 			}
 			if (args[0].equalsIgnoreCase("4")) {
 				p.sendMessage(String.valueOf(API.NomeServer) + "§aVoc\u00ea setou a ARENA 4");
-				Main.plugin.getConfig().set("arena4.x", (Object) p.getLocation().getX());
-				Main.plugin.getConfig().set("arena4.y", (Object) p.getLocation().getY());
-				Main.plugin.getConfig().set("arena4.z", (Object) p.getLocation().getZ());
-				Main.plugin.getConfig().set("arena4.pitch", (Object) p.getLocation().getPitch());
-				Main.plugin.getConfig().set("arena4.yaw", (Object) p.getLocation().getYaw());
-				Main.plugin.getConfig().set("arena4.world", (Object) p.getLocation().getWorld().getName());
-				Main.plugin.saveConfig();
+				KPPvP.plugin.getConfig().set("arena4.x", (Object) p.getLocation().getX());
+				KPPvP.plugin.getConfig().set("arena4.y", (Object) p.getLocation().getY());
+				KPPvP.plugin.getConfig().set("arena4.z", (Object) p.getLocation().getZ());
+				KPPvP.plugin.getConfig().set("arena4.pitch", (Object) p.getLocation().getPitch());
+				KPPvP.plugin.getConfig().set("arena4.yaw", (Object) p.getLocation().getYaw());
+				KPPvP.plugin.getConfig().set("arena4.world", (Object) p.getLocation().getWorld().getName());
+				KPPvP.plugin.saveConfig();
 			}
 		} else {
 			p.sendMessage(API.NomeServer + "§cVoce nao tem acesso a esse comado.");

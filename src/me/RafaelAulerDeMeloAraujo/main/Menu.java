@@ -3,7 +3,8 @@ package me.RafaelAulerDeMeloAraujo.main;
 
 /*     */ import java.util.Arrays;
 
-/*     */ import org.bukkit.Bukkit;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 /*     */ import org.bukkit.Location;
 /*     */ import org.bukkit.Material;
@@ -42,11 +43,11 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 
 /*     */ public class Menu/*     */ implements Listener, CommandExecutor
 /*     */ {
-	/*     */ private Main main;
+	/*     */ private KPPvP main;
 
 	/*     */
 	/*     */
-	/*     */ public Menu(Main main)
+	/*     */ public Menu(KPPvP main)
 	/*     */ {
 		/* 62 */ this.main = main;
 		/*     */ }
@@ -61,7 +62,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/* 71 */ Deshfire.Armadura.remove(p.getName());
 		/* 72 */ Deshfire.Armadura2.remove(p.getName());
 		/* 73 */ Deshfire.cooldownm.remove(p);
-		if (!Main.plugin.getConfig().getBoolean("bungeemode")) {
+		if (!KPPvP.plugin.getConfig().getBoolean("bungeemode")) {
 			/* 74 */ Join.game.remove(p.getName());
 		}
 		/* 75 */ Cooldown.remove(p);
@@ -102,24 +103,24 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		Player p = e.getPlayer();
 		ItemStack kits1 = new ItemStack(Material.CHEST);
 		/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-		/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+		/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 		/* 98 */ kits1.setItemMeta(kits12);
 		/* 95 */ ItemStack kits = new ItemStack(Material.DIAMOND);
 		/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-		/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+		/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 		/* 98 */ kits.setItemMeta(kits2);
 		/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 		/* 100 */ ItemMeta st2 = st.getItemMeta();
-		/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+		/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 		/* 102 */ st.setItemMeta(st2);
 		ItemStack stats = new ItemStack(Material.NAME_TAG);
 		/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-		/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+		/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 		/* 229 */ stats.setItemMeta(stats2);
 
 		ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 		/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-		/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+		/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 		/* 229 */ stats1.setItemMeta(stats12);
 
 		/* 103 */
@@ -134,22 +135,22 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	/*     */ {
 		e.setJoinMessage(null);
 		Player p = e.getPlayer();
-		if (!Main.plugin.getConfig().getBoolean("bungeemode")) {
+		if (!KPPvP.plugin.getConfig().getBoolean("bungeemode")) {
 			return;
 		}
 		if (!Join.game.contains(p.getName())) {
 			/* 74 */ Join.game.add(p.getName());
 		}
 		/*     */
-		/* 200 */ World w = Bukkit.getServer().getWorld(Main.plugin.getConfig().getString("Spawn.World"));
-		/* 201 */ double x = Main.plugin.getConfig().getDouble("Spawn.X");
-		/* 202 */ double y = Main.plugin.getConfig().getDouble("Spawn.Y");
-		/* 203 */ double z = Main.plugin.getConfig().getDouble("Spawn.Z");
+		/* 200 */ World w = Bukkit.getServer().getWorld(KPPvP.plugin.getConfig().getString("Spawn.World"));
+		/* 201 */ double x = KPPvP.plugin.getConfig().getDouble("Spawn.X");
+		/* 202 */ double y = KPPvP.plugin.getConfig().getDouble("Spawn.Y");
+		/* 203 */ double z = KPPvP.plugin.getConfig().getDouble("Spawn.Z");
 		/* 204 */ Location lobby = new Location(w, x, y, z);
 
 		/*     */
-		/* 211 */ lobby.setPitch((float) Main.plugin.getConfig().getDouble("Spawn.Pitch"));
-		/* 212 */ lobby.setYaw((float) Main.plugin.getConfig().getDouble("Spawn.Yaw"));
+		/* 211 */ lobby.setPitch((float) KPPvP.plugin.getConfig().getDouble("Spawn.Pitch"));
+		/* 212 */ lobby.setYaw((float) KPPvP.plugin.getConfig().getDouble("Spawn.Yaw"));
 		/* 213 */ p.getInventory().clear();
 		/*     */
 		/*     */
@@ -161,24 +162,24 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/* 94 */
 		ItemStack kits1 = new ItemStack(Material.CHEST);
 		/* 96 */ ItemMeta kits12 = kits1.getItemMeta();
-		/* 97 */ kits12.setDisplayName(Main.messages.getString("KitItemName").replace("&", "§"));
+		/* 97 */ kits12.setDisplayName(KPPvP.messages.getString("KitItemName").replace("&", "§"));
 		/* 98 */ kits1.setItemMeta(kits12);
 		/* 95 */ ItemStack kits = new ItemStack(Material.DIAMOND);
 		/* 96 */ ItemMeta kits2 = kits.getItemMeta();
-		/* 97 */ kits2.setDisplayName(Main.messages.getString("ShopItemName").replace("&", "§"));
+		/* 97 */ kits2.setDisplayName(KPPvP.messages.getString("ShopItemName").replace("&", "§"));
 		/* 98 */ kits.setItemMeta(kits2);
 		/* 99 */ ItemStack st = new ItemStack(Material.COMPASS);
 		/* 100 */ ItemMeta st2 = st.getItemMeta();
-		/* 101 */ st2.setDisplayName(Main.messages.getString("1v1ItemName").replace("&", "§"));
+		/* 101 */ st2.setDisplayName(KPPvP.messages.getString("1v1ItemName").replace("&", "§"));
 		/* 102 */ st.setItemMeta(st2);
 		ItemStack stats = new ItemStack(Material.NAME_TAG);
 		/* 227 */ ItemMeta stats2 = kits.getItemMeta();
-		/* 228 */ stats2.setDisplayName(Main.messages.getString("StatsItemName").replace("&", "§"));
+		/* 228 */ stats2.setDisplayName(KPPvP.messages.getString("StatsItemName").replace("&", "§"));
 		/* 229 */ stats.setItemMeta(stats2);
 
 		ItemStack stats1 = new ItemStack(Material.WOOD_SWORD);
 		/* 227 */ ItemMeta stats12 = stats1.getItemMeta();
-		/* 228 */ stats12.setDisplayName(Main.messages.getString("ClickTestItemName").replace("&", "§"));
+		/* 228 */ stats12.setDisplayName(KPPvP.messages.getString("ClickTestItemName").replace("&", "§"));
 		/* 229 */ stats1.setItemMeta(stats12);
 
 		/* 103 */
@@ -192,7 +193,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 		/*     */
 
 		/*     */ TitleAPI.sendTabTitle(p, "§a§lKITPVP \n§fServidor de KitPvP (1.8 - 1.16)",
-				"§aDiscord: §f" + Main.getInstace().getConfig().getString("Discord").replace("&", "§"));
+				"§aDiscord: §f" + KPPvP.getInstace().getConfig().getString("Discord").replace("&", "§"));
 		/* 235 */ p.setExp(0.0F);
 		/* 236 */ p.setExhaustion(20.0F);
 		/* 237 */ p.setFireTicks(0);
@@ -208,7 +209,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	/*     */ public void onLeave(PlayerQuitEvent e)
 	/*     */ {
 		/* 117 */ Player p = e.getPlayer();
-		/*     */ if (Join.game.contains(p.getName()) && !Main.plugin.getConfig().getBoolean("bungeemode")) {
+		/*     */ if (Join.game.contains(p.getName()) && !KPPvP.plugin.getConfig().getBoolean("bungeemode")) {
 			/*     */
 			/*     */
 			/*     */
@@ -227,7 +228,7 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 	/*     */ public void onLeave(PlayerKickEvent e)
 	/*     */ {
 		/* 128 */ Player p = e.getPlayer();
-		/*     */ if (Join.game.contains(p.getName()) && !Main.plugin.getConfig().getBoolean("bungeemode")) {
+		/*     */ if (Join.game.contains(p.getName()) && !KPPvP.plugin.getConfig().getBoolean("bungeemode")) {
 			/*     */
 			/*     */
 			/*     */
@@ -498,17 +499,17 @@ import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
 			e.setCancelled(true);
 			if ((e.getAction() == Action.RIGHT_CLICK_AIR) || (e.getAction() == Action.RIGHT_CLICK_BLOCK)) {
 				p.sendMessage("§b");
-				int kills = Main.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".kills");
-				int deaths = Main.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
-				p.sendMessage(Main.messages.getString("Status").replace("&", "§").replace("%player%", p.getName()));
+				int kills = KPPvP.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".kills");
+				int deaths = KPPvP.plugin.getConfig().getInt("status." + p.getName().toLowerCase() + ".deaths");
+				p.sendMessage(KPPvP.messages.getString("Status").replace("&", "§").replace("%player%", p.getName()));
 				p.sendMessage("");
-				p.sendMessage(Main.messages.getString("StatusKills").replace("&", "§") + kills);
-				p.sendMessage(Main.messages.getString("StatusDeaths").replace("&", "§") + deaths);
-				p.sendMessage(Main.messages.getString("StatusCoins").replace("&", "§") + Coins.getCoins(p.getName()));
+				p.sendMessage(KPPvP.messages.getString("StatusKills").replace("&", "§") + kills);
+				p.sendMessage(KPPvP.messages.getString("StatusDeaths").replace("&", "§") + deaths);
+				p.sendMessage(KPPvP.messages.getString("StatusCoins").replace("&", "§") + Coins.getCoins(p.getName()));
 				p.sendMessage(
-						Main.messages.getString("StatusKS").replace("&", "§") + Streak.killstreak.get(p.getName()));
-				p.sendMessage(Main.messages.getString("StatusXP").replace("&", "§") + XP.getXP(p.getName()));
-				p.sendMessage(Main.messages.getString("StatusLevel").replace("&", "§") + Level.getLevel(p));
+						KPPvP.messages.getString("StatusKS").replace("&", "§") + Streak.killstreak.get(p.getName()));
+				p.sendMessage(KPPvP.messages.getString("StatusXP").replace("&", "§") + XP.getXP(p.getName()));
+				p.sendMessage(KPPvP.messages.getString("StatusLevel").replace("&", "§") + Level.getLevel(p));
 				p.sendMessage("§b");
 				p.playSound(p.getLocation(), Sound.valueOf(this.main.getConfig().getString("Sound.ShopMenu")), 12.0F,
 						1.0F);

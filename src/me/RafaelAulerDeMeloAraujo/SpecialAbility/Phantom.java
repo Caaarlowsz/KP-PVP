@@ -18,7 +18,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.plugin.Plugin;
 
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 public class Phantom implements Listener {
 	public static HashMap<String, ItemStack[]> salvararmor;
@@ -72,47 +72,47 @@ public class Phantom implements Listener {
 			Phantom.emphantom.add(p.getName());
 			p.setAllowFlight(true);
 			p.setFlying(true);
-			Cooldown.add(p, Main.kits.getInt("PhantomCooldown"));
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Cooldown.add(p, KPPvP.kits.getInt("PhantomCooldown"));
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.NomeServer)
-							+ (Main.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "5"));
+							+ (KPPvP.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "5"));
 				}
 			}, 0L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.NomeServer)
-							+ (Main.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "4"));
+							+ (KPPvP.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "4"));
 				}
 			}, 20L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.NomeServer)
-							+ (Main.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "3"));
+							+ (KPPvP.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "3"));
 				}
 			}, 40L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.NomeServer)
-							+ (Main.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "2"));
+							+ (KPPvP.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "2"));
 				}
 			}, 60L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.NomeServer)
-							+ (Main.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "1"));
+							+ (KPPvP.messages.getString("PhantomFly").replace("&", "§")).replace("%time%", "1"));
 				}
 			}, 80L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(String.valueOf(API.NomeServer)
-							+ (Main.messages.getString("PhantomFlyEnd").replace("&", "§")));
+							+ (KPPvP.messages.getString("PhantomFlyEnd").replace("&", "§")));
 					Phantom.emphantom.remove(p.getName());
 					p.getInventory().setArmorContents((ItemStack[]) Phantom.salvararmor.get(p.getName()));
 					p.updateInventory();
@@ -120,12 +120,12 @@ public class Phantom implements Listener {
 					p.setFlying(false);
 				}
 			}, 100L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.sendMessage(API.fimcooldown);
 				}
-			}, Main.kits.getInt("PhantomCooldown") * 20);
+			}, KPPvP.kits.getInt("PhantomCooldown") * 20);
 		}
 	}
 

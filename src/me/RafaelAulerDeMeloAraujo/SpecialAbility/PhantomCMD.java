@@ -11,15 +11,15 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import me.RafaelAulerDeMeloAraujo.TitleAPI.TitleAPI;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */ public class PhantomCMD implements org.bukkit.command.CommandExecutor
 /*    */ {
-	/*    */ private Main main;
-	/*    */ static Main plugin;
+	/*    */ private KPPvP main;
+	/*    */ static KPPvP plugin;
 
 	/*    */
-	/*    */ public PhantomCMD(Main main)
+	/*    */ public PhantomCMD(KPPvP main)
 	/*    */ {
 		/* 20 */ this.main = main;
 		/* 21 */ plugin = main;
@@ -65,7 +65,7 @@ import me.RafaelAulerDeMeloAraujo.main.Main;
 						Sound.valueOf(this.main.getConfig().getString("Sound.NoPermissionMessage")), 1.0F, 1.0F);
 				/* 216 */ return true;
 				/*     */ }
-			if (Main.kits.getBoolean("PhantomDisabled")) {
+			if (KPPvP.kits.getBoolean("PhantomDisabled")) {
 				p.sendMessage(API.NomeServer + ChatColor.RED + "The Phantom kit is disabled, sorry");
 				return true;
 			}
@@ -99,7 +99,7 @@ import me.RafaelAulerDeMeloAraujo.main.Main;
 				this.main.getConfig().getString("Title.KitTitle"),
 				this.main.getConfig().getString("Title.KitSubTitle").replaceAll("%kit%", "Phantom"));
 		/*     */ RTP.TeleportArenaRandom(p);
-		/*     */ Main.give(p);
+		/*     */ KPPvP.give(p);
 		/*     */
 		/* 247 */ return false;
 		/*     */ }

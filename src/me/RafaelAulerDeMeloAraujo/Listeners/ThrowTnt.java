@@ -17,12 +17,12 @@ package me.RafaelAulerDeMeloAraujo.Listeners;
 
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
 /*    */
-/*    */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*    */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */
 /*    */ public class ThrowTnt implements Listener
 /*    */ {
-	/*    */ public ThrowTnt(Main main) {
+	/*    */ public ThrowTnt(KPPvP main) {
 	}
 
 	/*    */

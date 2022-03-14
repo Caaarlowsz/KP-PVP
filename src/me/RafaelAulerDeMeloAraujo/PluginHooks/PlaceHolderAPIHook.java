@@ -9,7 +9,7 @@ import me.RafaelAulerDeMeloAraujo.ScoreboardManager.Streak;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Join;
 import me.RafaelAulerDeMeloAraujo.main.AntiDeathDrop;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
 /**
@@ -19,7 +19,7 @@ import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 public class PlaceHolderAPIHook extends PlaceholderExpansion {
 
 	/*    */
-	/*    */ static Main plugin;
+	/*    */ static KPPvP plugin;
 
 	/**
 	 * Since we register the expansion inside our own plugin, we can simply use this
@@ -27,7 +27,7 @@ public class PlaceHolderAPIHook extends PlaceholderExpansion {
 	 *
 	 * @param plugin The instance of our plugin.
 	 */
-	/*    */ public PlaceHolderAPIHook(Main main)
+	/*    */ public PlaceHolderAPIHook(KPPvP main)
 	/*    */ {
 		/* 21 */ plugin = main;
 		/*    */ }

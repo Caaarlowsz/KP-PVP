@@ -39,7 +39,7 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.plugin.Plugin;
 
 import me.RafaelAulerDeMeloAraujo.SpecialAbility.Habilidade;
-import me.RafaelAulerDeMeloAraujo.main.Main;
+import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*    */ public class PlaceEvent/*    */ implements Listener
 /*    */ {
@@ -149,7 +149,7 @@ import me.RafaelAulerDeMeloAraujo.main.Main;
 
 	@EventHandler
 	public void onItemDrop(final ItemSpawnEvent e) {
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstance(),
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) KPPvP.getInstance(),
 				(Runnable) new Runnable() {
 					@Override
 					public void run() {

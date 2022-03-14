@@ -18,18 +18,18 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 /*     */ import org.bukkit.util.Vector;
 
 /*     */
-/*     */ import me.RafaelAulerDeMeloAraujo.main.Main;
+/*     */ import com.github.caaarlowsz.kpmc.kitpvp.KPPvP;
 
 /*     */
 /*     */
 /*     */
 /*     */ public class Stomper/*     */ implements Listener
 /*     */ {
-	/*     */ private Main main;
-	/*     */ static Main plugin;
+	/*     */ private KPPvP main;
+	/*     */ static KPPvP plugin;
 
 	/*     */
-	/*     */ public Stomper(Main main)
+	/*     */ public Stomper(KPPvP main)
 	/*     */ {
 		/* 35 */ this.main = main;
 		/* 36 */ plugin = main;
@@ -46,8 +46,8 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 		/*     */ {
 			/* 47 */ if (Habilidade.getAbility(p).equalsIgnoreCase("Stomper"))
 			/*     */ {
-				/* 49 */ for (Entity ent : p.getNearbyEntities(Main.kits.getDouble("StomperRadius"),
-						Main.kits.getDouble("StomperRadius"), Main.kits.getDouble("StomperRadius"))) {
+				/* 49 */ for (Entity ent : p.getNearbyEntities(KPPvP.kits.getDouble("StomperRadius"),
+						KPPvP.kits.getDouble("StomperRadius"), KPPvP.kits.getDouble("StomperRadius"))) {
 					/* 50 */ if ((ent instanceof Player))
 					/*     */ {
 						/* 52 */ Player plr = (Player) ent;
@@ -101,15 +101,15 @@ package me.RafaelAulerDeMeloAraujo.SpecialAbility;
 			/* 98 */ Location loc = p.getLocation();
 			/* 99 */ p.playSound(loc, Sound.valueOf(this.main.getConfig().getString("Sound.Stomper")), 1.0F, 1.0F);
 			/*     */
-			/* 101 */ Cooldown.add(p, Main.kits.getInt("StomperCooldown"));
-			/* 102 */ Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, new Runnable()
+			/* 101 */ Cooldown.add(p, KPPvP.kits.getInt("StomperCooldown"));
+			/* 102 */ Bukkit.getScheduler().scheduleSyncDelayedTask(KPPvP.plugin, new Runnable()
 			/*     */ {
 				/*     */ public void run()
 				/*     */ {
 					/* 106 */ p.sendMessage(API.fimcooldown);
 					/* 107 */ Cooldown.remove(p);
 					/*     */ }
-				/* 109 */ }, Main.kits.getInt("StomperCooldown") * 20);
+				/* 109 */ }, KPPvP.kits.getInt("StomperCooldown") * 20);
 			/*     */ }
 		/*     */ }
 
